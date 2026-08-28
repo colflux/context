@@ -1,0 +1,120 @@
+/* Paleta institucional COLFLUX — ver docs/marca/index.md */
+
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: #198A77;        /* Vida (verde azulado) */
+  --md-primary-fg-color--light: #4FAF9A;
+  --md-primary-fg-color--dark: #0F5C4E;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: #ffffff;
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: #F2B91B;         /* Energía (amarillo) */
+  --md-accent-fg-color--transparent: #F2B91B26;
+  --md-accent-bg-color: #1a1a1a;
+}
+
+:root {
+  --colflux-verde: #739E5B;
+  --colflux-cafe: #57270F;
+  --colflux-naranja: #DF5B26;
+  --colflux-naranja-claro: #F19F1F;
+}
+
+/* Logo horizontal (con texto) en el header: ocultar el nombre de sitio
+   duplicado y dar más espacio al logo */
+.md-header__title {
+  display: none;
+}
+
+.md-header__button.md-logo {
+  padding: 0.4rem;
+}
+
+.md-header__button.md-logo img {
+  height: 1.8rem;
+  width: auto;
+}
+
+.md-header__inner .md-search {
+  margin-left: auto;
+}
+
+/* Estética minimalista: menos ruido visual, más aire */
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.md-tabs {
+  box-shadow: none;
+}
+
+.md-typeset {
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h1 {
+  color: var(--md-primary-fg-color--dark);
+}
+
+.md-typeset a {
+  text-decoration: none;
+}
+
+.md-typeset a:hover {
+  text-decoration: underline;
+}
+
+/* Tablas más limpias, sin bordes pesados */
+.md-typeset table:not([class]) {
+  border: none;
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: rgba(25, 138, 119, 0.06);
+  font-weight: 600;
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Code blocks con menos contraste duro */
+.md-typeset code {
+  background-color: rgba(115, 158, 91, 0.08);
+}
+
+/* Zoom en diagramas Mermaid: clic para ampliar a pantalla completa */
+.mermaid {
+  cursor: zoom-in;
+}
+
+.mermaid.mermaid-zoomed {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  cursor: zoom-out;
+  padding: 2rem;
+  margin: 0;
+}
+
+.mermaid.mermaid-zoomed svg {
+  max-width: none !important;
+  width: min(1400px, 90vw) !important;
+  height: auto !important;
+}

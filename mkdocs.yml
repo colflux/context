@@ -1,0 +1,54 @@
+site_name: Colflux
+site_description: Documentación transversal del proyecto Colflux (OE2 - Plataforma de monitoreo de carbono)
+theme:
+  name: material
+  language: es
+  logo: assets/banner.png
+  favicon: assets/favicon.png
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+  font:
+    text: Inter
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - search.suggest
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mermaid-zoom.js
+
+nav:
+  - Inicio: index.md
+  - Requisitos: requisitos/index.md
+  - Arquitectura:
+      - arquitectura/index.md
+      - arquitectura/repositorios.md
+      - arquitectura/diagrama-c4.md
+  - Conceptos:
+      - conceptos/index.md
+      - conceptos/arquitectura.md
+  - Gestión: gestion/index.md
+  - Roadmap: roadmap/index.md
+  - Institucional: institucional/index.md
+  - Marca:
+      - marca/index.md
+      - marca/prompt-ia.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
