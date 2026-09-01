@@ -26,7 +26,12 @@ extra_javascript:
 
 nav:
   - Inicio: index.md
-  - Requisitos: requisitos/index.md
+  - Requisitos:
+      - requisitos/index.md
+      - requisitos/problema-usuarios.md
+      - requisitos/funcionalidades.md
+      - requisitos/validacion-anexo2.md
+      - requisitos/expectativas-aliados.md
   - Arquitectura:
       - arquitectura/index.md
       - arquitectura/repositorios.md
@@ -34,6 +39,7 @@ nav:
   - Conceptos:
       - conceptos/index.md
       - conceptos/arquitectura.md
+      - conceptos/buenos-requerimientos.md
   - Gestión: gestion/index.md
   - Roadmap: roadmap/index.md
   - Institucional: institucional/index.md
