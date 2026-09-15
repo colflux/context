@@ -29,8 +29,29 @@ primero.
 - [ ] Completar el correo de los usuarios reales que aún no lo tienen
 - [ ] Asignarles contraseña desde `/team` (uno por uno, comunicándosela
       por un canal seguro, no por este repo)
-- [ ] Cambiar la contraseña temporal de Viviana (puesta solo para
-      verificar el flujo) por una real
+- [x] Cambiar la contraseña temporal de Viviana (puesta solo para
+      verificar el flujo) por una real — hecho el 2026-09-15 (contraseña
+      real vía shell de Django, no por `/team`; guardada en
+      `personal/tasks/inprogress/.credenciales`, gitignoreado).
+
+## Notas
+
+**2026-09-15:** al cambiar la contraseña de Viviana se encontró que el
+bootstrap de `implementar-login-real` había dejado registros `Usuario`
+(dominio) y `auth.User` desalineados en producción — dos `Usuario`
+duplicados sin correo o sin `auth_user`, y un `auth.User` superusuario
+(`admin`/correo de Daniel) sin `Usuario` ligado — que hacían fallar el
+login con "Credenciales inválidas" pese a la contraseña correcta. Se
+limpiaron los huérfanos y se agregó `manage.py check_usuarios_huerfanos`
+en `backend` (corre en cada arranque del contenedor `web`, advertencia no
+bloqueante) para detectar esto antes de que vuelva a pasar — relevante
+para cuando se asignen contraseñas al resto de usuarios reales en esta
+misma tarea: conviene correr ese comando después de cada asignación
+masiva para confirmar que quedaron bien enlazados.
+
+De paso, se subió el nivel de Milena González (ya tenía `auth_user`
+propio, este cambio no formaba parte de esta tarea) de `ciudadano` a
+`reportador`.
 
 ## Referencias
 
