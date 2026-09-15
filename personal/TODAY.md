@@ -1,0 +1,32 @@
+# Para hoy / próximos días
+
+Lista corta de lo que está pendiente **ya priorizado**, para no tener que releer cada archivo de `tasks/` para saber qué sigue. Se actualiza a mano; cuando algo se resuelve, se borra de aquí (el detalle completo queda en la tarea de origen, no aquí).
+
+## Reunión martes 2026-09-15
+
+- Mostrar al equipo `docs/arquitectura/git-flow.md` (GitHub Flow + protección de ramas) y validar en conjunto los acuerdos: quién aprueba, cuántas aprobaciones, si aplica igual a todos los repos.
+- Resolver la discrepancia: el documento dice "propuesta pendiente de validar", pero las *branch protection rules* ya se activaron el 2026-09-11 en los 5 repos antes de esa validación (ver [[automatizar-deploy-ecosistema-colflux]]).
+
+## De [[automatizar-deploy-ecosistema-colflux]]
+
+- **Punto 4 del plan:** confirmar que el disparo 100% automático de deploy no requiere intervención manual (ya hubo despliegues exitosos en los tres repos, pero el checklist formal sigue sin cerrar).
+- **Migración IDEAM/SWAMP:** el script de migración quedó en un scratchpad de sesión (`/private/tmp/.../scratchpad/migrar_remoto.py`) que puede haberse perdido — hay que rehacerlo o pedir que se regenere.
+- **Documentar la decisión final de despliegue** — falta consolidar lo que ya está repartido en Entregables/Historial de la tarea en un documento único.
+
+### Riesgos técnicos en el servidor `44.213.47.34` (no bloqueantes, pero crecen con el tiempo)
+
+- Servidor con **1.9GB RAM y 0 swap** corriendo `backend` + `frontend` + `ia-functions` a la vez — ya causó un OOM kill en `ia-functions`. Agregar swap o subir el plan de Lightsail antes de que se repita.
+- Postgres del backend expuesto públicamente en `0.0.0.0:5432` — decisión consciente, pendiente de revisar (cerrar el puerto o restringir por IP).
+- Contraseña débil del superusuario del backend (`colflux123`) — cambiar desde `/admin`.
+- Contenedor viejo `colflux-backend` sigue corriendo como respaldo — apagarlo cuando el stack nuevo lleve unos días estable.
+- Bug menor en `ia-functions`: `answer` puede quedar vacío si el modelo agota `MAX_TURNS` llamando herramientas sin redactar el texto final.
+- El chat flotante del frontend se mergeó a producción sin revisión de código ni pruebas — falta una pasada de QA normal.
+
+## Revisar `PrototipoCOLFLUX` (sin tarea propia todavía)
+
+- Revisar el repo local `/Users/vivianabautista.xyz/colflux/PrototipoCOLFLUX` (tiene `Backend-Colflux/`, `Frontend-Colflux/` y `estadis/`, sin `README.md`) para identificar qué se puede migrar o reaprovechar hacia el `frontend`/`backend` actuales de COLFLUX.
+- Si al revisarlo aparece trabajo real que valga la pena, crear una tarea propia en `tasks/backlog/` con el detalle — este ítem es solo el recordatorio de hacer la revisión.
+
+## Referencias
+
+- [[automatizar-deploy-ecosistema-colflux]] — tarea de origen con el detalle completo (Entregables, Notas de mejora, Historial).
