@@ -2,7 +2,7 @@
 
 **Estado:** cerrada
 **Creada:** 2026-09-15
-**Cerrada:** 2026-09-15
+**Cerrada:** 2026-09-15 (segunda vez, tras corregir la migración incompleta)
 
 ## Objetivo
 
@@ -32,6 +32,10 @@ En el camino aparecieron varios problemas de infraestructura no previstos que se
 - [x] Adaptar el frontend al nuevo shape de la API (`nivel` en vez de `roles`)
 - [x] Aplicar la migración de datos en `colflux-DB` (mapea los roles existentes al nivel más alto correspondiente)
 - [ ] **Pendiente (no bloqueante, seguimiento en `TODAY.md`):** probar end-to-end en producción tras el último deploy — login de `colflux-admin` en `/admin/` y en el frontend, `/team` con el selector de nivel nuevo, y que subir/descargar datos respete la cascada
+- [x] **Reabierto (2026-09-15):** crear el `Usuario` de dominio faltante y vincularlo a `lviviana13@gmail.com` — se creó `app_usuario` id 3 (`nivel: admin`) vinculado a `auth_user_id=10` (`colflux-admin`); se eliminó la cuenta duplicada `viviana` (`auth_user_id=2`, sin `Usuario` de dominio ni otras dependencias salvo un `authtoken_token` también eliminado), para no dejar dos `auth_user` con el mismo correo
+- [x] **Pendiente de verificar:** login real en el frontend con `colflux-admin` + su contraseña, ahora que existe el vínculo — confirmado por Viviana, ya funciona
+- [x] **Reabierto (2026-09-15):** `app_rolusuario` — se confirma que **sí hace falta**, la afirmación original del documento era imprecisa. Lo que se eliminó en `0088_usuario_nivel_acceso.py` fue el M2M `Usuario.roles` (tabla intermedia `app_usuario_roles`), no el catálogo `RolUsuario`/`app_rolusuario`, que sigue en uso activo para `ProyectoUsuario.rol` (rol de cada usuario dentro de un proyecto — coordinador/investigador/técnico —, concepto distinto al nivel de acceso global). No se toca.
+- [x] **Reabierto (2026-09-15):** `auth_user_id=7` (`vivianabautista.xyz@gmail.com`) — sin `Usuario` de dominio, sin `last_login`, sin ninguna dependencia (grupos, permisos, admin log, token). Se elimina la cuenta por no tener uso.
 
 ## Entregables
 
@@ -45,7 +49,7 @@ En el camino aparecieron varios problemas de infraestructura no previstos que se
 **Frontend (`colflux/frontend`):**
 - [PR #12](https://github.com/colflux/frontend/pull/12) — Adaptar la UI al nuevo shape `nivel` (string) en vez de `roles` (lista): tipos, `useRolActual` (con `tieneNivel`/`puedeDescargar`/`puedeSubirDatos`), menú de usuario, tabla y drawer de gestión de usuarios.
 
-**Estado final de `colflux-DB`:** los 3 usuarios existentes al momento de migrar quedaron en `nivel: admin` (tenían `admin_datos` o eran superusuarios de Django). Tabla `UsuarioRol` eliminada.
+**Estado final de `colflux-DB` (corregido 2026-09-15):** 3 `auth_user` en producción — `colflux-admin` (`lviviana13@gmail.com`, `nivel: admin`, ahora con `Usuario` de dominio vinculado), `malejandragonzalez@javeriana.edu.co` y `ubaques.daniel@javeriana.edu.co`. Se eliminaron 2 cuentas sin uso real: `viviana` (duplicada de `colflux-admin`, mismo correo) y `vivianabautista.xyz@gmail.com` (sin `Usuario` vinculado, sin `last_login`). El M2M `Usuario.roles` fue eliminado por la migración `0088`, pero el catálogo `RolUsuario`/`app_rolusuario` **no** se eliminó — sigue en uso para `ProyectoUsuario.rol` (rol dentro de un proyecto, distinto al nivel de acceso global).
 
 ## Referencias
 
@@ -58,3 +62,6 @@ En el camino aparecieron varios problemas de infraestructura no previstos que se
 | Fecha | Descripción |
 |---|---|
 | 2026-09-15 | Se retoma la tarea de una sesión anterior. Se confirma la conexión local a RDS, se resuelven en cadena: fallback silencioso de `DATABASE_URL`, limpieza del Postgres local en Docker, invocación faltante de `create_admin_from_env`, vínculo Usuario↔superusuario para login por correo, y el bug del secret `LIGHTSAIL_APP_PATH` que tenía roto el deploy automático desde hacía días. Se rediseñan los roles a un nivel único en cascada (ciudadano/investigador/reportador/admin) con permisos reales, en backend y frontend. Se aplica la migración en `colflux-DB`. Los 4 PRs (`backend` #10, #11, #12; `frontend` #12) quedan mergeados. Se cierra la tarea con la verificación end-to-end en producción como pendiente de seguimiento, no bloqueante. |
+| 2026-09-15 (reapertura) | Al intentar loguearse con `lviviana13@gmail.com` en producción, falla con 401. Se consulta `colflux-DB` directamente (vía `psycopg`, usando `dbmasteruser`, ya que el ORM local no levanta por falta de GDAL) y se confirma que la migración quedó **incompleta**: `auth_user` tiene 5 filas (`viviana` id 2, `vivianabautista.xyz@gmail.com` id 7, `malejandragonzalez@...` id 9, `colflux-admin` id 10, `ubaques.daniel@...` id 14), pero `app_usuario` (el modelo de dominio que usa el login del frontend, `POST /api/auth/login/` busca por `Usuario.correo`) solo tiene 2 filas, vinculadas a los `auth_user` 14 y 9. **No existe `Usuario` de dominio para `viviana`/`colflux-admin` (id 2 y 10) ni para el id 7** — de ahí el 401, aunque el `auth_user` y su contraseña sí existan. Además, `app_rolusuario` sigue existiendo con 5 filas en `colflux-DB`, contradiciendo la afirmación de este documento de que la tabla se había eliminado. Se reabre la tarea con estos 3 pendientes. |
+| 2026-09-15 (corrección) | Se crea el `Usuario` de dominio faltante (`app_usuario` id 3, `nivel: admin`) vinculado a `colflux-admin` (`auth_user_id=10`), correo `lviviana13@gmail.com`. Se elimina la cuenta Django duplicada `viviana` (`auth_user_id=2`, mismo correo, sin `Usuario` de dominio propio) junto con su `authtoken_token`, para dejar una sola cuenta por correo. Queda pendiente confirmar el login real desde el frontend con `colflux-admin`. |
+| 2026-09-15 (cierre de hallazgos) | Se revisa `app_rolusuario`: la afirmación original de este documento ("Tabla UsuarioRol eliminada") era imprecisa — lo que se eliminó fue el M2M `Usuario.roles` (tabla intermedia), no el catálogo `RolUsuario`, que sigue en uso para `ProyectoUsuario.rol` (rol dentro de un proyecto, no nivel de acceso global). No se elimina la tabla. Se elimina la cuenta `auth_user_id=7` (`vivianabautista.xyz@gmail.com`): sin `Usuario` de dominio, sin `last_login`, sin dependencias. Solo queda pendiente confirmar el login end-to-end de `colflux-admin` en el frontend. |

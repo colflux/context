@@ -1,4 +1,4 @@
-# Desplegar los nuevos cambios para revisión (formulario de sugerencias)
+<# Desplegar los nuevos cambios para revisión (formulario de sugerencias)
 
 **Estado:** pendiente
 **Creada:** 2026-09-01
