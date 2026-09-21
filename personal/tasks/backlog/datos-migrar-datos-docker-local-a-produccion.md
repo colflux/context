@@ -183,7 +183,7 @@ Cundinamarca y Caldas (los dos con mediciones reales) con geometría no nula.
 - [x] Backfill de `geom` en `Departamento`/`Municipio` cruzando por `codigo_dane`, confirmado con el usuario antes de escribir en producción
 - [ ] Verificar visualmente en el navegador (`44.213.47.34/mapas`) que el mapa ya pinta departamentos/veredas correctamente
 - [ ] Decidir si el volumen local (`backend_postgres_data`) se conserva como backup o se elimina, ahora que la migración está verificada
-- [ ] Decidir si `migrar_datos_locales.py` se commitea (como referencia histórica) o se borra del repo del backend
+- [x] ~~Decidir si `migrar_datos_locales.py` se commitea (como referencia histórica) o se borra del repo del backend~~ — decidido no commitear: es un comando de un solo uso para una migración ya ejecutada y verificada, no un flujo que deba repetirse normalmente (ver PR `backend#17`)
 - [ ] Revisar/reasignar manualmente `FuenteDatos.reportador_id` (quedó en NULL para las 7 fuentes migradas)
 - [ ] El municipio sin geometría (1/1122, no cruzó por `codigo_dane`) queda sin identificar — revisar si importa (probablemente un caso de código DANE inconsistente entre fuentes)
 
@@ -199,3 +199,4 @@ Cundinamarca y Caldas (los dos con mediciones reales) con geometría no nula.
 | Fecha | Descripción |
 |---|---|
 | 2026-09-15 | Se crea la tarea a partir de una pregunta del usuario sobre migrar veredas/municipios. Se descubre que municipios/departamentos ya estaban migrados, pero veredas (550.460 filas) y toda la data GEI/ETL del volumen local nunca se subieron a producción. Se identifica además un riesgo de pérdida de datos: el volumen Postgres del servidor (distinto de este, borrado al migrar a RDS) pudo haberse eliminado sin backup, con la carga de SWAMP CH4 del 2026-09-07 adentro. |
+| 2026-09-18 | Se abrió `backend#17` ("Agregar comando para migrar datos del volumen Docker local a RDS"), agregando `migrar_datos_locales.py` al repo. El usuario decide cerrarlo sin mergear: comitear un comando de gestión para una migración de un solo uso, ya ejecutada y verificada, no es un flujo que deba repetirse — "esto por lo general no debería pasar". Se cierra el PR y se borra la rama `feat/migrar-datos-locales-a-rds`. Se resuelve así el punto pendiente del plan sobre si commitear el script. |

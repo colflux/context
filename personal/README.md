@@ -20,6 +20,15 @@ Agregar una entrada nueva por fecha (`## AAAA-MM-DD`) en el archivo del mes corr
 Un archivo por tarea (`kebab-case.md`), a partir de [tasks/_template.md](tasks/_template.md):
 objetivo, pasos como checklist, y notas. Vincular tareas relacionadas con `[[nombre-archivo]]`.
 
+Cada tarea lleva **`A cargo`** (quién la pidió o la está trabajando) y
+**`Sesión de Claude Code`** (link a la sesión activa que tiene todo el
+contexto). La idea: si la ventana/sesión se cierra, la forma más rápida de
+retomar es reabrir esa sesión con el link; si ya no está disponible, el
+`## Historial` de la tarea es el respaldo — por eso cada entrada del
+Historial debe quedar lo bastante completa para reconstruir el estado sin la
+sesión original. Actualizar el link de sesión cada vez que una sesión nueva
+retoma la tarea.
+
 El estado de la tarea lo da la carpeta donde vive el archivo, no un campo dentro del archivo:
 
 - **[tasks/backlog/](tasks/backlog/)** — todo lo pendiente que aún no es prioridad de la semana.

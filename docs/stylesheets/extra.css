@@ -1,24 +1,57 @@
-/* Paleta institucional COLFLUX — ver docs/marca/index.md */
+/* Paleta institucional COLFLUX — sincronizada con frontend/tailwind.config.js
+   y frontend/src/index.css. Ver docs/marca/index.md para el significado de
+   cada color. Cualquier cambio de marca debe reflejarse en ambos repos. */
 
 [data-md-color-primary="custom"] {
-  --md-primary-fg-color: #198A77;        /* Vida (verde azulado) */
-  --md-primary-fg-color--light: #4FAF9A;
-  --md-primary-fg-color--dark: #0F5C4E;
+  --md-primary-fg-color: #198A77;        /* brand.teal */
+  --md-primary-fg-color--light: #2FBFA3; /* brand.teal-bright */
+  --md-primary-fg-color--dark: #136B5C;  /* brand.teal-dark */
   --md-primary-bg-color: #ffffff;
   --md-primary-bg-color--light: #ffffff;
 }
 
 [data-md-color-accent="custom"] {
-  --md-accent-fg-color: #F2B91B;         /* Energía (amarillo) */
+  --md-accent-fg-color: #F2B91B;         /* brand.yellow */
   --md-accent-fg-color--transparent: #F2B91B26;
   --md-accent-bg-color: #1a1a1a;
 }
 
 :root {
+  /* Tokens espejo de frontend/src/index.css (:root) */
+  --colflux-surface: #f7faf8;
+  --colflux-panel: #ffffff;
+  --colflux-border: #e2e8e4;
+  --colflux-fg: #0f172a;
+  --colflux-fg-muted: #64748b;
+  --colflux-fg-subtle: #94a3b8;
+
+  --colflux-teal: #198A77;
+  --colflux-teal-dark: #136B5C;
+  --colflux-teal-light: #E7F3F1;
+  --colflux-teal-bright: #2FBFA3;
   --colflux-verde: #739E5B;
+  --colflux-amarillo: #F2B91B;
+  --colflux-amarillo-dark: #D9A400;
   --colflux-cafe: #57270F;
   --colflux-naranja: #DF5B26;
   --colflux-naranja-claro: #F19F1F;
+}
+
+/* Tokens espejo de frontend/src/index.css (.dark) para el scheme "slate" */
+[data-md-color-scheme="slate"] {
+  --colflux-surface: #0f172a;
+  --colflux-panel: #1e293b;
+  --colflux-border: #334155;
+  --colflux-fg: #f1f5f9;
+  --colflux-fg-muted: #94a3b8;
+  --colflux-fg-subtle: #64748b;
+
+  --md-default-bg-color: var(--colflux-surface);
+  --md-default-fg-color: var(--colflux-fg);
+  --md-default-fg-color--light: var(--colflux-fg-muted);
+  --md-default-fg-color--lighter: var(--colflux-fg-subtle);
+  --md-typeset-color: var(--colflux-fg);
+  --md-primary-fg-color--light: #2FBFA3;
 }
 
 /* Logo horizontal (con texto) en el header: ocultar el nombre de sitio
@@ -40,14 +73,19 @@
   margin-left: auto;
 }
 
-/* Estética minimalista: menos ruido visual, más aire */
+/* Estética minimalista: menos ruido visual, más aire, misma "voz" que el front */
 .md-header {
   box-shadow: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--colflux-border);
 }
 
 .md-tabs {
   box-shadow: none;
+}
+
+body,
+.md-main {
+  background-color: var(--colflux-surface);
 }
 
 .md-typeset {
@@ -66,11 +104,28 @@
 }
 
 .md-typeset a {
+  color: var(--colflux-teal);
   text-decoration: none;
 }
 
 .md-typeset a:hover {
   text-decoration: underline;
+}
+
+/* Tarjetas de contenido (grid cards) con el mismo lenguaje visual que las
+   tarjetas de "Aprende y participa" en el frontend: panel, borde sutil,
+   radio grande y borde teal al hover. */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  background-color: var(--colflux-panel);
+  border: 1px solid var(--colflux-border);
+  border-radius: 0.75rem;
+  transition: border-color 0.15s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid > .card:hover {
+  border-color: var(--colflux-teal);
 }
 
 /* Tablas más limpias, sin bordes pesados */
@@ -86,12 +141,110 @@
 
 .md-typeset table:not([class]) td,
 .md-typeset table:not([class]) th {
-  border-color: rgba(0, 0, 0, 0.06);
+  border-color: var(--colflux-border);
 }
 
 /* Code blocks con menos contraste duro */
 .md-typeset code {
   background-color: rgba(115, 158, 91, 0.08);
+}
+
+/* Pestañas estilo "Educación" del frontend: subrayado teal en la activa,
+   texto gris en las inactivas, sin fondo de pastilla. */
+.tabbed-set {
+  --md-typeset-a-color: var(--colflux-teal);
+}
+
+.tabbed-set > .tabbed-labels {
+  box-shadow: none;
+  border-bottom: 1px solid var(--colflux-border);
+}
+
+.tabbed-set > .tabbed-labels > label {
+  font-weight: 500;
+  color: var(--colflux-fg-muted);
+}
+
+.tabbed-set > input:checked + .tabbed-labels > label,
+.tabbed-set > .tabbed-labels > label:hover {
+  color: var(--colflux-teal);
+}
+
+.tabbed-set > .tabbed-labels::before {
+  background-color: var(--colflux-teal);
+  height: 2px;
+}
+
+/* Tarjetas "Aprende y participa": icono sobre fondo teal claro, meta en
+   mayúsculas, título en negrita y enlace "Leer más" — mismo componente que
+   frontend/src/pages/Educacion.tsx */
+.md-typeset .edu-grid > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .edu-grid > ul > li {
+  background-color: var(--colflux-panel);
+  border: 1px solid var(--colflux-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+  padding: 0 0 1rem;
+  margin: 0;
+}
+
+.md-typeset .edu-grid > ul > li::marker {
+  content: '';
+}
+
+.md-typeset .edu-grid > ul > li > p {
+  margin: 0 1rem 0.5rem;
+}
+
+.md-typeset .edu-grid > ul > li:hover {
+  border-color: var(--colflux-teal);
+}
+
+.md-typeset .edu-card__icon {
+  height: 7rem;
+  margin: 0 0 1rem;
+  background-color: var(--colflux-teal-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .edu-card__icon {
+  background-color: rgba(19, 107, 92, 0.3);
+}
+
+.md-typeset .edu-card__meta {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--colflux-fg-subtle);
+  margin: 0 1rem;
+}
+
+.md-typeset .edu-card__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--colflux-fg);
+  margin: 0.25rem 1rem 0.75rem;
+}
+
+.md-typeset .edu-grid a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--colflux-teal);
+  margin: 0 1rem;
 }
 
 /* Zoom en diagramas Mermaid: clic para ampliar a pantalla completa */
@@ -103,7 +256,7 @@
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: #ffffff;
+  background: var(--colflux-panel);
   display: flex;
   align-items: center;
   justify-content: center;

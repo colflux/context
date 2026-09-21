@@ -1,5 +1,6 @@
 # Wiki / manual de usuario
 
+**Sesión de Claude:** session_01Qxi9vvTVEv2ykqB6yEGm7k
 **Estado:** pendiente
 **Creada:** 2026-09-17
 

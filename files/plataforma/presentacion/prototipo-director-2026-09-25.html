@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COLFLUX — Estado del prototipo y roadmap</title>
+<style>
+  :root {
+    --teal: #198A77;
+    --teal-dark: #136B5C;
+    --teal-light: #E7F3F1;
+    --teal-bright: #2FBFA3;
+    --verde: #739E5B;
+    --amarillo: #F2B91B;
+    --amarillo-dark: #D9A400;
+    --cafe: #57270F;
+    --naranja: #DF5B26;
+    --surface: #f7faf8;
+    --panel: #ffffff;
+    --border: #e2e8e4;
+    --fg: #0f172a;
+    --fg-muted: #64748b;
+    --fg-subtle: #94a3b8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: #0b1210;
+    color: var(--fg);
+  }
+  .deck { height: 100vh; width: 100vw; overflow: hidden; position: relative; }
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vh 8vw;
+    background: var(--surface);
+    overflow-y: auto;
+  }
+  .slide.active { display: flex; }
+  .slide.cover {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 55%, var(--teal-bright) 100%);
+    color: white;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: .6rem;
+  }
+  .cover .kicker { color: var(--amarillo); }
+  h1 { font-size: 2.4rem; margin: 0 0 .3rem; line-height: 1.15; }
+  .cover h1 { font-size: 3.2rem; max-width: 22ch; }
+  h2 { font-size: 1.5rem; margin: 0 0 1.2rem; color: var(--teal-dark); }
+  .subtitle { font-size: 1.15rem; color: var(--fg-muted); max-width: 60ch; margin-bottom: 1.5rem; }
+  .cover .subtitle { color: #e7f3f1; font-size: 1.3rem; max-width: 45ch; }
+  .presenter-tag {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--teal-light); color: var(--teal-dark);
+    border: 1px solid var(--teal-bright);
+    padding: .35rem .9rem; border-radius: 999px;
+    font-size: .85rem; font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+  .presenter-tag .dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--teal-bright); }
+  .presenter-tag.editable { border-style: dashed; cursor: text; }
+  .grid { display: grid; gap: 1.1rem; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.3rem 1.5rem;
+  }
+  .card h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--teal-dark); }
+  .card p { margin: 0; color: var(--fg-muted); font-size: .95rem; line-height: 1.5; }
+  .badge {
+    display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .05em; padding: .2rem .6rem; border-radius: 6px; margin-bottom: .5rem;
+  }
+  .badge.done { background: var(--teal-light); color: var(--teal-dark); }
+  .badge.progress { background: #fff4d6; color: var(--amarillo-dark); }
+  .badge.next { background: #fdece3; color: var(--naranja); }
+  .badge.blocked { background: #fde2e2; color: #b91c1c; }
+  ul.clean { margin: 0; padding-left: 1.1rem; color: var(--fg-muted); font-size: .95rem; line-height: 1.6; }
+  ul.clean li { margin-bottom: .3rem; }
+  .timeline { display: flex; gap: 1rem; margin-top: 1rem; }
+  .timeline .col { flex: 1; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem; }
+  .timeline .col h3 { margin: 0 0 .8rem; font-size: 1rem; color: var(--teal-dark); border-bottom: 2px solid var(--teal-light); padding-bottom: .5rem; }
+  .demo-link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: var(--teal); color: white; text-decoration: none;
+    padding: .55rem 1.1rem; border-radius: 8px; font-size: .9rem; font-weight: 600;
+    margin-top: .8rem;
+  }
+  .demo-link:hover { background: var(--teal-dark); }
+  .demo-link::before { content: "▶"; font-size: .7rem; }
+  footer.nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .8rem 2rem; background: rgba(15,23,42,.92); color: white;
+    font-size: .82rem; z-index: 10;
+  }
+  footer.nav .progress { display: flex; gap: .3rem; }
+  footer.nav .progress span { width: 8px; height: 8px; border-radius: 50%; background: #475569; cursor: pointer; }
+  footer.nav .progress span.active { background: var(--teal-bright); }
+  footer.nav button {
+    background: transparent; border: 1px solid #475569; color: white;
+    padding: .4rem .9rem; border-radius: 6px; cursor: pointer; font-size: .85rem;
+  }
+  footer.nav button:hover { border-color: var(--teal-bright); color: var(--teal-bright); }
+  .slide-num { color: #94a3b8; }
+  .risk-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; }
+  .risk-list li { background: var(--panel); border-left: 4px solid var(--amarillo); border-radius: 8px; padding: .9rem 1.1rem; font-size: .95rem; color: var(--fg); }
+  .risk-list li b { color: var(--naranja); }
+  .closing {
+    background: linear-gradient(135deg, var(--cafe) 0%, var(--naranja) 100%);
+    color: white;
+  }
+  .closing h1 { color: white; }
+  .note-edit {
+    outline: 1px dashed transparent;
+  }
+  .note-edit:hover, .note-edit:focus {
+    outline: 1px dashed var(--teal-bright);
+    background: rgba(47,191,163,.06);
+  }
+  .credit { font-size: .8rem; color: var(--fg-subtle); margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1. PORTADA -->
+  <section class="slide cover active">
+    <div class="kicker">Componente de plataforma — OE2</div>
+    <h1>COLFLUX: del modelo de datos al prototipo en producción</h1>
+    <p class="subtitle">Estado actual, esfuerzo detrás de cada capa y ruta a 12 meses</p>
+    <div style="margin-top:2rem; font-size:.95rem; color:#e7f3f1;">
+      Equipo de plataforma · Viviana Bautista, Martín Otálora, Andrea Chaparro, Alejandra Díaz, Milena Rodríguez<br>
+      <span style="opacity:.85;">Presentación al director del proyecto — jueves 25 de septiembre, 2026</span>
+    </div>
+  </section>
+
+  <!-- 2. AGENDA / NARRATIVA -->
+  <section class="slide">
+    <div class="kicker">Agenda</div>
+    <h1>El recorrido de un dato: de la idea al reporte</h1>
+    <p class="subtitle">Cada bloque corresponde al esfuerzo real que tomó llevar esa pieza a producción — no es solo "lo que se ve", es lo que sostiene lo que se ve.</p>
+    <div class="grid grid-3" style="margin-top:1rem;">
+      <div class="card">
+        <div class="badge done">01</div>
+        <h3>Modelo de datos</h3>
+        <p class="note-edit" contenteditable="true">Presenta: <b>Martín Otálora</b> — estructura de categorías, regiones, calidad de datos.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">02</div>
+        <h3>Subida de datos (ETL)</h3>
+        <p class="note-edit" contenteditable="true">Presenta: <b>Andrea Chaparro</b> — carga/descarga por Excel, mapeo de endpoints.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">03</div>
+        <h3>Despliegue e infraestructura</h3>
+        <p class="note-edit" contenteditable="true">Presenta: <b>Alejandra Díaz</b> — RDS, Lightsail, CI/CD, nginx.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">04</div>
+        <h3>Funcionalidades de la plataforma</h3>
+        <p class="note-edit" contenteditable="true">Presenta: <b>Milena Rodríguez</b> — mapa, reportes/gráficas, roles.</p>
+      </div>
+      <div class="card">
+        <div class="badge progress">05</div>
+        <h3>Estado, riesgos y roadmap</h3>
+        <p class="note-edit" contenteditable="true">Presenta: <b>Viviana Bautista</b> — qué falta cerrar y plan 3/6/12 meses.</p>
+      </div>
+      <div class="card" style="background:var(--teal-light); border-color:var(--teal-bright);">
+        <h3 style="color:var(--teal-dark);">Nota</h3>
+        <p><i>Borrador de asignación — ajustar nombres/orden con el equipo antes del jueves. Cada texto marcado con línea punteada es editable directo en el navegador (clic y escribe).</i></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MODELO DE DATOS -->
+  <section class="slide">
+    <div class="kicker">01 · Martín Otálora</div>
+    <h1>El modelo de datos: la base de todo lo demás</h1>
+    <p class="subtitle">Antes de mostrar un mapa o una gráfica, hubo que definir <i>qué es un dato válido</i> para COLFLUX: qué categorías, qué regiones, qué nivel de confiabilidad.</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="badge done">Resuelto</div>
+        <h3>Categorías y regiones</h3>
+        <p>Modelo de datos por categoría (biomasa, COS, MOM, flujos GEI) cruzado con las 3 regiones de trabajo del proyecto (Andes, Orinoquía, Amazonas), sembrado en migraciones del backend.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">Resuelto</div>
+        <h3>Roles y niveles de acceso</h3>
+        <p>Migración de roles múltiples a un esquema de <code>nivel</code> en cascada (ciudadano &lt; investigador &lt; reportador &lt; admin), aplicado consistentemente en permisos de API.</p>
+      </div>
+      <div class="card">
+        <div class="badge progress">3-6 meses</div>
+        <h3>Calidad y trazabilidad</h3>
+        <p>Falta el criterio real de confiabilidad (hoy es estado binario) y el registro de quién subió cada dato y cómo se capturó.</p>
+      </div>
+      <div class="card">
+        <div class="badge next">Pendiente de decisión</div>
+        <h3>Tensión login vs. datos abiertos</h3>
+        <p>El grupo de Nariño pidió restringir todo acceso sin login — choca con el principio de datos abiertos del proyecto. Sin resolver esto no se puede diseñar el nivel de acceso graduado (F19).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ETL / SUBIDA DE DATOS -->
+  <section class="slide">
+    <div class="kicker">02 · Andrea Chaparro</div>
+    <h1>Subida de datos: de Excel a la base productiva</h1>
+    <p class="subtitle">El flujo de ETL conecta el trabajo de campo (archivos Excel por categoría) con el backend, sin gaps de endpoints.</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="badge done">En producción</div>
+        <h3>Carga y descarga por categoría</h3>
+        <p>Interfaz <code>/etl/datos</code> mapeada 1:1 con los endpoints del backend Django ya existentes — sin necesidad de construir infraestructura nueva.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">En producción</div>
+        <h3>Formatos validados</h3>
+        <p>Exportación/importación respeta el formato esperado por categoría, reduciendo errores de carga manual.</p>
+      </div>
+      <div class="card">
+        <div class="badge next">0-3 meses</div>
+        <h3>Formulario "Reportar" conectado</h3>
+        <p>Hoy el formulario de reporte de campo solo guarda estado en memoria — falta conectarlo al endpoint real para que los datos capturados en campo entren directo al flujo de ETL.</p>
+      </div>
+      <div class="card">
+        <div class="badge next">3-6 meses</div>
+        <h3>Georreferenciación automática</h3>
+        <p>Captura de coordenadas GPS en formularios de campo, para que el dato llegue ya ubicado en el mapa sin paso manual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DESPLIEGUE -->
+  <section class="slide">
+    <div class="kicker">03 · Alejandra Díaz</div>
+    <h1>Despliegue: de "funciona en mi máquina" a producción estable</h1>
+    <p class="subtitle">Backend, frontend e ia-functions corren hoy en un solo servidor (Lightsail), detrás de nginx, con deploy automático en cada merge.</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="badge done">Resuelto</div>
+        <h3>CI/CD por repositorio</h3>
+        <p>Workflows de GitHub Actions para <code>backend</code>, <code>frontend</code> e <code>ia-functions</code>, cada uno con su propio deploy automático verificado end-to-end.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">Resuelto</div>
+        <h3>Base de datos productiva (RDS)</h3>
+        <p>Conexión blindada a PostGIS en AWS RDS, con smoke test en cada deploy y fallback fuerte si falta configuración — ya no falla en silencio.</p>
+      </div>
+      <div class="card">
+        <div class="badge done">Resuelto</div>
+        <h3>Seguridad de red por diseño</h3>
+        <p>Servicios internos atados a <code>127.0.0.1</code> y enrutados por nginx — ningún puerto nuevo expuesto públicamente, lección aplicada tras un bug temprano de frontend.</p>
+      </div>
+      <div class="card">
+        <div class="badge blocked">Crítico — 0-3 meses</div>
+        <h3>Autenticación real de la API</h3>
+        <p>La API todavía puede mutar datos sin autenticación real en varios endpoints — es el hueco de seguridad más urgente antes de abrir la plataforma más ampliamente.</p>
+      </div>
+    </div>
+    <a class="demo-link" href="http://44.213.47.34/" target="_blank" rel="noopener">Abrir plataforma en producción</a>
+  </section>
+
+  <!-- 6. FUNCIONALIDADES -->
+  <section class="slide">
+    <div class="kicker">04 · Milena Rodríguez — Demo</div>
+    <h1>Lo que ya se puede mostrar hoy</h1>
+    <p class="subtitle">Tres módulos en producción, listos para navegar en vivo con el director.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="badge done">En producción</div>
+        <h3>Mapa interactivo</h3>
+        <p>Home con mapa de Colombia resaltando las 3 regiones de trabajo (Andes, Orinoquía, Amazonía), interacción por clic con tarjetas informativas por departamento.</p>
+        <a class="demo-link" href="http://44.213.47.34/" target="_blank" rel="noopener">Ver mapa</a>
+      </div>
+      <div class="card">
+        <div class="badge done">En producción</div>
+        <h3>Reportes y gráficas</h3>
+        <p>Módulo de biomasa, COS, MOM, flujos y tendencias — implementado y desplegado; solo pendiente validar 3 criterios con el ecólogo.</p>
+        <a class="demo-link" href="http://44.213.47.34/" target="_blank" rel="noopener">Ver reportes</a>
+      </div>
+      <div class="card">
+        <div class="badge done">En producción</div>
+        <h3>Roles y gestión de usuarios</h3>
+        <p>Niveles ciudadano/investigador/reportador/admin, con control de acceso a subir, descargar y administrar.</p>
+        <a class="demo-link" href="http://44.213.47.34/" target="_blank" rel="noopener">Ver gestión</a>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top: .8rem;">
+      <div class="card">
+        <div class="badge blocked">Deshabilitado temporalmente</div>
+        <h3>Insights (IA)</h3>
+        <p>Implementado pero apagado desde el 20/09/2026 — falta definir la causa raíz antes de decidir si se reactiva.</p>
+      </div>
+      <div class="card">
+        <div class="badge next">0-3 meses</div>
+        <h3>Recuperación de contraseña</h3>
+        <p>Self-service casi listo — faltan variables de email en producción, credencial de Gmail y prueba end-to-end.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ESTADO GENERAL -->
+  <section class="slide">
+    <div class="kicker">05 · Viviana Bautista</div>
+    <h1>Estado general del prototipo</h1>
+    <p class="subtitle">Todo lo mostrado corre hoy en producción real — no es un mockup.</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Ya existe y funciona</h3>
+        <ul class="clean">
+          <li>Mapa interactivo de ecosistemas (geoportal base)</li>
+          <li>ETL de carga/descarga de datos por categoría</li>
+          <li>Módulo de gráficas y reportes</li>
+          <li>Roles de usuario y credenciales admin</li>
+          <li>Conexión a base de datos productiva (RDS)</li>
+          <li>Automatización de deploy (backend, frontend, ia-functions)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Trabajo a medias (prioridad inmediata)</h3>
+        <ul class="clean">
+          <li>Seguridad real de la API (crítico)</li>
+          <li>Recuperación de contraseña self-service</li>
+          <li>Formulario "Reportar" conectado al backend</li>
+          <li>Decisión sobre reactivar Insights (IA)</li>
+          <li>Manual de usuario del flujo de reporte</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ROADMAP -->
+  <section class="slide">
+    <div class="kicker">05 · Viviana Bautista</div>
+    <h1>Roadmap: 3 / 6 / 12 meses</h1>
+    <p class="subtitle">Criterio: cerrar primero el MVP ya iniciado antes de abrir módulos nuevos (sensores IoT, colaboración interinstitucional, chatbot).</p>
+    <div class="timeline">
+      <div class="col">
+        <h3>0-3 meses · Cerrar lo iniciado</h3>
+        <ul class="clean">
+          <li>Seguridad de la API (crítico)</li>
+          <li>Recuperación de contraseña</li>
+          <li>Formulario "Reportar" → backend real</li>
+          <li>Manual de usuario</li>
+          <li>Decisión: Insights sí/no</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>3-6 meses · Módulos base</h3>
+        <ul class="clean">
+          <li>Calidad y trazabilidad de datos</li>
+          <li>Wiki de conocimiento + glosario</li>
+          <li>Captura GPS en formularios de campo</li>
+          <li>Restricción de edición + comentarios</li>
+          <li>Exportación de metadatos metodológicos</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>6-12 meses · Módulos nuevos</h3>
+        <ul class="clean">
+          <li>Alertas y notificaciones (WhatsApp)</li>
+          <li>Monitoreo de red / sensores IoT</li>
+          <li>Colaboración interinstitucional</li>
+          <li>IA conversacional ampliada</li>
+          <li>RBAC completo (~18 actores)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. DECISIONES / RIESGOS -->
+  <section class="slide">
+    <div class="kicker">Para el director</div>
+    <h1>Decisiones que necesitamos de tu parte</h1>
+    <p class="subtitle">Puntos que condicionan el roadmap y no se pueden resolver solo desde el equipo técnico.</p>
+    <ul class="risk-list">
+      <li><b>Login vs. datos abiertos</b> — el grupo de Nariño pidió restringir todo acceso sin login; choca con el principio de datos abiertos del proyecto. Sin definir esto, los niveles de acceso graduados (F19) y el RBAC completo (F58) no se pueden diseñar con certeza.</li>
+      <li><b>Causa de la desactivación de Insights</b> — apagado el 20/09/2026. Si es un problema de costo o estabilidad del proveedor de IA, condiciona si el módulo de IA ampliada (chatbot, F54-F56) se construye con el mismo proveedor o se cambia.</li>
+      <li><b>Vigencia de CU-07/CU-08</b> — incidencia territorial y colaboración interinstitucional están marcados en el catálogo de funcionalidades como "se plasma si se requiere", sin confirmar como scope real. Necesitamos tu validación antes de invertir en el bloque de 6-12 meses.</li>
+      <li><b>Sostenibilidad post-financiación</b> — ninguna funcionalidad del roadmap resuelve el plan de mantenimiento técnico una vez termine la financiación actual. Es una conversación aparte que hay que agendar.</li>
+    </ul>
+  </section>
+
+  <!-- 10. CIERRE -->
+  <section class="slide closing">
+    <div class="kicker">Gracias</div>
+    <h1>Preguntas y discusión</h1>
+    <p class="subtitle" style="color:#fce8d8;">Plataforma en producción: <a href="http://44.213.47.34/" target="_blank" style="color:white;">http://44.213.47.34/</a></p>
+    <p class="credit" style="color:#fce8d8;">Equipo de plataforma COLFLUX — Viviana Bautista, Martín Otálora, Andrea Chaparro, Alejandra Díaz, Milena Rodríguez</p>
+  </section>
+
+</div>
+
+<footer class="nav">
+  <button id="prevBtn">← Anterior</button>
+  <div class="progress" id="progress"></div>
+  <span class="slide-num" id="slideNum">1 / 10</span>
+  <button id="nextBtn">Siguiente →</button>
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const slideNum = document.getElementById('slideNum');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => goTo(i));
+    progress.appendChild(dot);
+  });
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    [...progress.children].forEach((d, i) => d.classList.toggle('active', i === current));
+    slideNum.textContent = `${current + 1} / ${slides.length}`;
+  }
+
+  function goTo(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    render();
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) goTo(current + 1);
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) goTo(current - 1);
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End') goTo(slides.length - 1);
+  });
+
+  render();
+</script>
+
+</body>
+</html>

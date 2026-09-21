@@ -2,6 +2,10 @@
 
 **Estado:** pendiente
 **Creada:** AAAA-MM-DD
+**A cargo:** <nombre de quién pidió/está trabajando la tarea>
+**Sesión de Claude Code:** <https://claude.ai/code/session_xxxxx — actualizar
+cada vez que una sesión nueva retoma la tarea; borrar/marcar "cerrada" si la
+sesión ya no es recuperable>
 
 ## Objetivo
 

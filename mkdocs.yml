@@ -9,6 +9,15 @@ theme:
     - scheme: default
       primary: custom
       accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
   font:
     text: Inter
   features:
@@ -38,8 +47,12 @@ nav:
       - conceptos/arquitectura.md
       - conceptos/buenos-requerimientos.md
       - conceptos/devops.md
+  - FAQ: faq/index.md
   - Gestión: gestion/index.md
-  - Roadmap: roadmap/index.md
+  - Roadmap:
+      - roadmap/index.md
+      - roadmap/roadmap-3-6-12-meses.md
+      - roadmap/funcionalidades-addendum.md
   - Institucional: institucional/index.md
   - Marca:
       - marca/index.md
@@ -48,9 +61,12 @@ nav:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
   - tables
   - toc:
       permalink: true
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
