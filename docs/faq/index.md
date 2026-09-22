@@ -15,6 +15,7 @@ El carbono es el sexto elemento de la tabla periódica. Es uno de los bloques m�
 El carbono se puede encontrar en todo nuestro entorno. Cada vez que respiramos exhalamos dióxido de carbono, el cual sube a la atmosfera. De ahí, eventualmente es apropiado por las plantas, quienes respiran este mismo gas y lo utilizan para crecer y producir frutos. Eventualmente estos frutos caen al suelo, sirviendo de alimento para los animales que se encuentren allí. No todo es aprovechado fresco, por lo que ciertos frutos, hojas y ramas, caen al suelo, donde comienzan a descomponerse. Parte de este material que cae es integrado al suelo, donde puede acumularse y ser usado en futuros procesos. A su vez, puede que no todo caiga en el suelo, y en cambio, esas hojas y frutos caen en un cuerpo de agua, donde vuelven a ser alimento para los animales que allí habitan. De no ser aprovechados, esta materia orgánica puede sedimentar (irse al fondo) y queda como una reserva para futuros procesos. 
 
 ![Ciclo del Carbono](./assets/Ciclo%20del%20carbono.webp)
+
 *Fuente: Wikipedia - Ciclo del carbono.*
 
 ### ¿Por qué entender el carbono?
