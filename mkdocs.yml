@@ -47,19 +47,22 @@ nav:
       - Marca:
           - marca/index.md
           - marca/prompt-ia.md
-  - Requisitos: requisitos/index.md
-  - Arquitectura:
-      - arquitectura/index.md
-      - arquitectura/repositorios.md
-      - arquitectura/diagrama-c4.md
-      - arquitectura/git-flow.md
-      - arquitectura/guia-desarrollo-local.md
-  - Conceptos:
-      - conceptos/index.md
-      - conceptos/arquitectura.md
-      - conceptos/buenos-requerimientos.md
-      - conceptos/devops.md
-  - FAQ: faq/index.md
+  - Tecnología:
+      - Requisitos: requisitos/index.md
+      - Arquitectura:
+          - arquitectura/index.md
+          - arquitectura/repositorios.md
+          - arquitectura/diagrama-c4.md
+          - arquitectura/git-flow.md
+          - arquitectura/guia-desarrollo-local.md
+      - Conceptos:
+          - conceptos/index.md
+          - conceptos/arquitectura.md
+          - conceptos/buenos-requerimientos.md
+          - conceptos/devops.md
+  - Conocimiento:
+      - FAQ: faq/index.md
+  - Social: social/index.md
 
 markdown_extensions:
   - admonition
