@@ -35,8 +35,18 @@ extra_javascript:
   - javascripts/mermaid-zoom.js
 
 nav:
-  - Mapas: http://44.213.47.34/mapas
-  - Inicio: index.md
+  - Ir a Plataforma: http://44.213.47.34/mapas
+  - Inicio:
+      - index.md
+      - Gestión: gestion/index.md
+      - Roadmap:
+          - roadmap/index.md
+          - roadmap/roadmap-3-6-12-meses.md
+          - roadmap/funcionalidades-addendum.md
+      - Institucional: institucional/index.md
+      - Marca:
+          - marca/index.md
+          - marca/prompt-ia.md
   - Requisitos: requisitos/index.md
   - Arquitectura:
       - arquitectura/index.md
@@ -50,15 +60,6 @@ nav:
       - conceptos/buenos-requerimientos.md
       - conceptos/devops.md
   - FAQ: faq/index.md
-  - Gestión: gestion/index.md
-  - Roadmap:
-      - roadmap/index.md
-      - roadmap/roadmap-3-6-12-meses.md
-      - roadmap/funcionalidades-addendum.md
-  - Institucional: institucional/index.md
-  - Marca:
-      - marca/index.md
-      - marca/prompt-ia.md
 
 markdown_extensions:
   - admonition
