@@ -18,6 +18,12 @@ Reconocer las particularidades de género, etnia, edad y territorio de las comun
 - Identificación conjunta de barreras y oportunidades de participación en el proyecto.
 - Definición de acuerdos para fortalecer la inclusión en las siguientes etapas de COLFLUX.
 
+## Documento del encuentro
+
+<iframe src="../../assets/pdf/enfoques-diferenciales.pdf" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
+
+[Descargar PDF](../../assets/pdf/enfoques-diferenciales.pdf)
+
 ## Próximos pasos
 
 Los acuerdos de este encuentro alimentan los criterios de inclusión que el equipo social del proyecto da seguimiento en las siguientes actividades de campo.

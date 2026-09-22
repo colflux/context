@@ -18,6 +18,12 @@ Fortalecer la comprensión compartida del territorio y las dinámicas ecosistém
 - Sesión de co-diseño de funcionalidades de la plataforma con los aliados presentes.
 - Recorrido de campo para contrastar el sistema de monitoreo con el conocimiento territorial.
 
+## Documento del encuentro
+
+<iframe src="../../assets/pdf/visita-chorrera-narino.pdf" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
+
+[Descargar PDF](../../assets/pdf/visita-chorrera-narino.pdf)
+
 ## Próximos pasos
 
 Los aportes recogidos en este encuentro se incorporan al proceso de co-diseño de la plataforma COLFLUX y a las redes de conocimiento con los aliados del territorio.
