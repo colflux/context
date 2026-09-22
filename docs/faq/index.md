@@ -14,7 +14,7 @@ El carbono es el sexto elemento de la tabla periódica. Es uno de los bloques m�
 
 El carbono se puede encontrar en todo nuestro entorno. Cada vez que respiramos exhalamos dióxido de carbono, el cual sube a la atmosfera. De ahí, eventualmente es apropiado por las plantas, quienes respiran este mismo gas y lo utilizan para crecer y producir frutos. Eventualmente estos frutos caen al suelo, sirviendo de alimento para los animales que se encuentren allí. No todo es aprovechado fresco, por lo que ciertos frutos, hojas y ramas, caen al suelo, donde comienzan a descomponerse. Parte de este material que cae es integrado al suelo, donde puede acumularse y ser usado en futuros procesos. A su vez, puede que no todo caiga en el suelo, y en cambio, esas hojas y frutos caen en un cuerpo de agua, donde vuelven a ser alimento para los animales que allí habitan. De no ser aprovechados, esta materia orgánica puede sedimentar (irse al fondo) y queda como una reserva para futuros procesos. 
 
-![Ciclo del Carbono](../assets/Ciclo%20del%20carbono.webp)
+![Ciclo del Carbono](./assets/Ciclo%20del%20carbono.webp)
 *Fuente: Wikipedia - Ciclo del carbono.*
 
 ### ¿Por qué entender el carbono?
@@ -51,7 +51,7 @@ El carbono orgánico en el suelo (COS) se refiere a los compuestos orgánicos qu
 
 Obtener diferentes secciones de la misma columna de suelo permite hacer un análisis más controlado y minimiza el error. Asi mismo, las diferentes secciones de la columna pueden relatar eventos pasados y posibles disturbios en la zona. 
 
-![Perfil del Suelo](../assets/Perfil_suelo.jpeg)
+![Perfil del Suelo](./assets/Perfil_suelo.jpeg)
 *Perfil del suelo.*
 
 ## Flujos de carbono (Cámaras)
@@ -61,7 +61,7 @@ Obtener diferentes secciones de la misma columna de suelo permite hacer un anál
 El flujo es la forma en la que se mide la liberación o secuestro del carbono gaseoso. El dióxido de carbono es uno de los alimentos más importantes de las plantas, por lo que suelen absorber carbono del aire a lo largo del día. Así mismo, el suelo y sus procesos de descomposición generan gases compuestos con carbono. Esta metodología nos permite entender el balance de estos procesos de liberacion y absorción de carbono de las plantas y de los suelos.
 
 
-![Explicación Cámara](../assets/Camara.JPG)
+![Explicación Cámara](./assets/Camara.JPG)
 *Explicacion en campo del uso de la cámara de flujos*
 
 ### ¿Por qué tengo un valor negativo en flujos?
