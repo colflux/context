@@ -6,3 +6,9 @@ Este sitio cumple dos propósitos:
 
 1. **Referencia para el equipo** — arquitectura, conceptos clave, requisitos y estado de gestión del proyecto.
 2. **Contexto para trabajar con IA** — la misma documentación en Markdown que usamos aquí sirve de insumo para conversaciones con Claude sobre el proyecto.
+
+## Presentación del proyecto
+
+<iframe src="assets/pdf/presentacion-inicio-colflux-2026.pdf#page=3" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
+
+[Descargar PDF](assets/pdf/presentacion-inicio-colflux-2026.pdf)

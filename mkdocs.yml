@@ -63,7 +63,11 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
-  - Social: social/index.md
+  - Social:
+      - social/index.md
+      - social/encuentros.md
+      - social/encuentros/visita-chorrera-narino.md
+      - social/encuentros/enfoques-diferenciales.md
   - FAQ: faq/index.md
 
 markdown_extensions:

@@ -1,0 +1,10 @@
+services:
+  docs:
+    build: .
+    container_name: colflux-docs
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: mkdocs serve -a 0.0.0.0:8000
