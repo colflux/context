@@ -1,3 +1,5 @@
+[← Volver](../encuentros.md)
+
 # Encuentro de enfoques diferenciales
 
 <span class="social-detail-tag">Encuentro</span>
