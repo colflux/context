@@ -1,3 +1,5 @@
+[← Volver](../encuentros.md)
+
 # Visita aliados de La Chorrera y Nariño
 
 <span class="social-detail-tag">Encuentro</span>
