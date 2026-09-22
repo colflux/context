@@ -8,8 +8,11 @@
           <div class="social-card-image" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80');"></div>
           <div class="social-card-body">
             <span class="social-tag">Encuentro</span>
+
             <h3>sdfsadfsdfasfdso</h3>
+
             <p>Aplicación del taller de metodologías de carbono, co-diseño de la plataforma COLFLUX y fortalecimiento de redes de conocimiento.</p>
+
             <div class="social-meta">
               <span class="social-meta-item"><span class="social-meta-icon">📅</span>9, 11 y 13 de mayo</span>
               <span class="social-meta-item"><span class="social-meta-icon">📍</span>PUJ y La Calera</span>
@@ -33,15 +36,6 @@
         </article>
       </a>
 
-      <section id="noticias" class="social-section-block">
-        <h3>Noticias</h3>
-        <p>Actualizaciones de avance del proyecto, nuevas publicaciones, alianzas y actividades con aliados.</p>
-      </section>
-
-      <section id="blog-y-reflexiones" class="social-section-block">
-        <h3>Blog y reflexiones</h3>
-        <p>Lecciones aprendidas, metodologías observadas en campo y reflexiones sobre carbono, ecosistemas y ciencia abierta.</p>
-      </section>
-    </main>
+    
   </div>
 </div>
