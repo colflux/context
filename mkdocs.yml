@@ -60,7 +60,9 @@ nav:
           - conceptos/arquitectura.md
           - conceptos/buenos-requerimientos.md
           - conceptos/devops.md
-  - Conocimiento: conocimiento/index.md
+  - Conocimiento:
+      - conocimiento/index.md
+      - conocimiento/como-se-mide-el-carbono.md
   - Social: social/index.md
   - FAQ: faq/index.md
 
