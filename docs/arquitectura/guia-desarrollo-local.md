@@ -116,7 +116,7 @@ Alternativa sin Docker (más rápida para iterar en UI pura): `npm install && np
 | `VITE_GEO_API_URL` / `VITE_GEO_API_BASE_URL` | `frontend` | `backend` (`/api/geo/...`) | Ídem, build-time. |
 | `VITE_API_URL` | `frontend` | `ia-functions` (`/chat`, `/ingest`) | Ídem, build-time. Hoy en producción sigue con el placeholder `http://localhost:8001` porque `ia-functions` aún no está desplegado ahí. |
 | `LLM_PROVIDER` + su API key | `ia-functions` | Proveedor de LLM externo (Groq, Gemini, Ollama, Anthropic) | Cambiable sin tocar código. |
-| `DATABASE_URL` | `backend` | Su propia base Postgres/PostGIS | No confundir con la base de `ia-functions` (son bases distintas, puertos distintos). |
+| `DATABASE_URL` | `backend` | Su propia base Postgres/PostGIS | No confundir con la base de `ia-functions` (son bases distintas, puertos distintos). En local puede apuntar al `db` del propio `docker-compose.yml` o a `colflux-DB` (Lightsail managed database, `*.rds.amazonaws.com`) — en ese segundo caso, Django necesita `OPTIONS: {"sslmode": "require"}` en `DATABASES` (`colflux/settings.py`), porque Lightsail rechaza conexiones sin cifrar. Sin eso, el error que aparece (`password authentication failed`) es engañoso — el problema real es la falta de SSL, no la contraseña. Lightsail en "Public mode" no filtra por IP (no hay whitelist tipo RDS clásico), así que si la conexión falla no es por eso. |
 
 ## Cómo correr el ecosistema completo a la vez
 

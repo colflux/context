@@ -24,10 +24,10 @@ Lista corta de lo que está pendiente **ya priorizado**, para no tener que relee
 
 - **Verificar end-to-end en producción** tras el último deploy: login de `colflux-admin` en `/admin/` y en el frontend (por correo), `/team` con el selector de nivel nuevo, y que subir/descargar datos respete la cascada (ciudadano < investigador < reportador < admin).
 
-## Revisar `PrototipoCOLFLUX` (sin tarea propia todavía)
+## De [[prototipo-evaluar-portar-diccionario-campo]]
 
-- Revisar el repo local `/Users/vivianabautista.xyz/colflux/PrototipoCOLFLUX` (tiene `Backend-Colflux/`, `Frontend-Colflux/` y `estadis/`, sin `README.md`) para identificar qué se puede migrar o reaprovechar hacia el `frontend`/`backend` actuales de COLFLUX.
-- Si al revisarlo aparece trabajo real que valga la pena, crear una tarea propia en `tasks/backlog/` con el detalle — este ítem es solo el recordatorio de hacer la revisión.
+- `PrototipoCOLFLUX` ya se revisó (2026-09-20): tiene diccionario de campo inverso, semáforo de aceptación comunitaria, motor de inferencia dato↔diccionario y análisis exploratorio en Python — documentados como F59-F62 en [funcionalidades-addendum.md](../docs/roadmap/funcionalidades-addendum.md).
+- Falta decidir con el equipo si se portan al backend/frontend reales (stack distinto: Spring Boot vs. Django/DRF).
 
 ## Referencias
 

@@ -47,7 +47,7 @@ Confirmado en `backend/app/api/` (módulos `geo`, `dashboard`, `reportes`, `etl`
 | Ítem | F relacionadas | Justificación |
 |---|---|---|
 | Módulo de calidad: categorización de confiabilidad | F11 | [[calidad-datos-categorizacion]] — prerequisito para que el semáforo de calidad (F11) tenga criterio real, no solo estado binario |
-| Evaluar portar del prototipo: diccionario de campo inverso, semáforo de aceptación comunitaria y motor de inferencia dato↔diccionario | F59, F60, F61 (ver [addendum](funcionalidades-addendum.md)) | Ya existen como prueba de concepto en `PrototipoCOLFLUX/`; falta decidir viabilidad y si migran al backend real |
+| Evaluar portar del prototipo: diccionario de campo inverso, semáforo de aceptación comunitaria y motor de inferencia dato↔diccionario | F59, F60, F61 (ver [addendum](funcionalidades-addendum.md)) | [[prototipo-evaluar-portar-diccionario-campo]] — ya existen como prueba de concepto en `PrototipoCOLFLUX/`; falta decidir viabilidad y si migran al backend real |
 | Trazabilidad: quién sube el dato y cómo se capturó | F11, F27 | [[calidad-datos-trazabilidad]] |
 | Revisar modelos de datos de cobertura vegetal | soporte a F11 | [[datos-modelos-cobertura]] |
 | Terminar de migrar datos IDEAM al servidor | soporte a F41 (a futuro) | [[subir-datos-ideam-servidor]] — bloqueado por versión de backend remoto; desbloquear primero el deploy |
