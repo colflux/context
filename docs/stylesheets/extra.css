@@ -73,14 +73,139 @@
   margin-left: auto;
 }
 
-/* Estética minimalista: menos ruido visual, más aire, misma "voz" que el front */
-.md-header {
+/* Etiqueta "WIKI" antes del toggle de tema claro/oscuro */
+.md-header__option::before {
+  content: "WIKI";
+  align-self: center;
+  margin-right: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--colflux-fg-subtle);
+}
+
+/* Header estilo frontend/src/components/layout/Navbar.tsx: barra blanca con
+   borde inferior, no la barra sólida verde por defecto de Material. */
+.md-header,
+.md-header[data-md-state='shadow'] {
+  background-color: var(--colflux-panel);
+  color: var(--colflux-fg-muted);
   box-shadow: none;
   border-bottom: 1px solid var(--colflux-border);
 }
 
+.md-header__button,
+.md-header__button:hover,
+.md-search__input,
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--colflux-fg-muted);
+}
+
+.md-search__input {
+  background-color: var(--colflux-surface);
+}
+
+/* Barra de tabs (secciones de primer nivel) como los links "pill" del navbar:
+   fondo blanco, texto gris, activo = texto+fondo teal suave, igual que
+   frontend/src/components/layout/Navbar.tsx (LINKS.map ...) */
 .md-tabs {
+  background-color: var(--colflux-panel);
+  border-bottom: 1px solid var(--colflux-border);
   box-shadow: none;
+}
+
+.md-tabs__list {
+  gap: 0.25rem;
+}
+
+.md-tabs__item {
+  height: auto;
+}
+
+.md-tabs__link {
+  margin: 0.5rem 0;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  color: var(--colflux-fg-muted);
+  font-weight: 500;
+  font-size: 0.8rem;
+  opacity: 1;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.md-tabs__link:hover {
+  color: var(--colflux-fg);
+  background-color: var(--colflux-surface);
+}
+
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__item--active .md-tabs__link:hover,
+.md-tabs__item--active .md-tabs__link:focus {
+  color: var(--colflux-teal);
+  background-color: rgba(25, 138, 119, 0.1);
+}
+
+/* El navbar (header + tabs) se mantiene claro incluso en modo oscuro, igual
+   que frontend/src/components/layout/Navbar.tsx (siempre fondo blanco). */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-header[data-md-state='shadow'],
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #ffffff;
+  border-bottom-color: #e2e8e4;
+}
+
+[data-md-color-scheme="slate"] .md-header__button,
+[data-md-color-scheme="slate"] .md-header__button:hover,
+[data-md-color-scheme="slate"] .md-search__input,
+[data-md-color-scheme="slate"] .md-search__input::placeholder,
+[data-md-color-scheme="slate"] .md-search__icon,
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #64748b;
+}
+
+[data-md-color-scheme="slate"] .md-search__input {
+  background-color: #f7faf8;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  color: #0f172a;
+  background-color: #f7faf8;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link,
+[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link:hover,
+[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link:focus {
+  color: var(--colflux-teal);
+  background-color: rgba(25, 138, 119, 0.1);
+}
+
+/* El indicador de barrita inferior de Material ya no aplica con el estilo
+   "pill"; el fondo de color reemplaza esa función. */
+.md-tabs__indicator {
+  display: none;
+}
+
+/* Footer estilo frontend/src/components/layout/Footer.tsx: barra sólida
+   verde oscuro con texto pequeño centrado, sin el bloque de navegación
+   siguiente/anterior con fondo por defecto de Material. */
+.md-footer-meta {
+  background-color: var(--colflux-teal-dark);
+}
+
+.md-footer-meta__inner {
+  justify-content: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.md-footer-meta__inner .md-copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+}
+
+.md-footer__inner {
+  background-color: var(--colflux-teal);
 }
 
 body,

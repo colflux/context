@@ -1,5 +1,6 @@
 site_name: Colflux
 site_description: Documentación transversal del proyecto Colflux (OE2 - Plataforma de monitoreo de carbono)
+copyright: 🌿 COLFLUX
 theme:
   name: material
   language: es
@@ -34,6 +35,7 @@ extra_javascript:
   - javascripts/mermaid-zoom.js
 
 nav:
+  - Mapas: http://44.213.47.34/mapas
   - Inicio: index.md
   - Requisitos: requisitos/index.md
   - Arquitectura:
@@ -72,3 +74,7 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra:
+  generator: false
+  homepage: http://44.213.47.34/mapas
