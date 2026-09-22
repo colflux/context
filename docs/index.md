@@ -9,6 +9,6 @@ Este sitio cumple dos propósitos:
 
 ## Presentación del proyecto
 
-<iframe src="assets/pdf/presentacion-inicio-colflux-2026.pdf" width="100%" height="700px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
+<iframe src="assets/pdf/presentacion-inicio-colflux-2026.pdf#page=3" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
 
 [Descargar PDF](assets/pdf/presentacion-inicio-colflux-2026.pdf)
