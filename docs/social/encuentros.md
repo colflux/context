@@ -1,4 +1,4 @@
-# Social
+# Encuentros
 
 <div class="social-page">
   <div class="social-shell">
