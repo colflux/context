@@ -16,7 +16,7 @@ El carbono se puede encontrar en todo nuestro entorno. Cada vez que respiramos e
 
 ![Ciclo del Carbono](./assets/Ciclo%20del%20carbono.webp)
 
-*Fuente: Wikipedia - Ciclo del carbono.*
+-*Fuente: Wikipedia - Ciclo del carbono.*
 
 ### ¿Por qué entender el carbono?
 
