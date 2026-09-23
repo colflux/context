@@ -20,7 +20,7 @@ El objetivo de el curso fue capacitar a profesionales desde diferentes areas inv
 
 ## Reporte del encuentro
 
-[Descargar PDF](/assets/pdf/enfoques-diferenciales.pdf)
+<!-- [///]<>%[Descargar PDF](/assets/pdf/enfoques-diferenciales.pdf) -->
 
 
 [← Volver a Diplomados](../diplomado.md)

@@ -63,7 +63,9 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
-      - Diplomado: conocimiento/diplomado.md
+      - Diplomado:
+          - conocimiento/diplomado.md
+          - Curso de alto nivel: conocimiento/Diplo_Ejecutado/Alto_Nivel.md
   - Social:
       - social/index.md
       - Encuentros: social/encuentros.md
