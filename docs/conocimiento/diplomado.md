@@ -3,7 +3,7 @@
 <div class="social-page">
   <div class="social-shell">
     <main class="social-content">
-              <article class="social-card social-card-feature">
+        <article class="social-card social-card-feature">
           <div class="social-card-image" style="background-image: url('../social/assets/Foto Diplomado.jpeg');"></div>
           <div class="social-card-body">
             <span class="social-tag">Diplomado</span>
@@ -14,8 +14,8 @@
               <span class="social-meta-item"><span class="social-meta-icon">📍</span>Presencial</span>
             </div>
           </div>
-        </article>
-        <a class="social-card-link" href="Diplo_Ejecutado/Alto_Nivel/">
+          </article>
+        <a class="social-card-link" href="Diplo_Ejecutado/Alto_Nivel.md">
               <article class="social-card">
           <div class="social-card-image" style="background-image: url('../social/assets/Juan_Carlos_Diplomado.png');"></div>
           <div class="social-card-body">
