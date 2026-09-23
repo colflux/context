@@ -14,7 +14,7 @@
             <p>Aplicación del taller de metodologías de carbono, co-diseño de la plataforma COLFLUX y fortalecimiento de redes de conocimiento.</p>
 
             <div class="social-meta">
-              <span class="social-meta-item"><span class="social-meta-icon">📅</span>9, 11 y 13 de mayo</span>
+              <span class="social-meta-item"><span class="social-meta-icon">📅</span>9, 11, 12 y 13 de mayo</span>
               <span class="social-meta-item"><span class="social-meta-icon">📍</span>PUJ y La Calera</span>
             </div>
           </div>
