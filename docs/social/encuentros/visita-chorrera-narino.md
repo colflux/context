@@ -20,9 +20,14 @@ Fortalecer la comprensión compartida del territorio y las dinámicas ecosistém
 
 ## Documento del encuentro
 
-<iframe src="../../assets/pdf/visita-chorrera-narino.pdf" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
-
-[Descargar PDF](../../assets/pdf/visita-chorrera-narino.pdf)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAHKy3p8_Hc/VVt5eCi8r9lTKcc_JKxuyA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https://www.canva.com/design/DAHKy3p8_Hc/VVt5eCi8r9lTKcc_JKxuyA/view?utm_content=DAHKy3p8_Hc&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">Resultados visita aliados</a>
 
 ## Próximos pasos
 
