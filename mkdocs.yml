@@ -63,7 +63,11 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
-  - Social: social/index.md
+  - Social:
+      - social/index.md
+      - social/encuentros.md
+      - social/noticias.md
+      - social/blog-y-reflexiones.md
   - FAQ: faq/index.md
 
 markdown_extensions:
