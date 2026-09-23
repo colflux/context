@@ -286,7 +286,7 @@ body,
 
 .social-card {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: minmax(180px, 28%) 1fr;
   gap: 0.9rem;
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid var(--colflux-border);
@@ -302,8 +302,10 @@ body,
 }
 
 .social-card-image {
-  min-height: 96px;
-  background-size: cover;
+  min-height: 180px;
+  background-color: var(--colflux-teal-light);
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   border-right: 1px solid var(--colflux-border);
 }
@@ -415,7 +417,8 @@ body,
   }
 
   .social-card-image {
-    min-height: 140px;
+    min-height: 180px;
+    background-size: contain;
     border-right: none;
     border-bottom: 1px solid var(--colflux-border);
   }
