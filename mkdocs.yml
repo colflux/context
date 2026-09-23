@@ -63,11 +63,11 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
+      - Diplomado: social/diplomado.md
   - Social:
       - social/index.md
       - Encuentros: social/encuentros.md
       - Conociendo nuestros territorios: social/territorios.md
-      - Diplomado: social/diplomado.md
       - social/noticias.md
       - social/blog-y-reflexiones.md
   - FAQ: faq/index.md
