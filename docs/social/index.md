@@ -5,6 +5,104 @@ Espacio para compartir la vida del proyecto: noticias, aprendizajes, relatos de 
 !!! tip "Este espacio se alimenta con el trabajo del equipo"
     Aquí se publicará contenido de difusión, testimonios de campo y momentos relevantes del proyecto para dar visibilidad a la investigación, la comunidad y la metodología de monitoreo.
 
+## Encuentros
+
+Espacios de diálogo y trabajo conjunto con comunidades, aliados y equipos territoriales.
+
+## Conociendo nuestros territorios
+
+Recorridos para reconocer los paisajes, las dinámicas locales y las historias que acompañan el monitoreo de carbono.
+
+<div class="territories-grid" markdown="1">
+
+<article class="territory-card">
+    <div class="territory-gallery">
+        <input type="radio" name="gallery-la-chorrera" id="la-chorrera-1" checked>
+        <input type="radio" name="gallery-la-chorrera" id="la-chorrera-2">
+        <input type="radio" name="gallery-la-chorrera" id="la-chorrera-3">
+        <div class="territory-slides">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Río entre la selva amazónica de La Chorrera">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Paisaje natural de La Chorrera">
+            <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80" alt="Vegetación del territorio de La Chorrera">
+        </div>
+        <div class="territory-dots" aria-label="Fotos de La Chorrera">
+            <label for="la-chorrera-1" aria-label="Ver foto 1"></label><label for="la-chorrera-2" aria-label="Ver foto 2"></label><label for="la-chorrera-3" aria-label="Ver foto 3"></label>
+        </div>
+    </div>
+    <div class="territory-card-body"><span class="territory-tag">Visita</span><h3>La Chorrera</h3><p>Territorio amazónico de gran biodiversidad, donde el proyecto fortalece alianzas y conoce las dinámicas de las comunidades locales.</p><div class="territory-meta">Amazonas · La Chorrera</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery">
+        <input type="radio" name="gallery-leticia" id="leticia-1" checked><input type="radio" name="gallery-leticia" id="leticia-2"><input type="radio" name="gallery-leticia" id="leticia-3">
+        <div class="territory-slides"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80" alt="Bosque tropical de Leticia"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Sendero natural de Leticia"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Paisaje amazónico de Leticia"></div>
+        <div class="territory-dots" aria-label="Fotos de Leticia"><label for="leticia-1" aria-label="Ver foto 1"></label><label for="leticia-2" aria-label="Ver foto 2"></label><label for="leticia-3" aria-label="Ver foto 3"></label></div>
+    </div>
+    <div class="territory-card-body"><span class="territory-tag">Visita</span><h3>Leticia</h3><p>Puerta de entrada al Amazonas y punto de encuentro para conectar conocimiento científico, territorio y comunidades.</p><div class="territory-meta">Amazonas · Leticia</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-santiago" id="santiago-1" checked><input type="radio" name="gallery-santiago" id="santiago-2"><input type="radio" name="gallery-santiago" id="santiago-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Montañas de Santiago"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Santiago"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Bosque cercano a Santiago"></div><div class="territory-dots" aria-label="Fotos de Santiago"><label for="santiago-1" aria-label="Ver foto 1"></label><label for="santiago-2" aria-label="Ver foto 2"></label><label for="santiago-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>Santiago</h3><p>Un espacio para reconocer las prácticas locales y los ecosistemas que hacen parte de la red territorial de COLFLUX.</p><div class="territory-meta">Putumayo · Santiago</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-calamar" id="calamar-1" checked><input type="radio" name="gallery-calamar" id="calamar-2"><input type="radio" name="gallery-calamar" id="calamar-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Río y bosque de Calamar"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Bosque de Calamar"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Calamar"></div><div class="territory-dots" aria-label="Fotos de Calamar"><label for="calamar-1" aria-label="Ver foto 1"></label><label for="calamar-2" aria-label="Ver foto 2"></label><label for="calamar-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>Calamar</h3><p>Territorio de transición amazónica donde se encuentran bosques, ríos y comunidades con saberes propios.</p><div class="territory-meta">Guaviare · Calamar</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-san-jose" id="san-jose-1" checked><input type="radio" name="gallery-san-jose" id="san-jose-2"><input type="radio" name="gallery-san-jose" id="san-jose-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Vegetación de San José del Guaviare"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80" alt="Paisaje natural de San José del Guaviare"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Río de San José del Guaviare"></div><div class="territory-dots" aria-label="Fotos de San José del Guaviare"><label for="san-jose-1" aria-label="Ver foto 1"></label><label for="san-jose-2" aria-label="Ver foto 2"></label><label for="san-jose-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>San José del Guaviare</h3><p>Un paisaje de encuentro entre la Amazonía y la Orinoquía, con comunidades y ecosistemas estratégicos.</p><div class="territory-meta">Guaviare · San José del Guaviare</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-inirida" id="inirida-1" checked><input type="radio" name="gallery-inirida" id="inirida-2"><input type="radio" name="gallery-inirida" id="inirida-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Río y selva de Inírida"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Inírida"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Bosque de Inírida"></div><div class="territory-dots" aria-label="Fotos de Inírida"><label for="inirida-1" aria-label="Ver foto 1"></label><label for="inirida-2" aria-label="Ver foto 2"></label><label for="inirida-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>Inírida</h3><p>Territorio de ríos y sabanas amazónicas donde la biodiversidad y la cultura local orientan el diálogo.</p><div class="territory-meta">Guainía · Inírida</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-cocuy" id="cocuy-1" checked><input type="radio" name="gallery-cocuy" id="cocuy-2"><input type="radio" name="gallery-cocuy" id="cocuy-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Montañas de El Cocuy"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Paisaje de El Cocuy"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Vegetación de El Cocuy"></div><div class="territory-dots" aria-label="Fotos de El Cocuy"><label for="cocuy-1" aria-label="Ver foto 1"></label><label for="cocuy-2" aria-label="Ver foto 2"></label><label for="cocuy-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Visita</span><h3>El Cocuy</h3><p>Paisajes de alta montaña que permiten conversar sobre páramos, agua y conservación con los actores locales.</p><div class="territory-meta">Boyacá · El Cocuy</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-guican" id="guican-1" checked><input type="radio" name="gallery-guican" id="guican-2"><input type="radio" name="gallery-guican" id="guican-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Montañas de Güicán de la Sierra"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Güicán de la Sierra"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Sendero de Güicán de la Sierra"></div><div class="territory-dots" aria-label="Fotos de Güicán de la Sierra"><label for="guican-1" aria-label="Ver foto 1"></label><label for="guican-2" aria-label="Ver foto 2"></label><label for="guican-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Visita</span><h3>Güicán de la Sierra</h3><p>Un territorio de páramo y montaña donde el cuidado del agua conecta el conocimiento local y científico.</p><div class="territory-meta">Boyacá · Güicán de la Sierra</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-choachi" id="choachi-1" checked><input type="radio" name="gallery-choachi" id="choachi-2"><input type="radio" name="gallery-choachi" id="choachi-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Choachí"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Bosque de Choachí"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Montañas de Choachí"></div><div class="territory-dots" aria-label="Fotos de Choachí"><label for="choachi-1" aria-label="Ver foto 1"></label><label for="choachi-2" aria-label="Ver foto 2"></label><label for="choachi-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>Choachí</h3><p>Montañas cercanas a Bogotá que muestran la relación entre ecosistemas altoandinos y comunidades rurales.</p><div class="territory-meta">Cundinamarca · Choachí</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-fomeque" id="fomeque-1" checked><input type="radio" name="gallery-fomeque" id="fomeque-2"><input type="radio" name="gallery-fomeque" id="fomeque-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Montañas de Fómeque"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Bosque de Fómeque"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Fómeque"></div><div class="territory-dots" aria-label="Fotos de Fómeque"><label for="fomeque-1" aria-label="Ver foto 1"></label><label for="fomeque-2" aria-label="Ver foto 2"></label><label for="fomeque-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>Fómeque</h3><p>Un territorio de páramo, bosque y agua donde el diálogo con los actores locales es esencial.</p><div class="territory-meta">Cundinamarca · Fómeque</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-calera" id="calera-1" checked><input type="radio" name="gallery-calera" id="calera-2"><input type="radio" name="gallery-calera" id="calera-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Bosque de La Calera"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Paisaje de La Calera"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="Sendero de La Calera"></div><div class="territory-dots" aria-label="Fotos de La Calera"><label for="calera-1" aria-label="Ver foto 1"></label><label for="calera-2" aria-label="Ver foto 2"></label><label for="calera-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>La Calera</h3><p>Un paisaje altoandino próximo a la capital, clave para comprender los vínculos entre agua, ciudad y ruralidad.</p><div class="territory-meta">Cundinamarca · La Calera</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-villavicencio" id="villavicencio-1" checked><input type="radio" name="gallery-villavicencio" id="villavicencio-2"><input type="radio" name="gallery-villavicencio" id="villavicencio-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Villavicencio"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Río cercano a Villavicencio"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80" alt="Vegetación de Villavicencio"></div><div class="territory-dots" aria-label="Fotos de Villavicencio"><label for="villavicencio-1" aria-label="Ver foto 1"></label><label for="villavicencio-2" aria-label="Ver foto 2"></label><label for="villavicencio-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Territorio</span><h3>Villavicencio</h3><p>Puerta de la Orinoquía, donde confluyen paisajes de piedemonte, sabana y redes de trabajo territorial.</p><div class="territory-meta">Meta · Villavicencio</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-puerto-lleras" id="puerto-lleras-1" checked><input type="radio" name="gallery-puerto-lleras" id="puerto-lleras-2"><input type="radio" name="gallery-puerto-lleras" id="puerto-lleras-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Río de Puerto Lleras"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Sabana de Puerto Lleras"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Paisaje de Puerto Lleras"></div><div class="territory-dots" aria-label="Fotos de Puerto Lleras"><label for="puerto-lleras-1" aria-label="Ver foto 1"></label><label for="puerto-lleras-2" aria-label="Ver foto 2"></label><label for="puerto-lleras-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Visita</span><h3>Puerto Lleras</h3><p>Sabana y ríos de la Orinoquía que permiten reconocer sus ciclos, biodiversidad y actividades productivas.</p><div class="territory-meta">Meta · Puerto Lleras</div></div>
+</article>
+
+<article class="territory-card">
+    <div class="territory-gallery"><input type="radio" name="gallery-san-luis" id="san-luis-1" checked><input type="radio" name="gallery-san-luis" id="san-luis-2"><input type="radio" name="gallery-san-luis" id="san-luis-3"><div class="territory-slides"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Paisaje de San Luis de Palenque"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Río de San Luis de Palenque"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Sabana de San Luis de Palenque"></div><div class="territory-dots" aria-label="Fotos de San Luis de Palenque"><label for="san-luis-1" aria-label="Ver foto 1"></label><label for="san-luis-2" aria-label="Ver foto 2"></label><label for="san-luis-3" aria-label="Ver foto 3"></label></div></div>
+    <div class="territory-card-body"><span class="territory-tag">Visita</span><h3>San Luis de Palenque</h3><p>Territorio llanero para conversar sobre sabanas inundables, biodiversidad y formas de vida locales.</p><div class="territory-meta">Casanare · San Luis de Palenque</div></div>
+</article>
+
+</div>
+
 ## Noticias
 
 Las noticias de Colflux sirven para comunicar avances importantes del proyecto, publicaciones relevantes, actividades con aliados, y entregas de valor para la comunidad interesada en monitoreo de carbono y ecosistemas.
@@ -14,37 +112,3 @@ Las noticias de Colflux sirven para comunicar avances importantes del proyecto, 
 - Comunicados sobre avances en investigación, análisis y acompañamiento territorial.
 - Actualizaciones del estado del proyecto y sus próximos pasos.
 
-## Blog y reflexiones
-
-Este espacio también puede funcionar como bitácora de aprendizaje. Aquí se pueden narrar experiencias, metodologías, observaciones de campo y conclusiones clave del trabajo con ecosistemas.
-
-Ejemplos de temas:
-
-- Cómo se interpreta la información de carbono en ecosistemas.
-- Lecciones aprendidas del trabajo de monitoreo en campo.
-- Experiencias de colaboración con comunidades, investigadores y aliados.
-- Reflexiones sobre la importancia de los humedales, páramos y sabanas en la mitigación del cambio climático.
-
-## Fotos de campo
-
-Las imágenes ayudan a contar la historia del proyecto. Aquí se pueden compartir registros visuales de recorridos, toma de datos, observación de ecosistemas y trabajo del equipo en territorio.
-
-### Temas sugeridos para fotografías
-
-- Páramos, humedales y sabanas en diferentes estaciones del año.
-- Técnicas de muestreo y medición en campo.
-- Equipo colaborando con aliados y comunidades.
-- Paisajes y evidencia de la biodiversidad y complejidad ecosistémica.
-
-## Agenda de contenido
-
-Para mantener este espacio vivo, conviene definir una agenda simple:
-
-1. Publicaciones breves de avances del proyecto.
-2. Una nota mensual con aprendizajes o reflexión del equipo.
-3. Un conjunto de fotografías por campaña o salida de campo.
-4. Material visual que complemente informes, presentaciones y conversaciones institucionales.
-
-## En construcción
-
-Este apartado va creciendo con el proyecto. La idea es que se convierta en un archivo vivo de memoria, comunicación y visibilidad del trabajo realizado en Colflux.
