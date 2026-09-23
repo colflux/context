@@ -15,7 +15,7 @@ Espacio para compartir la vida del proyecto: noticias, aprendizajes, relatos de 
     <main class="social-content">
       <a class="social-card-link" href="encuentros/">
         <article class="social-card social-card-feature">
-          <div class="social-card-image" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="social-card-image" style="background-image: url('assets/encuentros.jpg');"></div>
           <div class="social-card-body">
             <span class="social-tag">Encuentros</span>
             <h3>Encuentros y trabajo territorial</h3>
@@ -26,7 +26,7 @@ Espacio para compartir la vida del proyecto: noticias, aprendizajes, relatos de 
 
       <a class="social-card-link" href="territorios/">
         <article class="social-card">
-          <div class="social-card-image" style="background-image: url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="social-card-image" style="background-image: url('assets/territorio.jpg');"></div>
           <div class="social-card-body">
             <span class="social-tag">Territorio</span>
             <h3>Conociendo nuestros territorios</h3>
