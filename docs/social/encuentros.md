@@ -32,6 +32,21 @@
         </article>
       </a>
 
+      <a class="social-card-link" href="salida-campo-guatiquia/">
+        <article class="social-card">
+          <div class="social-card-image" style="background-image: url('../assets/Rio%20guatiquia.jpg');"></div>
+          <div class="social-card-body">
+            <span class="social-tag">Salida de campo</span>
+            <h3>Salida de campo a la cuenca del Río Guatiquía</h3>
+            <p>Esta salida permitió identificar las ubicaciones reales de las estaciones de interés para el modelo hidrológico, así como realizar la toma de parámetros hidráulicos y de gases de efecto invernadero (GEI).</p>
+            <div class="social-meta">
+              <span class="social-meta-item"><span class="social-meta-icon">📅</span>21 al 24 de agosto de 2026</span>
+              <span class="social-meta-item"><span class="social-meta-icon">📍</span>Cuenca del Río Guatiquía</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
     
   </div>
 </div>
