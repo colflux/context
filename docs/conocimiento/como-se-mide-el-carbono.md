@@ -4,30 +4,31 @@ Colflux monitorea el carbono en páramos, humedales y sabanas a través de tres 
 
 ## 1. Biomasa: el carbono almacenado en lo vivo
 
-La biomasa aérea es el peso de la vegetación que está por encima del suelo — árboles, arbustos y pastos. Aproximadamente la mitad de ese peso es carbono, así que medir biomasa es una forma indirecta de estimar cuánto carbono tiene almacenado un ecosistema en su vegetación.
+Para hacer la medición de biomasa suele usarse el protocolo del Inventario Forestal Nacional de Colombia que indica para a arreglos no lineales el uso de parcelas circulares con 15 metros de radio, dispuestas de manera aleatoria con una distancia entre ellas de 80 metros. 5 de estas parcelas suele agruparse en conglomerados. Todos los fustales (Arboles con un diametro a la altura del pecho superior a 10cm) dentro de la parcela se miden, mientras que los latizales (Arboles con un diametro a la altura del pecho inferior a 10 cm) se miden en un radio hasta 3 metros del centro.  
 
-**En árboles**, se mide en campo la altura, el DAP (Diámetro a la Altura del Pecho) y, cuando es posible, la densidad de la madera. Con esos datos, y ecuaciones específicas según la zona, se calcula el peso total del árbol. Los árboles se clasifican por tamaño según su DAP:
+También se puede emplear parcelas rectangulares de 20x25, pero es un poco menos común.  
 
-- **Latizal (L):** 5–20 cm de DAP.
-- **Fustal (F):** 20–50 cm de DAP.
-- **Fustal grande (FG):** más de 50 cm de DAP.
+Para biomasa en bosque se utilizan principalmente las ecuaciones de Chave y de Álvarez, autores que han establecido parámetros y proporciones clave. Información necesaria para realizar este proceso: Altura, DAP (Diametro a la altura del pecho) y Densidad de la madera. Densidad puede obtenerse en campo, pero existen datos en línea por lo que se puede prescindir del dato insitu. Para la palma Morichal, Mauritia, se emplea la fórmula de Goodman et al., (2013) 
 
-**En pastos**, se recolecta una muestra física que se pesa en laboratorio, tanto en su estado fresco como seco.
+Biomasa subterránea bosque emplea la ecuación de Cairns et al. (1997) pero esta requiere biomasa aérea. 
+
+Biomasas herbáceas se calcula usualmente recolectando toda la materia en un área de 50cm2	 
+
+Para Necromasa o Materia Orgánica Muerta (MOM) se recoge todo el detrito que este en el suelo en un área de 1 m2. También, es posible colocar una trampa permanente, de 1 x 1 metro, elevada del suelo (aprox 50cm) para capturar todo material que caiga en el en un periodo de 3 meses. 
 
 ## 2. Carbono Orgánico en el Suelo (COS): el carbono acumulado bajo tierra
 
-El COS mide los compuestos orgánicos depositados en el suelo — residuos de plantas, animales, microorganismos y humus. En páramos y humedales, donde el suelo suele actuar como el reservorio de carbono más grande del ecosistema, esta medición es clave.
+Para el carbono orgánico en suelo, se suele elegir un punto a 7 metros del centro de la parcela seleccionada para biomasa.  
 
-Las muestras se toman en distintas profundidades de una misma columna de suelo. Esto no solo reduce el margen de error del análisis, sino que también da información sobre los ciclos y tiempos ecológicos de la zona, ya que el carbono suele disminuir a mayor profundidad.
+El carbono orgánico en el suelo se obtiene usando un barreno (belga o ruso) que permite sacar núcleo de suelo con un volumen conocido. Usualmente estos barrenos cuentan con una longitud de 50 cm. La herramienta es insertada en el suelo hasta que se llegue a su límite, se gira asegurando de no compactar la muestra y se retira. 
+
+Usualmente el núcleo resultante se separa en submuestras cada 10cm, aunque también es posible encontrar cada 2cm. Muchos procedimientos utilizan 50cm como el estándar de la muestra, sin embargo,  otros tienen el objetivo de calcular el carbono en todos los horizontes, por lo que la medida sería hasta que ya no haya más suelo. 
 
 ## 3. Flujos: el carbono en movimiento
 
-Mientras biomasa y COS miden carbono *almacenado*, los flujos miden carbono *en tránsito* entre el ecosistema y la atmósfera, usando cámaras de gases instaladas en campo.
+El carbono gaseoso es medido a través del flujo que existe del suelo a la atmosfera. La medición de la respiración del suelo se realiza mediante una cámara cerrada y un analizador de gas. Cada medición tiene 2 minutos de duración, durante las cuales se registró el flujo de CO2 emitido por el suelo al interior del anillo en umol m-2 s-1 (algunos analizadores entregan el resultado en gramos), la humedad suelo (%), la humedad del aire (%), la temperatura suelo (ºC) y la temperatura del aire (ºC) y la presión atmosférica en el momento de la medición. Las mediciones pueden ser tomadas en suelo expuesto o con hojarasca dependiendo de la pregunta de investigación. 
 
-El CO₂ es uno de los principales alimentos de las plantas, que lo absorben del aire durante el día. A su vez, la descomposición en el suelo libera gases con carbono. La medición de flujos permite entender el balance entre estos dos procesos:
-
-- **Flujo positivo:** el gas se mueve del suelo (o el dosel) hacia la atmósfera — el ecosistema está liberando carbono.
-- **Flujo negativo:** el gas está siendo atrapado por el suelo — el ecosistema está secuestrando carbono atmosférico.
+Las torres, por su parte, son este mismo concepto a una escala mucho más grande. Las torres miden el intercambio que existe entre la atmosfera y el dosel a través de la covarianza entre cambios en la columna vertical del air y las fluctuaciones de concentración de un escalar (scalar concentration fluctuation). Este método es automatizado, puede hacerse en casi cualquier área plana, mide continuamente por meses o inclusive años, entregando información de tallada de la absorción o liberación de carbono. 
 
 ## Cómo se complementan
 
