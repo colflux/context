@@ -8,11 +8,8 @@
           <div class="social-card-image" style="background-image: url('../../assets/encuentros/visita-la-chorrera-narino.jpg');"></div>
           <div class="social-card-body">
             <span class="social-tag">Encuentro</span>
-
             <h3>Visita aliados de La Chorrera y Nariño</h3>
-
             <p>Aplicación del taller de metodologías de carbono, co-diseño de la plataforma COLFLUX y fortalecimiento de redes de conocimiento.</p>
-
             <div class="social-meta">
               <span class="social-meta-item"><span class="social-meta-icon">📅</span>9, 11, 12 y 13 de mayo</span>
               <span class="social-meta-item"><span class="social-meta-icon">📍</span>PUJ y La Calera</span>
@@ -20,7 +17,6 @@
           </div>
         </article>
       </a>
-
       <a class="social-card-link" href="enfoques-diferenciales/">
         <article class="social-card">
           <div class="social-card-image" style="background-image: url('../../assets/encuentros/enfoques-diferenciales.jpg');"></div>

@@ -14,8 +14,7 @@
               <span class="social-meta-item"><span class="social-meta-icon">📍</span>Presencial</span>
             </div>
           </div>
-                </article>   
-                </a>
+              </article>
               <article class="social-card">
           <div class="social-card-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');"></div>
           <div class="social-card-body">
@@ -28,7 +27,6 @@
             </div>
           </div>
         </article>
-      </a>
 
     
   </div>
