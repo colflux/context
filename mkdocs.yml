@@ -65,7 +65,8 @@ nav:
       - conocimiento/como-se-mide-el-carbono.md
   - Social:
       - social/index.md
-      - social/encuentros.md
+      - Encuentros: social/encuentros.md
+      - Conociendo nuestros territorios: social/territorios.md
       - social/noticias.md
       - social/blog-y-reflexiones.md
   - FAQ: faq/index.md

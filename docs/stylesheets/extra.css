@@ -449,13 +449,16 @@ body,
 .territories-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 1.5rem 0 2.5rem;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 1.5rem auto 2.5rem;
 }
 
 .territory-card {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(230px, 34%) 1fr;
+  grid-template-columns: minmax(260px, 38%) 1fr;
+  cursor: pointer;
   overflow: hidden;
   background: var(--colflux-panel);
   border: 1px solid var(--colflux-border);
@@ -465,7 +468,12 @@ body,
 
 .territory-gallery {
   position: relative;
-  aspect-ratio: 16 / 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 200px;
+  padding: 0.9rem;
   overflow: hidden;
   background: var(--colflux-teal-light);
 }
@@ -480,13 +488,20 @@ body,
 .territory-slides,
 .territory-slides img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.territory-slides {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.45rem;
 }
 
 .territory-slides img {
   position: absolute;
   inset: 0;
   object-fit: cover;
+  object-position: center;
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -498,10 +513,6 @@ body,
 }
 
 .territory-dots {
-  position: absolute;
-  right: 0;
-  bottom: 0.7rem;
-  left: 0;
   display: flex;
   justify-content: center;
   gap: 0.45rem;
@@ -525,7 +536,29 @@ body,
 }
 
 .territory-card-body {
-  padding: 0.9rem 1rem 1rem;
+  position: relative;
+  padding: 0.75rem 3.2rem 0.8rem 0.9rem;
+}
+
+.territory-card-body::after {
+  position: absolute;
+  top: 50%;
+  right: 1.15rem;
+  color: var(--colflux-teal);
+  content: "›";
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.territory-card:hover {
+  border-color: var(--colflux-teal);
+  box-shadow: 0 0.35rem 1.2rem rgba(15, 23, 42, 0.08);
+}
+
+.territory-card:hover .territory-card-body::after {
+  transform: translate(0.15rem, -50%);
 }
 
 .territory-tag {
@@ -535,7 +568,7 @@ body,
   color: var(--colflux-teal-dark);
   background: var(--colflux-teal-light);
   border-radius: 999px;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -544,20 +577,20 @@ body,
 .territory-card-body h3 {
   margin: 0 0 0.35rem;
   color: var(--colflux-fg);
-  font-size: 1.05rem;
+  font-size: 0.9rem;
 }
 
 .territory-card-body p {
-  min-height: 4.3rem;
+  min-height: 3.4rem;
   margin: 0 0 0.7rem;
   color: var(--colflux-fg-muted);
-  font-size: 0.84rem;
-  line-height: 1.5;
+  font-size: 0.72rem;
+  line-height: 1.45;
 }
 
 .territory-meta {
   color: var(--colflux-teal);
-  font-size: 0.75rem;
+  font-size: 0.66rem;
   font-weight: 600;
 }
 
@@ -570,8 +603,16 @@ body,
     display: block;
   }
 
+  .territory-gallery {
+    min-height: 0;
+  }
+
   .territory-card-body p {
     min-height: 0;
+  }
+
+  .territory-card-body {
+    padding-right: 3rem;
   }
 }
 
