@@ -4,7 +4,7 @@
   <div class="social-shell">
     <main class="social-content">
         <article class="social-card social-card-feature">
-          <div class="social-card-image" style="background-image: url('../social/assets/Foto Diplomado.jpeg');"></div>
+          <div class="social-card-image" style="background-image: url('../../social/assets/Foto Diplomado.jpeg');"></div>
           <div class="social-card-body">
             <span class="social-tag">Diplomado</span>
             <h3>Diplomado 100 horas</h3>
@@ -15,9 +15,9 @@
             </div>
           </div>
           </article>
-        <a class="social-card-link" href="diplomado/alto-nivel.md">
+        <a class="social-card-link" href="alto-nivel.md">
               <article class="social-card">
-          <div class="social-card-image" style="background-image: url('../social/assets/Juan_Carlos_Diplomado.png');"></div>
+          <div class="social-card-image" style="background-image: url('../../social/assets/Juan_Carlos_Diplomado.png');"></div>
           <div class="social-card-body">
             <span class="social-tag">Curso de Alto Nivel</span>
             <h3>Dinámicas del carbono</h3>
