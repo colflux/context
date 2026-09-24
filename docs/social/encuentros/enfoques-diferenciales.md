@@ -20,9 +20,9 @@ Reconocer las particularidades de género, etnia, edad y territorio de las comun
 
 ## Documento del encuentro
 
-<iframe src="/assets/pdf/enfoques-diferenciales.pdf" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
+<iframe src="../../../assets/pdf/enfoques-diferenciales.pdf" width="100%" height="520px" style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"></iframe>
 
-[Descargar PDF](/assets/pdf/enfoques-diferenciales.pdf)
+[Descargar PDF](../../../assets/pdf/enfoques-diferenciales.pdf)
 
 ## Próximos pasos
 
