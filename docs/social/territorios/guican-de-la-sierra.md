@@ -1,55 +1,28 @@
 ---
 hide:
-  - navigation
+  - toc
 ---
-
-[← Volver](../territorios.md)
 
 # Güicán de la Sierra
 
-<span class="social-detail-tag">Visita</span>
+<div class="territory-detail">
+  <div class="territory-detail-header">
+    <img class="territory-detail-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Güicán de la Sierra">
+    <div>
+      <p class="territory-summary">Municipio boyacense vecino a El Cocuy, con ecosistemas de páramo y alta montaña.</p>
+    </div>
+  </div>
 
-**Boyacá**
+  <div class="territory-fact-grid">
+    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, provincia de Gutiérrez.</p></div>
+    <div class="territory-fact"><strong>Ubicación</strong><p>Vecino de El Cocuy, en la Cordillera Oriental.</p></div>
+    <div class="territory-fact"><strong>Extensión / altitud</strong><p>2.880 msnm en su casco urbano; el 81% de su territorio hace parte del PNN El Cocuy.</p></div>
+    <div class="territory-fact"><strong>Clima</strong><p>Frío de montaña a nival en las zonas altas.</p></div>
+    <div class="territory-fact"><strong>Biodiversidad</strong><p>Comparte con El Cocuy picos nevados, glaciares, lagunas glaciares y extensos páramos; territorio de gran valor ecológico e importancia espiritual para el pueblo indígena U’wa.</p></div>
+    <div class="territory-fact"><strong>Economía</strong><p>Agricultura y ganadería de páramo, turismo de naturaleza y montañismo.</p></div>
+    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Montañas nevadas, aguas termales, “pozos azules”; centro cultural histórico del pueblo U’wa.</p></div>
+    <div class="territory-fact"><strong>Población</strong><p>≈ 4.350–4.500 habitantes, incluyendo cerca de 900 personas de la comunidad indígena U’wa.</p></div>
+  </div>
 
-Un territorio de páramo y montaña donde el cuidado del agua conecta el conocimiento local y científico.
-
-## Contexto territorial
-
-Güicán de la Sierra es un municipio del centro de Boyacá con un fuerte vínculo con los ecosistemas de páramo, la montaña y la memoria de comunidades rurales que viven en relación directa con el agua y la geografía.
-
-## Información clave
-
-### Tipo de entidad
-Municipio de la provincia de Gutiérrez, con una fuerte presencia de paisajes de alta montaña y vida rural.
-
-### Ubicación
-Se encuentra en la región de la Cordillera Oriental, vecino al Parque Nacional Natural El Cocuy, en un corredor de gran valor ecológico.
-
-### Extensión y altitud
-El casco urbano se ubica alrededor de 2.880 msnm, y gran parte del territorio se extiende en zonas de páramo.
-
-### Clima
-Predomina un clima frío de montaña, con condiciones muy frías y una gran influencia de la altura.
-
-### Cómo llegar
-Se llega por rutas de montaña y se requiere preparación por la topografía del territorio.
-
-### Biodiversidad
-Páramos, glaciares, lagunas y ecosistemas ricos en agua hacen parte de su riqueza ambiental.
-
-### Economía
-Ganadería, agricultura, turismo natural y montañismo son actividades relevantes para la vida económica del municipio.
-
-### Cultura y atractivos
-Su paisaje de alta montaña y la memoria de comunidades del centro de Boyacá aportan un valor patrimonial y cultural muy fuerte.
-
-### Población
-Aproximadamente 4.500 habitantes, en un territorio donde la vida cotidiana se encuentra fuertemente conectada con la montaña y el agua.
-
-## Mirada territorial
-
-Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
-
-La diversidad ecológica, la cultura del lugar y las dinámicas socioeconómicas que lo sostienen permiten comprender mejor los procesos territoriales que acompañan la acción del proyecto.
-
-[← Volver a Conociendo nuestros territorios](../territorios.md)
+  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
+</div>

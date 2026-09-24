@@ -1,55 +1,27 @@
 ---
 hide:
-  - navigation
+  - toc
 ---
-
-[← Volver](../territorios.md)
 
 # San Luis de Palenque
 
-<span class="social-detail-tag">Visita</span>
+<div class="territory-detail">
+  <div class="territory-detail-header">
+    <img class="territory-detail-image" src="../../assets/territorios/llanos-1.jpg" alt="San Luis de Palenque">
+    <div>
+      <p class="territory-summary">Municipio de los llanos orientales, de gran valor paisajístico y cultural en la Orinoquía.</p>
+    </div>
+  </div>
 
-**Casanare**
+  <div class="territory-fact-grid">
+    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio.</p></div>
+    <div class="territory-fact"><strong>Ubicación</strong><p>En la región llanera del departamento del Casanare, al sur del oriente colombiano.</p></div>
+    <div class="territory-fact"><strong>Clima</strong><p>Tropical cálido, con temporadas de lluvia prolongadas.</p></div>
+    <div class="territory-fact"><strong>Biodiversidad</strong><p>Humedales, sabanas y bosques asociados a la reducción de la cobertura de la Orinoquía; gran presencia de fauna silvestre y diversidad de aves, reptiles y mamíferos.</p></div>
+    <div class="territory-fact"><strong>Economía</strong><p>Ganadería extensiva, porcicultura, agricultura y comercio local.</p></div>
+    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Ruta de comunidades rurales, recorridos de sabana y el ambiente llanero tradicional; valor simbólico como municipio de la región de la Orinoquía.</p></div>
+    <div class="territory-fact"><strong>Población</strong><p>≈ 9.000 habitantes.</p></div>
+  </div>
 
-Territorio llanero para conversar sobre sabanas inundables, biodiversidad y formas de vida locales.
-
-## Contexto territorial
-
-San Luis de Palenque representa una mirada clave a la Orinoquía y al paisaje llanero. Su forma de vida se articula con la sabana, la hidrología y la tradición ganadera, lo que convierte al territorio en un punto importante para entender las dinámicas de la región.
-
-## Información clave
-
-### Tipo de entidad
-Municipio del departamento del Casanare, con una fuerte identidad llanera y una relación directa con la sabana y la actividad ganadera.
-
-### Ubicación
-Se ubica en la llanura del Casanare, en la cuenca del río Pauto, en un paisaje de gran extensión y baja altitud.
-
-### Extensión y altitud
-Es un municipio de baja altura, cercano a las sabanas del Casanare y profundamente influenciado por las dinámicas del terreno llano.
-
-### Clima
-Predomina un clima cálido tropical de sabana, con una marcada relación con los ciclos húmedos y secos.
-
-### Cómo llegar
-Se accede por carretera regional, lo que permite la conectividad con otros municipios del departamento.
-
-### Biodiversidad
-Sabanas inundables, morichales y la dinámica hídrica del paisaje llanero hacen de este territorio un espacio de gran valor ecológico.
-
-### Economía
-Ganadería extensiva, agricultura y comercio son actividades centrales para la economía local.
-
-### Cultura y atractivos
-La cultura llanera, la tradición ganadera y la observación de fauna en paisaje abierto hacen visible la riqueza cultural y ambiental del territorio.
-
-### Población
-Aproximadamente 8.900 habitantes, en una población muy vinculada a la vida rural y al paisaje de sabana.
-
-## Mirada territorial
-
-Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
-
-La diversidad ecológica, la cultura del lugar y las dinámicas socioeconómicas que lo sostienen permiten comprender mejor los procesos territoriales que acompañan la acción del proyecto.
-
-[← Volver a Conociendo nuestros territorios](../territorios.md)
+  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
+</div>

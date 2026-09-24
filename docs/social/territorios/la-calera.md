@@ -1,55 +1,28 @@
 ---
 hide:
-  - navigation
+  - toc
 ---
-
-[← Volver](../territorios.md)
 
 # La Calera
 
-<span class="social-detail-tag">Territorio</span>
+<div class="territory-detail">
+  <div class="territory-detail-header">
+    <img class="territory-detail-image" src="../../assets/territorios/chingaza-1.jpg" alt="La Calera">
+    <div>
+      <p class="territory-summary">Municipio de la sabana de Bogotá, cercano a Chingaza y clave para la relación entre ciudad, agua y campo.</p>
+    </div>
+  </div>
 
-**Cundinamarca**
+  <div class="territory-fact-grid">
+    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, provincia del Guavio.</p></div>
+    <div class="territory-fact"><strong>Ubicación</strong><p>A 18 km al nororiente de Bogotá, cerca de las localidades de Chapinero y Usaquén.</p></div>
+    <div class="territory-fact"><strong>Extensión / altitud</strong><p>Entre 2.600 y 3.000 msnm (pisos térmicos frío y páramo).</p></div>
+    <div class="territory-fact"><strong>Clima</strong><p>Frío de montaña, agradable y fresco durante todo el año.</p></div>
+    <div class="territory-fact"><strong>Biodiversidad</strong><p>En su territorio están el embalse de San Rafael y el acceso al embalse de Chuza (surtido por la laguna de Chingaza), además de un sector del Parque Nacional Natural Chingaza, con bosques nubosos y páramos que proveen buena parte del agua de Bogotá.</p></div>
+    <div class="territory-fact"><strong>Economía</strong><p>Agricultura (papa, maíz, zanahoria), ganadería, piscicultura de trucha, minería de piedra caliza y turismo; alberga industrias como Cementos Samper (Cemex) y la planta de Agua Manantial (Coca-Cola Company).</p></div>
+    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Cerro de La Pita (mirador y parapente), Ruta de Chingaza en bicicleta, discotecas y fincas de recreo en la vía Bogotá–La Calera; destino popular de ciclismo desde la capital.</p></div>
+    <div class="territory-fact"><strong>Población</strong><p>≈ 41.400 habitantes (DANE 2023), en crecimiento por su cercanía a Bogotá.</p></div>
+  </div>
 
-Un paisaje altoandino próximo a la capital, clave para comprender los vínculos entre agua, ciudad y ruralidad.
-
-## Contexto territorial
-
-La Calera es un municipio de montaña que conecta la vida urbana de Bogotá con paisajes de alta montaña, sistemas hídricos y actividades rurales. Su cercanía a la región metropolitana hace que su relación con el agua, la recreación y la conservación sea particularmente relevante.
-
-## Información clave
-
-### Tipo de entidad
-Municipio de Cundinamarca, con una dinámica territorial de montaña y una fuerte relación con la región metropolitana.
-
-### Ubicación
-Se ubica al nororiente de Bogotá, hacia la zona de Chingaza y la cordillera, en un corredor ambiental clave para la ciudad.
-
-### Extensión y altitud
-La zona urbana se sitúa entre 2.600 y 3.000 msnm, con un entorno de montaña y paisajes de gran valor ecológico.
-
-### Clima
-Predomina un clima frío de montaña con condiciones agradables durante todo el año.
-
-### Cómo llegar
-Se llega por la carretera que conecta con Bogotá y por rutas de montaña, con acceso relativamente directo desde la capital.
-
-### Biodiversidad
-Embalses, piedemonte andino y ecosistemas de alta montaña hacen visible la importancia ambiental del territorio.
-
-### Economía
-Agricultura, ganadería, pesca y turismo son actividades que sostienen la economía local.
-
-### Cultura y atractivos
-Las fincas, los senderos y el valor del agua y la recreación rural hacen de La Calera un territorio de gran interés para la región metropolitana.
-
-### Población
-Aproximadamente 41.400 habitantes, con una vida cotidiana entre el ambiente rural, la recreación y la cercanía con la capital.
-
-## Mirada territorial
-
-Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
-
-La diversidad ecológica, la cultura del lugar y las dinámicas socioeconómicas que lo sostienen permiten comprender mejor los procesos territoriales que acompañan la acción del proyecto.
-
-[← Volver a Conociendo nuestros territorios](../territorios.md)
+  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
+</div>

@@ -1,55 +1,28 @@
 ---
 hide:
-  - navigation
+  - toc
 ---
-
-[← Volver](../territorios.md)
 
 # Santiago
 
-<span class="social-detail-tag">Territorio</span>
+<div class="territory-detail">
+  <div class="territory-detail-header">
+    <img class="territory-detail-image" src="../../assets/territorios/putumayo-1.jpg" alt="Santiago">
+    <div>
+      <p class="territory-summary">Municipio del alto Putumayo, en el Valle de Sibundoy y rodeado por paisajes de montaña y páramo.</p>
+    </div>
+  </div>
 
-**Putumayo**
+  <div class="territory-fact-grid">
+    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio.</p></div>
+    <div class="territory-fact"><strong>Ubicación</strong><p>Alto Putumayo, en el Valle de Sibundoy, cordillera de los Andes; limita con la Laguna de la Cocha (Nariño).</p></div>
+    <div class="territory-fact"><strong>Extensión / altitud</strong><p>Entre 2.000 y 4.000 msnm.</p></div>
+    <div class="territory-fact"><strong>Clima</strong><p>Frío de montaña y páramo.</p></div>
+    <div class="territory-fact"><strong>Biodiversidad</strong><p>Rodeado por el Páramo del Bordoncillo; el Putumayo en general alberga más de mil especies de aves (más del 50% del total de Colombia) y la mayor cantidad de especies de primates del país, con conectividad entre Andes, Amazonía y Orinoquía.</p></div>
+    <div class="territory-fact"><strong>Economía</strong><p>Agricultura de clima frío (papa, hortalizas), ganadería de leche y turismo rural.</p></div>
+    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Paisajes campesinos, senderos ecoturísticos, cercanía al corredor cultural indígena inga y kamëntsá del Valle de Sibundoy.</p></div>
+    <div class="territory-fact"><strong>Población</strong><p>≈ 7.300 habitantes (DANE 2023-2024).</p></div>
+  </div>
 
-Un espacio para reconocer las prácticas locales y los ecosistemas que hacen parte de la red territorial de COLFLUX.
-
-## Contexto territorial
-
-Santiago representa un territorio de transición entre la montaña y la Amazonía, con paisajes de gran valor ecológico y una relación directa con comunidades rurales y actividades de producción local.
-
-## Información clave
-
-### Tipo de entidad
-Municipio del departamento del Putumayo, con un tejido territorial compuesto por comunidades rurales, pequeños asentamientos y paisajes de montaña.
-
-### Ubicación
-Se encuentra en el alto Putumayo, dentro del corredor andino-amazónico del departamento, donde confluyen ecosistemas de alta montaña y selva.
-
-### Extensión y altitud
-La zona presenta altitudes medias que oscilan entre 2.000 y 4.000 msnm, con condiciones ambientales muy distintas en cada microterritorio.
-
-### Clima
-Predomina un clima frío de montaña y páramo, con variaciones según la altura y la orientación del relieve.
-
-### Cómo llegar
-Se llega por rutas terrestres hacia la región andina, con acceso condicionado por la topografía y la infraestructura local.
-
-### Biodiversidad
-Páramos, bosques de montaña y corredores de fauna y flora de la región, con un gran potencial para la observación ecológica y la investigación territorial.
-
-### Economía
-La economía local está vinculada a la agricultura, la ganadería y el turismo rural, con dinámicas productivas arraigadas al territorio.
-
-### Cultura y atractivos
-El paisaje campesino, los senderos ecológicos y la cercanía con comunidades indígenas enriquecen la diversidad cultural del territorio.
-
-### Población
-La población urbana y rural está directamente vinculada a las actividades económicas del territorio y a la vida cotidiana del paisaje montañoso.
-
-## Mirada territorial
-
-Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
-
-La diversidad ecológica, la cultura del lugar y las dinámicas socioeconómicas que lo sostienen permiten comprender mejor los procesos territoriales que acompañan la acción del proyecto.
-
-[← Volver a Conociendo nuestros territorios](../territorios.md)
+  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
+</div>

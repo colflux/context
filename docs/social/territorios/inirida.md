@@ -1,55 +1,27 @@
 ---
 hide:
-  - navigation
+  - toc
 ---
-
-[← Volver](../territorios.md)
 
 # Inírida
 
-<span class="social-detail-tag">Territorio</span>
+<div class="territory-detail">
+  <div class="territory-detail-header">
+    <img class="territory-detail-image" src="../../assets/territorios/inirida-1.jpg" alt="Inírida">
+    <div>
+      <p class="territory-summary">Municipio de la Amazonía nororiental, capital del Guainía y punto de encuentro de ríos y humedales.</p>
+    </div>
+  </div>
 
-**Guainía**
+  <div class="territory-fact-grid">
+    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, capital del departamento de Guainía.</p></div>
+    <div class="territory-fact"><strong>Ubicación</strong><p>Nororiente de la Amazonía colombiana, cerca de las fronteras con Venezuela y Brasil; corazón de la Estrella Fluvial de Inírida, donde confluyen los ríos Inírida, Guaviare, Atabapo y Ventuari para formar el Orinoco.</p></div>
+    <div class="territory-fact"><strong>Clima</strong><p>Cálido húmedo, temperatura promedio de 31,5 °C.</p></div>
+    <div class="territory-fact"><strong>Biodiversidad</strong><p>La Estrella Fluvial de Inírida es humedal Ramsar de importancia internacional (≈ 250.000 ha); alberga los Cerros de Mavicure (formaciones rocosas de 1.700 millones de años, entre las más antiguas del planeta) y las sabanas de arena blanca donde crece la flor de Inírida.</p></div>
+    <div class="territory-fact"><strong>Economía</strong><p>Comercio fluvial, turismo de naturaleza, pesca y minería artesanal.</p></div>
+    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Cerros de Mavicure, Piedra de Mavizo (miradores de atardecer), jardín de la flor de Inírida, petroglifos del parque rupestre Amarrú, turismo comunitario indígena.</p></div>
+    <div class="territory-fact"><strong>Población</strong><p>≈ 36.500 habitantes (DANE 2022, con crecimiento sostenido), municipio más poblado de Guainía; tres de cada cuatro habitantes del departamento son indígenas (14 pueblos, entre ellos puinave, curripaco, piapoco y cubeo).</p></div>
+  </div>
 
-Territorio de ríos y sabanas amazónicas donde la biodiversidad y la cultura local orientan el diálogo.
-
-## Contexto territorial
-
-Inírida es una capital amazónica de gran valor estratégico para la observación de los paisajes de sabana, humedales y redes fluviales. Su identidad territorial está estrechamente ligada a la movilidad del agua, la vida comunitaria y la relación con pueblos indígenas y actividades de subsistencia.
-
-## Información clave
-
-### Tipo de entidad
-Municipio y capital del departamento de Guainía, con una gran relevancia regional en la Amazonía colombiana.
-
-### Ubicación
-Se ubica en el nororiente de la Amazonía colombiana, cercano a Venezuela y Brasil, en una zona de gran diversidad ecológica y cultural.
-
-### Extensión y altitud
-La capital regional se asienta sobre la confluencia de la red fluvial amazónica, en un paisaje donde los ríos organizan la vida y el acceso al territorio.
-
-### Clima
-Predomina un clima cálido húmedo tropical, con temperaturas cercanas a 31,5 °C y condiciones de alta humedad.
-
-### Cómo llegar
-Se llega por vía aérea o fluvial, lo que hace de la conectividad fluvial un eje esencial para la vida local.
-
-### Biodiversidad
-La Estrella Fluvial de Inírida, los humedales y los paisajes de sabana amazónica conforman un sistema ecológico de enorme riqueza biológica.
-
-### Economía
-Comercio fluvial, turismo, pesca y minería artesanal son actividades que sostienen parte de la economía regional.
-
-### Cultura y atractivos
-La cultura indígena, los paisajes fluviales y la observación de fauna en humedales hacen de este territorio un ejemplo de relación entre comunidad y ecosistema.
-
-### Población
-Aproximadamente 36.500 habitantes, en un territorio donde el agua y la movilidad regional orientan la vida cotidiana.
-
-## Mirada territorial
-
-Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
-
-La diversidad ecológica, la cultura del lugar y las dinámicas socioeconómicas que lo sostienen permiten comprender mejor los procesos territoriales que acompañan la acción del proyecto.
-
-[← Volver a Conociendo nuestros territorios](../territorios.md)
+  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
+</div>
