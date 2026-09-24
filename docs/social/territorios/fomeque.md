@@ -1,28 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # Fómeque
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/chingaza-1.jpg" alt="Fómeque">
-    <div>
-      <p class="territory-summary">Municipio de montaña y páramo, clave para la captación de agua y la biodiversidad de Chingaza.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Territorio</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>A 56 km de Bogotá, en la Cordillera Oriental. Su nombre significa “El Bosque de los Zorros”.</p></div>
-    <div class="territory-fact"><strong>Extensión / altitud</strong><p>Altitudes entre 1.600 y 4.020 msnm; compuesto por 32 veredas.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Varía de templado a frío de páramo según la altitud.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Cerca del 49% de su territorio hace parte del Parque Nacional Natural Chingaza (76.600 ha en 11 municipios), una de las principales “fábricas de agua” del país, que abastece de agua potable a cerca de 10 millones de personas; hábitat del venado coliblanco y otras especies de páramo y bosque altoandino.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Agricultura (papa, hortalizas), ganadería y turismo ecológico.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Iglesia de la Inmaculada Concepción, parque principal, Reserva Natural Páramo de las Burras, senderos de acceso al PNN Chingaza.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 13.100 habitantes.</p></div>
-  </div>
+**Cundinamarca**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Un territorio de páramo, bosque y agua donde el diálogo con los actores locales es esencial.
+
+## Contexto territorial
+
+Fómeque es un territorio andino de gran valor ecológico en el que la montaña, el agua y la vida rural se entrelazan. Su conexión con la cordillera oriental lo convierte en un lugar clave para pensar la relación entre paisaje, patrimonio ambiental y comunidades locales.
+
+## Información clave
+
+### Tipo de entidad
+Municipio de Cundinamarca, con una organización territorial marcada por la vida rural y la cercanía a ecosistemas de alta montaña.
+
+### Ubicación
+Se encuentra en la Cordillera Oriental, a poca distancia de Bogotá y en contacto con el corredor natural del Parque Nacional Natural Chingaza.
+
+### Extensión y altitud
+El municipio presenta altitudes que oscilan entre 1.600 y 4.020 msnm, con paisajes muy diversos según la zona.
+
+### Clima
+El clima varía entre templado y frío de páramo según la elevación y la zona del municipio.
+
+### Biodiversidad
+El municipio forma parte del área de influencia de Chingaza, una de las principales fuentes de agua de la región andina.
+
+### Economía
+Agricultura, ganadería y turismo ecológico articulan la base económica del territorio.
+
+### Cultura y atractivos
+La vida rural, la iglesia, los parques y los senderos del municipio hacen visible el valor cultural y ambiental del lugar.
+
+### Población
+La población combina asentamientos rurales con actividades económicas asociadas a la montaña y a la vida comunitaria.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+Su valor radica en la relación entre paisaje, agua y territorio, especialmente en la forma en que la conservación y la vida comunitaria se articulan en el mismo espacio.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

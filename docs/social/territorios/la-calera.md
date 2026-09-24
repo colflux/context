@@ -1,28 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # La Calera
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/chingaza-1.jpg" alt="La Calera">
-    <div>
-      <p class="territory-summary">Municipio de la sabana de Bogotá, cercano a Chingaza y clave para la relación entre ciudad, agua y campo.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Territorio</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, provincia del Guavio.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>A 18 km al nororiente de Bogotá, cerca de las localidades de Chapinero y Usaquén.</p></div>
-    <div class="territory-fact"><strong>Extensión / altitud</strong><p>Entre 2.600 y 3.000 msnm (pisos térmicos frío y páramo).</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Frío de montaña, agradable y fresco durante todo el año.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>En su territorio están el embalse de San Rafael y el acceso al embalse de Chuza (surtido por la laguna de Chingaza), además de un sector del Parque Nacional Natural Chingaza, con bosques nubosos y páramos que proveen buena parte del agua de Bogotá.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Agricultura (papa, maíz, zanahoria), ganadería, piscicultura de trucha, minería de piedra caliza y turismo; alberga industrias como Cementos Samper (Cemex) y la planta de Agua Manantial (Coca-Cola Company).</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Cerro de La Pita (mirador y parapente), Ruta de Chingaza en bicicleta, discotecas y fincas de recreo en la vía Bogotá–La Calera; destino popular de ciclismo desde la capital.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 41.400 habitantes (DANE 2023), en crecimiento por su cercanía a Bogotá.</p></div>
-  </div>
+**Cundinamarca**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Un paisaje altoandino próximo a la capital, clave para comprender los vínculos entre agua, ciudad y ruralidad.
+
+## Contexto territorial
+
+La Calera es un municipio de la sabana de Bogotá que articula la cercanía con la ciudad con la presencia de ecosistemas de montaña, agua y vida rural. Su posición geográfica lo convierte en un terreno clave para pensar la relación entre la capital y los paisajes de captación hídrica.
+
+## Información clave
+
+### Tipo de entidad
+Municipio de Cundinamarca, cercano a Bogotá y asociado a la región de Chingaza.
+
+### Ubicación
+Se ubica al nororiente de la capital, en una zona de montaña con conexión directa con la sabana y los ecosistemas de páramo.
+
+### Extensión y altitud
+La región presenta altitudes entre 2.600 y 3.000 msnm, con condiciones de clima frío de montaña.
+
+### Clima
+Frío de montaña, agradable y fresco durante gran parte del año.
+
+### Biodiversidad
+El municipio se encuentra cerca de ecosistemas de páramo, bosques nubosos y sistemas hídricos que alimentan la región metropolitana.
+
+### Economía
+Agricultura, ganadería, turismo, minería y actividades relacionadas con la captación y manejo del agua sostienen la economía local.
+
+### Cultura y atractivos
+Las fincas, la ruta hacia Chingaza y los miradores del territorio hacen visible la relación entre recreación, paisaje y recursos hídricos.
+
+### Población
+La población crece por la cercanía con Bogotá y por la dinámica de un territorio urbano-rural.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+La Calera ilustra de manera clara la relación entre la ciudad, los ecosistemas de alta montaña y la gestión del agua.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

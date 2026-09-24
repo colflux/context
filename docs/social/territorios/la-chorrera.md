@@ -1,29 +1,56 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # La Chorrera
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/la-chorrera-1.jpg" alt="La Chorrera">
-    <div>
-      <p class="territory-summary">Área no municipalizada (corregimiento departamental) en el corazón del Amazonas.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Visita</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Área no municipalizada (corregimiento departamental).</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>Corazón del departamento del Amazonas, en la cuenca del río Igara Paraná.</p></div>
-    <div class="territory-fact"><strong>Extensión / altitud</strong><p>≈ 12.670 km², a 184 msnm.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Cálido húmedo tropical (selva amazónica).</p></div>
-    <div class="territory-fact"><strong>Cómo llegar</strong><p>No tiene acceso terrestre; se llega por vía fluvial o aérea desde Leticia.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Selva amazónica primaria con senderos que atraviesan bosque tropical denso; flora y fauna típicas de la Amazonía profunda, cascadas ocultas y ríos de aguas oscuras. Es un territorio con poca intervención humana y alto valor de conservación.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Economía de subsistencia basada en pesca, caza, cultivo de yuca y plátano, y artesanías indígenas.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Territorio ancestral de los pueblos uitoto, bora, okaina y muinane; fue escenario histórico de la explotación cauchera a inicios del siglo XX. Ofrece ecoturismo comunitario, senderismo y contacto directo con tradiciones indígenas.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 3.878 habitantes, mayoritariamente indígena.</p></div>
-  </div>
+**Amazonas**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Territorio amazónico de gran biodiversidad, donde el proyecto fortalece alianzas y conoce las dinámicas de las comunidades locales.
+
+## Contexto territorial
+
+La Chorrera es un territorio de la Amazonía colombiana en el que la vida comunitaria, la biodiversidad y la relación con los sistemas hídricos aparecen estrechamente conectados. Su importancia para COLFLUX radica en reconocer cómo los paisajes tropicales, los saberes locales y la observación del carbono se articulan en un mismo territorio.
+
+## Información clave
+
+### Tipo de entidad
+Área no municipalizada (corregimiento departamental), con una organización territorial ligada a la Amazonía y a la relación con comunidades locales.
+
+### Ubicación
+Amazonas, en el corazón de la Amazonía colombiana. Su posición lo ubica dentro de uno de los paisajes más biodiversos del país.
+
+### Extensión y altitud
+La jurisdicción territorial de la región comprende más de 12.600 km², con altitudes cercanas a 184 msnm.
+
+### Clima
+Cálido húmedo tropical, con condiciones de alta humedad y temperaturas estables durante gran parte del año.
+
+### Cómo llegar
+Se accede por vía fluvial o aérea desde Leticia, lo que refuerza la importancia de los corredores fluviales para la conectividad regional.
+
+### Biodiversidad
+Selva amazónica densa, humedales, ríos de aguas negras y una alta variedad de especies vegetales y animales.
+
+### Economía
+La vida económica se articula con la pesca, la agricultura de subsistencia, las actividades comunitarias y el aprovechamiento tradicional del territorio.
+
+### Cultura y atractivos
+Pueblos indígenas y afrodescendientes, memoria histórica, tradiciones y saberes locales que dan sentido a la relación entre territorio y comunidad.
+
+### Población
+La población es dispersa y está conformada por asentamientos rurales y comunidades del territorio amazónico.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+La diversidad ecológica, la cultura del lugar y las dinámicas socioeconómicas que lo sostienen permiten comprender mejor los procesos territoriales que acompañan la acción del proyecto.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

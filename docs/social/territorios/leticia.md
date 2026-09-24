@@ -1,29 +1,56 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # Leticia
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/leticia-1.jpg" alt="Leticia">
-    <div>
-      <p class="territory-summary">Capital del Amazonas colombiana, en la Triple Frontera y puerta de acceso a la Amazonía profunda.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Visita</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, capital del departamento del Amazonas.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>Extremo sur de Colombia, a orillas del río Amazonas, en la llamada “Triple Frontera” con Tabatinga (Brasil) y Santa Rosa (Perú).</p></div>
-    <div class="territory-fact"><strong>Extensión / altitud</strong><p>96 msnm.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Cálido húmedo, temperatura promedio de 28 °C todo el año.</p></div>
-    <div class="territory-fact"><strong>Cómo llegar</strong><p>Solo por vía aérea (aeropuerto Alfredo Vásquez Cobo) o fluvial; no tiene conexión terrestre con el resto de Colombia.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Rodeada de selva amazónica; cerca están el Parque Nacional Natural Amacayacu (295.500 ha, con más de 500 especies de aves, 150 de mamíferos y numerosos reptiles) y los lagos de Tarapoto, hogar de delfines rosados y grises.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Turismo de naturaleza, comercio fronterizo, pesca y servicios; es el principal centro económico y logístico del Amazonas colombiano.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Malecón de Leticia, Parque Santander (famoso por el avistamiento de loros al atardecer), Museo Etnográfico del Banco de la República, Parque Ecológico Mundo Amazónico, cruces turísticos a Brasil y Perú, y excursiones a Puerto Nariño e Isla de los Micos.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 53.000 habitantes (DANE 2024), el municipio más poblado del Amazonas; población mestiza, indígena (ticuna, entre otras) y afrodescendiente.</p></div>
-  </div>
+**Amazonas**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Puerta de entrada al Amazonas y punto de encuentro para conectar conocimiento científico, territorio y comunidades.
+
+## Contexto territorial
+
+Leticia es un punto estratégico para la Amazonía colombiana por su posición fronteriza y por su rol como referencia para la observación del territorio, la vida rural y la relación entre comunidades locales y ecosistemas amazónicos.
+
+## Información clave
+
+### Tipo de entidad
+Municipio y capital del departamento del Amazonas, con una fuerte identidad regional y una conectividad internacional que la convierte en un punto de encuentro clave.
+
+### Ubicación
+Se ubica en el extremo sur de Colombia, en la Triple Frontera con Brasil y Perú, y es la puerta de acceso a la Amazonía profunda.
+
+### Extensión y altitud
+El municipio se localiza a una altitud cercana a 96 msnm y forma parte del corredor fluvial del Amazonas.
+
+### Clima
+Cálido húmedo, con temperaturas altas y una humedad ambiental muy marcada durante todo el año.
+
+### Cómo llegar
+Se llega por vía aérea o fluvial; no tiene conexión terrestre directa con el resto de Colombia.
+
+### Biodiversidad
+La selva amazónica, los humedales y los ecosistemas fluviales del entorno conforman un paisaje excepcional para la observación de aves, peces, mamíferos y especies de gran valor ecológico.
+
+### Economía
+Turismo, comercio fronterizo, pesca, servicios y actividades propias de la vida regional amazonense sostienen la economía del municipio.
+
+### Cultura y atractivos
+La vida cultural se expresa mediante la mezcla de comunidades indígenas, afrodescendientes y migrantes regionales, así como en la presencia de rutas, miradores, museos y espacios de encuentro.
+
+### Población
+La ciudad concentra una parte importante de la población del Amazonas y es referencia para la vida pública, institucional y comercial de la región.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+Su valor estratégico no solo está en su biodiversidad, sino también en la manera en que conecta territorios, instituciones y saberes del Amazonas colombiano.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)
