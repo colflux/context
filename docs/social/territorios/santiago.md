@@ -1,28 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # Santiago
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/putumayo-1.jpg" alt="Santiago">
-    <div>
-      <p class="territory-summary">Municipio del alto Putumayo, en el Valle de Sibundoy y rodeado por paisajes de montaña y páramo.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Territorio</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>Alto Putumayo, en el Valle de Sibundoy, cordillera de los Andes; limita con la Laguna de la Cocha (Nariño).</p></div>
-    <div class="territory-fact"><strong>Extensión / altitud</strong><p>Entre 2.000 y 4.000 msnm.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Frío de montaña y páramo.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Rodeado por el Páramo del Bordoncillo; el Putumayo en general alberga más de mil especies de aves (más del 50% del total de Colombia) y la mayor cantidad de especies de primates del país, con conectividad entre Andes, Amazonía y Orinoquía.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Agricultura de clima frío (papa, hortalizas), ganadería de leche y turismo rural.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Paisajes campesinos, senderos ecoturísticos, cercanía al corredor cultural indígena inga y kamëntsá del Valle de Sibundoy.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 7.300 habitantes (DANE 2023-2024).</p></div>
-  </div>
+**Putumayo**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Santiago representa un territorio de transición entre la montaña y la Amazonía, con paisajes de gran valor ecológico y una relación directa con comunidades rurales y actividades de producción local.
+
+## Contexto territorial
+
+El municipio del Putumayo se caracteriza por un tejido territorial compuesto por comunidades rurales, pequeños asentamientos y paisajes de montaña. Su ubicación en el Valle de Sibundoy hace visible la relación entre la historia local, la biodiversidad y las dinámicas de producción en un entorno de gran riqueza ecológica.
+
+## Información clave
+
+### Tipo de entidad
+Municipio del departamento del Putumayo, con una fuerte presencia de vida rural y comunidades locales.
+
+### Ubicación
+Se encuentra en el alto Putumayo, dentro del Valle de Sibundoy y en cercanía a ecosistemas de montaña y páramo.
+
+### Extensión y altitud
+La zona presenta altitudes medias que oscilan entre 2.000 y 4.000 msnm, con condiciones ambientales muy distintas según la microzona.
+
+### Clima
+Predominan climas fríos y de montaña, con temperaturas bajas en zonas altas y una mayor humedad en sectores más protegidos.
+
+### Biodiversidad
+El territorio forma parte de un corredor biogeográfico de gran relevancia, con amplias áreas de bosque andino y ecosistemas asociados a la convergencia de los Andes y la Amazonía.
+
+### Economía
+La economía local está vinculada a la agricultura, la ganadería y el turismo rural, con dinámicas productivas arraigadas al territorio.
+
+### Cultura y atractivos
+El paisaje campesino, los senderos ecológicos y la cercanía con comunidades indígenas enriquecen la diversidad cultural del territorio.
+
+### Población
+La población urbana y rural está directamente vinculada a las actividades económicas del territorio y a la vida cotidiana del paisaje montañoso.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+La relación entre territorio, producción y paisaje hace de Santiago un ejemplo claro de la forma en que la biodiversidad y la vida comunitaria se articulan en el mismo espacio.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

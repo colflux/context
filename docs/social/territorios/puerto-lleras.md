@@ -1,27 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # Puerto Lleras
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/llanos-1.jpg" alt="Puerto Lleras">
-    <div>
-      <p class="territory-summary">Municipio del Meta en la ruta de la Orinoquía, con riqueza hídrica, sabanas y paisajes de llanura.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Visita</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>Región de los Llanos Orientales, al sur del Meta, en la margen del río Meta y la carretera Villavicencio–Yopal.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Cálido tropical.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Gran riqueza de fauna de sabana, humedales y bosques de galería, con paso de aves migratorias y especies de aves, mamíferos y reptiles típicos de la Orinoquía.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Ganadería y agricultura; su producción lanera, vacuna y de caña es clave en la región.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Recorridos por esteros, cochas y llanuras; rancherías, actividades de ecoturismo y paisajes de sabana abierta.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 18.000 habitantes.</p></div>
-  </div>
+**Meta**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Sabana y ríos de la Orinoquía que permiten reconocer sus ciclos, biodiversidad y actividades productivas.
+
+## Contexto territorial
+
+Puerto Lleras es un territorio de la Orinoquía con una fuerte vinculación entre paisaje llanero, recursos hídricos y actividades productivas. Su estructura territorial refleja la interacción entre la sabana, la vida rural y las dinámicas de la región.
+
+## Información clave
+
+### Tipo de entidad
+Municipio del departamento del Meta.
+
+### Ubicación
+Se localiza en la región de los Llanos Orientales, en la zona sur del departamento.
+
+### Extensión y altitud
+Es un municipio de llanura con una topografía abierta y una relación muy marcada con la red hídrica regional.
+
+### Clima
+Cálido tropical, con un clima propio de la región llanera.
+
+### Biodiversidad
+La sabana, los humedales y los bosques de galería hacen de este territorio un espacio de gran relevancia ecológica.
+
+### Economía
+Ganadería, agricultura y actividades relacionadas con la producción local sostienen la base económica del municipio.
+
+### Cultura y atractivos
+Los recorridos por esteros, cochas y llanuras permiten reconocer la relación entre paisaje y vida cotidiana.
+
+### Población
+La población se distribuye principalmente en asentamientos rurales y en la relación con actividades productivas del territorio.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+La diversidad de paisajes y la cercanía con la sabana hacen de Puerto Lleras un territorio clave para entender la Orinoquía.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

@@ -1,27 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # San José del Guaviare
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/guaviare-1.jpg" alt="San José del Guaviare">
-    <div>
-      <p class="territory-summary">Capital del departamento del Guaviare, en la confluencia entre la Amazonía y la Orinoquía.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Territorio</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, capital del departamento del Guaviare.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>Norte del departamento, en el límite entre la Orinoquía y la Amazonía, a orillas del río Guaviare.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Cálido tropical, temperatura promedio de 24 °C.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Cerca está la Serranía de La Lindosa, con el Cerro Azul y sus pictogramas milenarios; confluencia de ecosistemas de sabana, selva y afloramientos rocosos con alta diversidad de flora y fauna.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Ganadería, agricultura, turismo de naturaleza y comercio regional.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Parque de la Constitución (plaza principal), Cerro Azul, Ciudad de Piedra, caño Cristales de La Macarena (cercano), turismo comunitario indígena (jiw, tucano oriental, nukak).</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 54.100 habitantes (DANE 2023), municipio más poblado del departamento.</p></div>
-  </div>
+**Guaviare**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+San José del Guaviare funciona como capital regional y punto de articulación entre la vida urbana, la economía local y la diversidad ecológica del Guaviare.
+
+## Contexto territorial
+
+El municipio es clave para comprender las dinámicas de paisaje entre sabana, bosque y río. Su territorio combina una fuerte función administrativa con la presencia de ecosistemas de gran valor ambiental y una vida social conectada con la región.
+
+## Información clave
+
+### Tipo de entidad
+Municipio y capital del departamento del Guaviare.
+
+### Ubicación
+Se localiza en el norte del departamento, en un corredor donde confluyen las dinámicas de la Amazonía y la Orinoquía.
+
+### Extensión y altitud
+La capital departamental se integra a un territorio de gran variabilidad ecológica y geográfica, con una estrecha relación con el río y el paisaje regional.
+
+### Clima
+Cálido tropical, con una temperatura promedio cercana a los 24 °C.
+
+### Biodiversidad
+La cercanía a la Serranía de La Lindosa y a otros ecosistemas de sabana, bosque y río hace del territorio un espacio de gran valor ecológico.
+
+### Economía
+Ganadería, agricultura, comercio regional y turismo de naturaleza articulan la base económica del municipio.
+
+### Cultura y atractivos
+El territorio combina la vida urbana con la presencia de paisajes, rutas y saberes locales que refuerzan su valor cultural y ambiental.
+
+### Población
+Es el municipio más poblado del departamento y un centro regional clave en la estructura territorial del Guaviare.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+Su relevancia ecológica y regional permite entender mejor la relación entre paisaje, instituciones y comunidades en el Guaviare.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

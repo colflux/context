@@ -1,26 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # Calamar
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/guaviare-1.jpg" alt="Calamar">
-    <div>
-      <p class="territory-summary">Municipio de la frontera amazónica del Guaviare, puerta a la selva profunda y la Serranía de Chiribiquete.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Territorio</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>Final de la principal vía terrestre del departamento del Guaviare, en el límite con la selva amazónica profunda.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>En su jurisdicción se encuentra buena parte del Parque Nacional Natural Serranía de Chiribiquete (4,3 millones de hectáreas), con tepuyes (mesetas rocosas), más de 2.130 especies de flora registradas (16 endémicas) y más de 75.000 pinturas rupestres de hasta 12.000 años de antigüedad. Es hogar de pueblos indígenas en aislamiento voluntario.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Ganadería (corredor San José–Calamar), agricultura y explotación forestal.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Puerta de entrada a la selva profunda, destino para viajeros experimentados en busca de desconexión total; balnearios naturales en caños y quebradas.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 9.800 habitantes (DANE 2023), tercer municipio más poblado del Guaviare.</p></div>
-  </div>
+**Guaviare**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Territorio de transición amazónica donde se encuentran bosques, ríos y comunidades con saberes propios.
+
+## Contexto territorial
+
+Calamar es un municipio de la frontera amazónica del Guaviare, en un espacio que conecta la vida regional con paisajes de selva, ríos y grandes extensiones de bosque. Su ubicación territorial hace de este lugar un punto de articulación clave entre la Amazonía y otras dinámicas regionales del país.
+
+## Información clave
+
+### Tipo de entidad
+Municipio del departamento del Guaviare.
+
+### Ubicación
+Se encuentra en una zona de transición entre la selva amazonense y otros ecosistemas del departamento.
+
+### Extensión y altitud
+El territorio se ubica en una región de baja altitud, con una geografía dominada por llanuras, ríos y bosques.
+
+### Clima
+Cálido tropical, con alta humedad y clima muy influido por la dinámica fluvial y la selva amazónica.
+
+### Biodiversidad
+Su jurisdicción se articula con paisajes de gran relevancia ecológica, especialmente por la cercanía a áreas de bosque y humedal en la cuenca del Guaviare.
+
+### Economía
+Ganadería, agricultura y actividades forestales forman parte de la base económica del territorio.
+
+### Cultura y atractivos
+Los senderos, los territorios rurales y la relación con comunidades del Guaviare expresan una fuerte conexión entre paisaje y memoria local.
+
+### Población
+El municipio tiene una población regional de tamaño medio, con asentamientos rurales y urbanos distribuidos en el territorio.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+Su valor se encuentra en la relación entre el bosque amazónico, la vida cotidiana y la larga historia de uso y cuidado del territorio.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)

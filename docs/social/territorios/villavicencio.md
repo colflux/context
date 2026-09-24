@@ -1,28 +1,53 @@
 ---
 hide:
+  - navigation
   - toc
 ---
 
+[← Volver](../territorios.md)
+
 # Villavicencio
 
-<div class="territory-detail">
-  <div class="territory-detail-header">
-    <img class="territory-detail-image" src="../../assets/territorios/llanos-1.jpg" alt="Villavicencio">
-    <div>
-      <p class="territory-summary">Capital del Meta, puerta de entrada a la Orinoquía y a la Selva Amazónica.</p>
-    </div>
-  </div>
+<span class="social-detail-tag">Territorio</span>
 
-  <div class="territory-fact-grid">
-    <div class="territory-fact"><strong>Tipo de entidad</strong><p>Municipio, capital del departamento del Meta.</p></div>
-    <div class="territory-fact"><strong>Ubicación</strong><p>En los Llanos Orientales colombianos, centro geográfico del departamento del Meta. Es el principal punto de acceso a la Orinoquía y la Amazonía.</p></div>
-    <div class="territory-fact"><strong>Extensión / altitud</strong><p>~ 520 km², 467 msnm.</p></div>
-    <div class="territory-fact"><strong>Clima</strong><p>Cálido y tropical, con una temperatura promedio de 27 °C.</p></div>
-    <div class="territory-fact"><strong>Biodiversidad</strong><p>Es clave para la Orinoquía y la Amazonía: diversidad de sabanas, bosques de galería, humedales, aves, mamíferos y especies migratorias; cercano al río Guatiquía y la Reserva Natural de la Sierra de la Macarena.</p></div>
-    <div class="territory-fact"><strong>Economía</strong><p>Ganadería, agroindustria, transporte, comercio, turismo rural y de aventura; base logística del Meta.</p></div>
-    <div class="territory-fact"><strong>Cultura y atractivos</strong><p>Mirador de la ciudad, Plaza de Los Mártires, Huerta de Los Cerdos, senderos a la Sierra de la Macarena y recorridos por llanuras, sabanas, humedales, ríos y fauna.</p></div>
-    <div class="territory-fact"><strong>Población</strong><p>≈ 550.000 habitantes (aprox. 3,7 veces más que el resto del Meta), la ciudad más grande de los llanos orientales.</p></div>
-  </div>
+**Meta**
 
-  <a class="territory-back-link" href="../territorios/">← Volver a territorios</a>
-</div>
+Puerta de la Orinoquía, donde confluyen paisajes de piedemonte, sabana y redes de trabajo territorial.
+
+## Contexto territorial
+
+Villavicencio es una capital regional de gran relevancia para la Orinoquía y el piedemonte andino. Su posición estratégica y su diversidad ecológica hacen del municipio un punto de encuentro entre vida urbana, espacio rural y paisajes de sabana.
+
+## Información clave
+
+### Tipo de entidad
+Municipio y capital del departamento del Meta.
+
+### Ubicación
+Se ubica en los Llanos Orientales colombianos, en el centro geográfico del departamento y con acceso directo a la Orinoquía y la Amazonía.
+
+### Extensión y altitud
+El municipio se extiende en una zona de llanura con una altitud cercana a 467 msnm.
+
+### Clima
+Cálido y tropical, con temperaturas generalmente altas y una marcada estacionalidad climática.
+
+### Biodiversidad
+La región combina sabanas, bosques de galería, humedales y corredores ecológicos importantes para aves, mamíferos y fauna migratoria.
+
+### Economía
+Ganadería, agroindustria, transporte, comercio, turismo rural y de aventura sostienen la base económica del municipio.
+
+### Cultura y atractivos
+La ciudad y sus alrededores ofrecen paisajes de llanura, miradores, senderos y experiencias vinculadas a la vida regional y la sabana.
+
+### Población
+Villavicencio es la ciudad más grande de los Llanos Orientales y un centro clave para la regionalidad del Meta.
+
+## Mirada territorial
+
+Este territorio forma parte de la red de sitios que COLFLUX reconoce como estratégicos para el monitoreo de carbono, la observación de ecosistemas y el diálogo con las comunidades locales.
+
+La mezcla entre ciudad, sabana y biodiversidad hace de Villavicencio un territorio estratégico para entender la Orinoquía y sus dinámicas sociales y ambientales.
+
+[← Volver a Conociendo nuestros territorios](../territorios.md)
