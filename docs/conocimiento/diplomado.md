@@ -15,7 +15,7 @@
             </div>
           </div>
           </article>
-        <a class="social-card-link" href="Alto_Nivel/">
+        <a class="social-card-link" href="diplomado/alto-nivel.md">
               <article class="social-card">
           <div class="social-card-image" style="background-image: url('../social/assets/Juan_Carlos_Diplomado.png');"></div>
           <div class="social-card-body">
