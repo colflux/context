@@ -30,9 +30,11 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/noticias.css
 
 extra_javascript:
   - javascripts/mermaid-zoom.js
+  - javascripts/galeria-territorios.js
 
 nav:
   - Ir a Plataforma: http://44.213.47.34/mapas

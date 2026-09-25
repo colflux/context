@@ -1,22 +1,20 @@
 # Noticias
 
-<div class="social-page">
-  <div class="social-shell">
-    <main class="social-content">
-      <div style="position: relative; width: 100%; min-height: 75vh; overflow: hidden; border: 1px solid var(--colflux-border); border-radius: 0.5rem; background: var(--colflux-panel);">
-        <iframe
-          src="https://www.javeriana.edu.co/pesquisa/carbono-cambio-climatico-colflux/"
-          title="Artículo de Pesquisa Javeriana sobre COLFLUX"
-          loading="lazy"
-          style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
-      <p style="margin-top: 0.75rem; text-align: center;">
-        <a href="https://www.javeriana.edu.co/pesquisa/carbono-cambio-climatico-colflux/" target="_blank" rel="noopener noreferrer">
-          Abrir el artículo en Pesquisa Javeriana
-        </a>
-      </p>
-    </main>
+<div class="news-list">
+
+<a class="news-card" href="https://www.javeriana.edu.co/pesquisa/carbono-cambio-climatico-colflux/" target="_blank" rel="noopener noreferrer">
+  <img class="news-card-image" src="https://www.javeriana.edu.co/pesquisa/wp-content/uploads/2026/03/DJI_0451-1024x683.jpg" alt="Humedales colombianos vistos desde el aire" loading="lazy">
+  <div class="news-card-body">
+    <h3>La primera base de datos sobre carbono y humedales en Colombia está en desarrollo</h3>
+    <p>COLFLUX reunirá datos científicos y conocimientos tradicionales para poner la información acerca de carbono en humedales al servicio de las comunidades.</p>
+    <div class="news-meta">
+      <span>Por Mariana Sofía Díaz Sanjuan</span>
+      <span>26 de marzo de 2026</span>
+      <span>Pesquisa Javeriana</span>
+      <span>Ambiente</span>
+    </div>
+    <span class="news-more">Leer más →</span>
   </div>
+</a>
+
 </div>
