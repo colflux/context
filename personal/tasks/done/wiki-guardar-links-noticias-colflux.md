@@ -1,6 +1,6 @@
 # Guardar links de noticias para Colflux
 
-**Estado:** pendiente
+**Estado:** cerrada
 **Creada:** 2026-09-14
 
 ## Objetivo
@@ -30,3 +30,4 @@ Los links se ubican navegando Instagram; falta definir dónde y en qué formato 
 | Fecha | Descripción |
 |---|---|
 | 2026-09-14 | Se crea la tarea. |
+| 2026-09-30 | Se corrige el campo `Estado` a "cerrada" (se había movido a `done/` el 2026-09-28 sin actualizarlo). No quedó registrado dónde se guardaron los links ni un entregable. |
