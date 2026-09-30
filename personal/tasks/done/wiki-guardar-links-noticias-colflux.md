@@ -23,7 +23,7 @@ Los links se ubican navegando Instagram; falta definir dónde y en qué formato 
 
 ## Referencias
 
-(Links, documentos u otros insumos útiles para la tarea.)
+(Links, documentos u otros insumos útiles para la tarea.)![ ](image.png)
 
 ## Historial
 
