@@ -39,6 +39,7 @@ nav:
   - Inicio:
       - index.md
       - Gestión: gestion/index.md
+      - Roles de la plataforma: roles/index.md
       - Roadmap:
           - roadmap/index.md
           - roadmap/roadmap-3-6-12-meses.md
