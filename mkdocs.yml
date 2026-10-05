@@ -41,6 +41,7 @@ nav:
   - Inicio:
       - index.md
       - Gestión: gestion/index.md
+      - Roles de la plataforma: roles/index.md
       - Roadmap:
           - roadmap/index.md
           - roadmap/roadmap-3-6-12-meses.md
@@ -57,6 +58,7 @@ nav:
           - arquitectura/diagrama-c4.md
           - arquitectura/git-flow.md
           - arquitectura/guia-desarrollo-local.md
+          - arquitectura/modelo-datos-torre-ec.md
       - Conceptos:
           - conceptos/index.md
           - conceptos/arquitectura.md
@@ -65,8 +67,8 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
+      - conocimiento/datos-torres-eddypro-reddyproc.md
       - conocimiento/diplomado.md
-          
   - Social:
       - social/index.md
       - Encuentros: social/encuentros.md
