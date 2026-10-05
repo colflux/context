@@ -22,7 +22,7 @@ Las muestras se toman en distintas profundidades de una misma columna de suelo. 
 
 ## 3. Flujos: el carbono en movimiento
 
-Mientras biomasa y COS miden carbono *almacenado*, los flujos miden carbono *en tránsito* entre el ecosistema y la atmósfera, usando cámaras de gases instaladas en campo.
+Mientras biomasa y COS miden carbono *almacenado*, los flujos miden carbono *en tránsito* entre el ecosistema y la atmósfera. Colflux usa dos métodos para esto: **cámaras de gases** instaladas puntualmente en campo, y **torres de covarianza de remolinos (eddy covariance)**, que miden de forma continua — ver [Datos de torres EC: de Eddypro a ReddyProc](datos-torres-eddypro-reddyproc.md) para el detalle de cómo funcionan las torres.
 
 El CO₂ es uno de los principales alimentos de las plantas, que lo absorben del aire durante el día. A su vez, la descomposición en el suelo libera gases con carbono. La medición de flujos permite entender el balance entre estos dos procesos:
 

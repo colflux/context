@@ -56,6 +56,7 @@ nav:
           - arquitectura/diagrama-c4.md
           - arquitectura/git-flow.md
           - arquitectura/guia-desarrollo-local.md
+          - arquitectura/modelo-datos-torre-ec.md
       - Conceptos:
           - conceptos/index.md
           - conceptos/arquitectura.md
@@ -64,6 +65,7 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
+      - conocimiento/datos-torres-eddypro-reddyproc.md
   - Social:
       - social/index.md
       - social/encuentros.md
