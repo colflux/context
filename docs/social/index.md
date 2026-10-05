@@ -1,53 +1,42 @@
+---
+hide:
+  - toc
+---
+
 # Social
+
+Espacio para compartir la vida del proyecto: noticias, aprendizajes, relatos de campo y material visual que ayuda a comunicar el trabajo de Colflux.
+
+!!! tip "Este espacio se alimenta con el trabajo del equipo"
+    Aquí se publicará contenido de difusión, testimonios de campo y momentos relevantes del proyecto para dar visibilidad a la investigación, la comunidad y la metodología de monitoreo.
 
 <div class="social-page">
   <div class="social-shell">
     <main class="social-content">
-
-      <a class="social-card-link" href="encuentros/visita-chorrera-narino/">
+      <a class="social-card-link" href="encuentros/">
         <article class="social-card social-card-feature">
-          <div class="social-card-image" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="social-card-image" style="background-image: url('assets/encuentros.JPG');"></div>
           <div class="social-card-body">
-            <span class="social-tag">Encuentro</span>
-            <h3>Visita aliados de La Chorrera y Nariño</h3>
-            <p>Aplicación del taller de metodologías de carbono, co-diseño de la plataforma COLFLUX y fortalecimiento de redes de conocimiento.</p>
-            <div class="social-meta">
-              <span class="social-meta-item"><span class="social-meta-icon">📅</span>9, 11 y 13 de mayo</span>
-              <span class="social-meta-item"><span class="social-meta-icon">📍</span>PUJ y La Calera</span>
-            </div>
+            <span class="social-tag">Encuentros</span>
+            <h3>Encuentros y trabajo territorial</h3>
+            <p>Espacios de diálogo, talleres y trabajo conjunto con comunidades, aliados y equipos territoriales.</p>
           </div>
         </article>
       </a>
 
-      <a class="social-card-link" href="encuentros/enfoques-diferenciales/">
+      <a class="social-card-link" href="territorios/">
         <article class="social-card">
-          <div class="social-card-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="social-card-image" style="background-image: url('assets/territorio.JPG');"></div>
           <div class="social-card-body">
-            <span class="social-tag">Encuentro</span>
-            <h3>Encuentro de enfoques diferenciales</h3>
-            <p>Espacio de intercambio y diálogo sobre enfoques diferenciales en el territorio, con el objetivo de reconocer sus particularidades y fortalecer la inclusión en el proyecto.</p>
-            <div class="social-meta">
-              <span class="social-meta-item"><span class="social-meta-icon">📅</span>30 de junio</span>
-              <span class="social-meta-item"><span class="social-meta-icon">📍</span>Hotel Viaggio</span>
-            </div>
+            <span class="social-tag">Territorio</span>
+            <h3>Conociendo nuestros territorios</h3>
+            <p>Galerías de los sitios donde COLFLUX reconoce paisajes, dinámicas locales y experiencias de campo.</p>
           </div>
         </article>
       </a>
 
-      <a class="social-section-link" href="noticias/">
-        <section class="social-section-block">
-          <h3>Noticias</h3>
-          <p>Actualizaciones de avance del proyecto, nuevas publicaciones, alianzas y actividades con aliados.</p>
-        </section>
-      </a>
-
-      <a class="social-section-link" href="blog-y-reflexiones/">
-        <section class="social-section-block">
-          <h3>Blog y reflexiones</h3>
-          <p>Lecciones aprendidas, metodologías observadas en campo y reflexiones sobre carbono, ecosistemas y ciencia abierta.</p>
-        </section>
-      </a>
+      <a class="social-section-link" href="noticias/"><section class="social-section-block"><h3>Noticias</h3><p>Actualizaciones de avance del proyecto, nuevas publicaciones, alianzas y actividades con aliados.</p></section></a>
+      <a class="social-section-link" href="blog-y-reflexiones/"><section class="social-section-block"><h3>Blog y reflexiones</h3><p>Lecciones aprendidas, metodologías observadas en campo y reflexiones sobre carbono, ecosistemas y ciencia abierta.</p></section></a>
     </main>
   </div>
 </div>
-

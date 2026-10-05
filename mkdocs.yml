@@ -30,9 +30,11 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/noticias.css
 
 extra_javascript:
   - javascripts/mermaid-zoom.js
+  - javascripts/galeria-territorios.js
 
 nav:
   - Ir a Plataforma: http://44.213.47.34/mapas
@@ -66,9 +68,11 @@ nav:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
       - conocimiento/datos-torres-eddypro-reddyproc.md
+      - conocimiento/diplomado.md
   - Social:
       - social/index.md
-      - social/encuentros.md
+      - Encuentros: social/encuentros.md
+      - Conociendo nuestros territorios: social/territorios.md
       - social/noticias.md
       - social/blog-y-reflexiones.md
   - FAQ: faq/index.md
