@@ -24,15 +24,15 @@ Revisar en este repo:
 
 - `docs/arquitectura/` — decisiones técnicas, distinguiendo lo ya validado de lo marcado como "propuesta pendiente de validar con el equipo" (patrón usado en `git-flow.md`, por ejemplo).
 - `docs/roadmap/` — plan de ejecución 3/6/12 meses y funcionalidades priorizadas.
-- `personal/tasks/{inprogress,blocked,backlog,done}/` — tareas activas, con bitácora de sesiones anteriores (Historial). Antes de asumir que algo no existe o no se ha intentado, buscar aquí. Cada tarea lleva `A cargo` y `Sesión de Claude Code` (link a la sesión con todo el contexto) — al trabajar una tarea existente, actualizar ese link a la sesión actual; al crear una nueva, usar `personal/tasks/_template.md` y llenar ambos campos.
-- `personal/TODAY.md` — pendientes inmediatos ya priorizados.
+- `tasks/{inprogress,blocked,backlog,done}/` — tareas del equipo, con bitácora de sesiones anteriores (Historial). Antes de asumir que algo no existe o no se ha intentado, buscar aquí. Cada tarea lleva `A cargo` y `Sesión de Claude Code` (link a la sesión con todo el contexto) — al trabajar una tarea existente, actualizar ese link a la sesión actual; al crear una nueva, usar `tasks/_template.md` y llenar ambos campos.
+- `journal/<nombre>/TODAY.md` — pendientes inmediatos ya priorizados de cada persona (ej. `journal/vivi/TODAY.md`).
 
 ## Al terminar
 
-Si el trabajo de la sesión cambió una decisión de arquitectura, avanzó/cerró algo del roadmap, o resolvió (parcial o totalmente) una tarea documentada en `personal/tasks/`, reflejarlo aquí antes de cerrar la sesión:
+Si el trabajo de la sesión cambió una decisión de arquitectura, avanzó/cerró algo del roadmap, o resolvió (parcial o totalmente) una tarea documentada en `tasks/`, reflejarlo aquí antes de cerrar la sesión:
 
 - Mover el archivo de tarea entre carpetas (`inprogress/` → `done/`, etc.) y agregar una entrada en su `## Historial`.
 - Actualizar `docs/arquitectura/*.md` si cambió una decisión técnica.
-- Agregar una entrada en `personal/journal/AAAA-MM.md` si aplica al reporte de actividades.
+- Agregar una entrada en `journal/<nombre>/AAAA-MM.md` si aplica al reporte de actividades.
 
 No dejar el cambio solo en el repo de código — `context` es lo que la siguiente sesión (en cualquier repo) va a leer primero.

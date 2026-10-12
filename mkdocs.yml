@@ -23,7 +23,6 @@ theme:
     text: Inter
   features:
     - navigation.tabs
-    - navigation.sections
     - navigation.indexes
     - search.suggest
     - content.code.copy
@@ -41,6 +40,7 @@ nav:
   - Inicio:
       - index.md
       - Gestión: gestion/index.md
+      - Roles de la plataforma: roles/index.md
       - Roadmap:
           - roadmap/index.md
           - roadmap/roadmap-3-6-12-meses.md
@@ -50,13 +50,79 @@ nav:
           - marca/index.md
           - marca/prompt-ia.md
   - Tecnología:
-      - Requisitos: requisitos/index.md
+      - Requerimientos:
+          - requisitos/index.md
+          - Catálogo de funcionalidades: requisitos/funcionalidades/index.md
+          - Geoportal:
+              - requisitos/funcionalidades/geoportal/f01-mapa-carbono-nacional.md
+              - requisitos/funcionalidades/geoportal/f02-sistema-capas-activables.md
+              - requisitos/funcionalidades/geoportal/f03-superposicion-comparacion-capas.md
+              - requisitos/funcionalidades/geoportal/f04-filtros-geoespaciales-busqueda.md
+              - requisitos/funcionalidades/geoportal/f05-mapa-calor-zonas.md
+              - requisitos/funcionalidades/geoportal/f06-dashboard-geoespacial-multimodulo.md
+              - requisitos/funcionalidades/geoportal/f07-captura-gps-formularios.md
+              - requisitos/funcionalidades/geoportal/f08-geoportal-ia-generativa.md
+          - Datos y Carga:
+              - requisitos/funcionalidades/datos-y-carga/f09-ingreso-datos-carbono.md
+              - requisitos/funcionalidades/datos-y-carga/f10-formulario-capacidad-cambio-climatico.md
+              - requisitos/funcionalidades/datos-y-carga/f11-validacion-semaforo-calidad.md
+              - requisitos/funcionalidades/datos-y-carga/f12-restriccion-edicion-comentarios.md
+              - requisitos/funcionalidades/datos-y-carga/f13-descarga-datos-filtrable.md
+              - requisitos/funcionalidades/datos-y-carga/f14-validacion-comite-cientifico.md
+          - Carbono y Estimaciones:
+              - requisitos/funcionalidades/carbono-y-estimaciones/f15-calculo-estimaciones-carbono.md
+              - requisitos/funcionalidades/carbono-y-estimaciones/f16-publicacion-modelos-predictivos.md
+              - requisitos/funcionalidades/carbono-y-estimaciones/f17-descarga-metadatos-metodologicos.md
+              - requisitos/funcionalidades/carbono-y-estimaciones/f18-exportacion-formatos-diferenciados.md
+              - requisitos/funcionalidades/carbono-y-estimaciones/f19-niveles-acceso-resolucion.md
+              - requisitos/funcionalidades/carbono-y-estimaciones/f20-calculo-toneladas-carbono.md
+          - Wiki y Conocimiento:
+              - requisitos/funcionalidades/wiki-y-conocimiento/f24-wiki-glosario-carbono.md
+              - requisitos/funcionalidades/wiki-y-conocimiento/f25-wiki-colaborativa-proyecto.md
+              - requisitos/funcionalidades/wiki-y-conocimiento/f26-espacio-papers-estudios.md
+              - requisitos/funcionalidades/wiki-y-conocimiento/f27-autoria-metodologia-dato.md
+              - requisitos/funcionalidades/wiki-y-conocimiento/f28-portal-investigacion-avanzada.md
+          - Visualización y Reportes:
+              - requisitos/funcionalidades/visualizacion-y-reportes/f29-visualizacion-ciclo-carbono.md
+              - requisitos/funcionalidades/visualizacion-y-reportes/f30-generador-graficos-configurables.md
+              - requisitos/funcionalidades/visualizacion-y-reportes/f31-mapas-tematicos-automaticos.md
+              - requisitos/funcionalidades/visualizacion-y-reportes/f32-plantillas-reportes.md
+              - requisitos/funcionalidades/visualizacion-y-reportes/f33-builder-dashboards-personalizados.md
+              - requisitos/funcionalidades/visualizacion-y-reportes/f34-dashboard-ejecutivo-kpis.md
+              - requisitos/funcionalidades/visualizacion-y-reportes/f35-directorio-proyectos-cercanos.md
+          - Monitoreo de Red y Sensores:
+              - requisitos/funcionalidades/monitoreo-red-sensores/f36-dashboard-estado-red.md
+              - requisitos/funcionalidades/monitoreo-red-sensores/f37-registro-fallos-equipos.md
+              - requisitos/funcionalidades/monitoreo-red-sensores/f38-ingesta-iot-tiempo-real.md
+          - Alertas y Notificaciones:
+              - requisitos/funcionalidades/alertas-y-notificaciones/f39-alertas-automaticas-umbral.md
+              - requisitos/funcionalidades/alertas-y-notificaciones/f40-notificaciones-whatsapp.md
+          - Colaboración Interinstitucional:
+              - requisitos/funcionalidades/colaboracion-interinstitucional/f41-integracion-sincronizacion-externa.md
+              - requisitos/funcionalidades/colaboracion-interinstitucional/f42-portal-datos-consolidados.md
+              - requisitos/funcionalidades/colaboracion-interinstitucional/f43-directorio-instituciones.md
+              - requisitos/funcionalidades/colaboracion-interinstitucional/f44-mensajeria-red-investigadores.md
+              - requisitos/funcionalidades/colaboracion-interinstitucional/f45-calendario-capacitaciones.md
+              - requisitos/funcionalidades/colaboracion-interinstitucional/f46-espacio-coordinacion-colaborativa.md
+          - Inteligencia Artificial:
+              - requisitos/funcionalidades/inteligencia-artificial/f54-chatbot-whatsapp-territorial.md
+              - requisitos/funcionalidades/inteligencia-artificial/f55-motor-ia-ingesta-multiformato.md
+              - requisitos/funcionalidades/inteligencia-artificial/f56-indexacion-recomendacion-contenido.md
+          - Acceso a Plataforma:
+              - requisitos/funcionalidades/acceso-a-plataforma/f57-rbac-control-acceso-roles.md
+              - requisitos/funcionalidades/acceso-a-plataforma/f58-proteccion-datos-personales.md
+          - Addendum (prototipo):
+              - requisitos/funcionalidades/addendum-prototipo/f59-diccionario-campo-inverso.md
+              - requisitos/funcionalidades/addendum-prototipo/f60-semaforo-aceptacion-terminos.md
+              - requisitos/funcionalidades/addendum-prototipo/f61-motor-inferencia-dato-diccionario.md
+              - requisitos/funcionalidades/addendum-prototipo/f62-analisis-estadistico-exploratorio.md
       - Arquitectura:
           - arquitectura/index.md
           - arquitectura/repositorios.md
           - arquitectura/diagrama-c4.md
           - arquitectura/git-flow.md
           - arquitectura/guia-desarrollo-local.md
+          - arquitectura/modelo-datos-torre-ec.md
       - Conceptos:
           - conceptos/index.md
           - conceptos/arquitectura.md
@@ -65,8 +131,8 @@ nav:
   - Conocimiento:
       - conocimiento/index.md
       - conocimiento/como-se-mide-el-carbono.md
+      - conocimiento/datos-torres-eddypro-reddyproc.md
       - conocimiento/diplomado.md
-          
   - Social:
       - social/index.md
       - Encuentros: social/encuentros.md
