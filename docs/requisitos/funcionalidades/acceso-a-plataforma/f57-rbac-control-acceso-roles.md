@@ -24,6 +24,15 @@ roles de proyecto (coordinador, investigador, técnico — `datos.py:10-22`, usa
 localStorage para la UI, con el comentario explícito de que "no hay validación de rol
 en el backend" — ya superado por el `permisos.py` actual.
 
+## Seguimiento
+
+- 2026-11-08: la pestaña "Reportar" del frontend (`/reportar`,
+  `Participacion.tsx`) pasó de requerir nivel `reportador` para verse a estar
+  visible para todos los perfiles — solo el botón "Subir datos" sigue
+  restringido a `reportador` (deshabilitado con tooltip para el resto). Las
+  rutas de carga (`/reportar/formulario`, `/reportar/avistamiento`) conservan
+  su propio guard de nivel, así que el acceso real a escritura no cambió.
+
 ## Qué hace falta
 
 Los 4 niveles de acceso (`ciudadano`/`investigador`/`reportador`/`admin`) son una

@@ -8,7 +8,7 @@ Contexto persistente para trabajar desde este repo. Se carga automáticamente al
 
 ## Repos hermanos (código real)
 
-Viven junto a este repo, en `/Users/vivianabautista.xyz/colflux/`:
+Viven junto a este repo, en `/Users/vivianabautista.xyz/xyz/cuadrantes/01-base/actividad-laboral/colflux/`:
 
 - `backend/` — Django + DRF + PostGIS. Tiene su propio `CLAUDE.md`.
 - `frontend/` — React + Vite.

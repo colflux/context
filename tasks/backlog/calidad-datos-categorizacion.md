@@ -16,4 +16,4 @@ Diseñar una categorización que permita medir el nivel de error/confiabilidad d
 
 ## Notas
 
-Relacionado con [[calidad-datos-trazabilidad]] y [[modelos-cobertura]]. Ver [calidad-datos.md](../../../docs/requisitos/calidad-datos.md).
+Relacionado con [[calidad-datos-trazabilidad]] y [[modelos-cobertura]]. Ver propuesta en [Calidad de datos: zonas, roles y reglas de validación](../../docs/arquitectura/calidad-datos-zonas.md) (2026-10-15, a raíz de una tensión entre Objetivo 1 y Objetivo 2 por validación informal de datos).

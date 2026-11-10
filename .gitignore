@@ -4,3 +4,5 @@ site/
 .credenciales
 *.credenciales
 site/
+data/
+.env

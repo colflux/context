@@ -16,4 +16,4 @@ Definir cómo se registra la trazabilidad de cada dato cargado en la plataforma:
 
 ## Notas
 
-Relacionado con [[calidad-datos-categorizacion]] y [[modelos-cobertura]] — las tres salen de la misma reunión de módulo de calidad. Ver [calidad-datos.md](../../../docs/requisitos/calidad-datos.md).
+Relacionado con [[calidad-datos-categorizacion]] y [[modelos-cobertura]] — las tres salen de la misma reunión de módulo de calidad. Ver propuesta en [Calidad de datos: zonas, roles y reglas de validación](../../docs/arquitectura/calidad-datos-zonas.md) (2026-10-15).
