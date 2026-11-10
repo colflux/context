@@ -79,6 +79,7 @@ Contexto, Qué hay (evidencia real en el código) y Qué hace falta.
 - [F54 — Chatbot de WhatsApp con IA conversacional territorial](inteligencia-artificial/f54-chatbot-whatsapp-territorial.md). También canal de captura de datos.
 - [F55 — Motor de IA para ingesta multi-formato](inteligencia-artificial/f55-motor-ia-ingesta-multiformato.md). OCR, PLN y ML para limpiar y normalizar datos.
 - [F56 — Indexación y recomendación automática de contenido](inteligencia-artificial/f56-indexacion-recomendacion-contenido.md).
+- [F63 — Extracción de datos cualitativos desde chat a registro estructurado](inteligencia-artificial/f63-extraccion-datos-cualitativos-chat.md). Caso de uso nuevo (fuera del catálogo original), pendiente de validar con el equipo.
 
 ## Acceso a Plataforma (transversal)
 

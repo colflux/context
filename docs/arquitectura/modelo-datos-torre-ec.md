@@ -1,6 +1,12 @@
 # Modelo de datos: series de tiempo de torre EC (propuesta)
 
-**Estado:** propuesta, pendiente de validar con el equipo de backend — no implementada todavía.
+**Estado:** propuesta revisada (2026-11-01) — reemplaza el diseño semihorario original de
+abajo por uno de **promedio diario**. El semihorario se implementó en el backend
+(`MuestraTorre`/`SubmuestraEddy`/`SubmuestraReddy`, commit `5a31897`) pero sin datos
+cargados todavía, así que se reemplaza en vez de migrar. Ver la sección "Revisión: promedio
+diario en vez de detalle semihorario" más abajo para el diseño vigente — el resto del
+documento (decisión Eddypro vs. ReddyProc, por qué 3 entidades) sigue aplicando igual, solo
+cambia la granularidad del dato guardado.
 
 ## Contexto
 
@@ -68,11 +74,73 @@ Opcional (0:1 con `MuestraTorre`) — puede no existir si la torre no tiene Redd
 - **`datos_extra` como JSONField.** Evita tener que modelar las ~169 columnas de Eddypro una por una desde el inicio; los campos explícitos son los que ya se identificaron como necesarios para consulta/reportes (flujos, calidad, turbulencia, footprint, meteorología básica). Se puede ir promoviendo campos de `datos_extra` a columnas propias si se vuelven necesarios para filtrar/agregar.
 - **`MuestraGEI`/`SubmuestraGEI` no se tocan.** Siguen siendo exclusivamente para mediciones manuales por cámara; no se reutilizan para torres porque la semántica de "toma" día/noche no aplica a una serie continua.
 
+## Revisión (2026-11-01): promedio diario en vez de detalle semihorario
+
+Al retomar la implementación en [[cargar-datos-torre-guatavita-eddypro]] se decidió que la
+base de datos **solo guarda el promedio diario** por torre, no el detalle semihorario de
+arriba — simplifica el modelo a costa de perder la granularidad de 30 minutos (no se puede
+recalcular distinto más adelante sin volver a subir el archivo original). Las 3 entidades
+semihorarias de arriba (`MuestraTorre`, `SubmuestraEddy`, `SubmuestraReddy`) ya se habían
+implementado en el backend sin datos cargados todavía, así que **se reemplazan** por estas
+3 nuevas en vez de migrarlas:
+
+```mermaid
+erDiagram
+    TorreEc ||--o{ MuestraTorreDiaria : tiene
+    CargaArchivo ||--o{ MuestraTorreDiaria : genera
+    MuestraTorreDiaria ||--|| SubmuestraEddyDiaria : "obligatoria"
+    MuestraTorreDiaria ||--o| SubmuestraReddyDiaria : "opcional"
+```
+
+### `MuestraTorreDiaria`
+
+Ancla de identidad: torre + fecha (no hora).
+
+| Campo | Tipo | Notas |
+|---|---|---|
+| `torre` | FK → `TorreEc` | `on_delete=CASCADE` |
+| `fecha` | DateField | |
+| `carga` | FK → `CargaArchivo` | trazabilidad: qué carga generó este promedio |
+| `n_registros_validos` | IntegerField | cuántas de las ~48 filas semihorarias del día entraron al promedio |
+
+`unique_together = [("torre", "fecha")]`.
+
+### `SubmuestraEddyDiaria`
+
+Obligatoria (1:1 con `MuestraTorreDiaria`): mismas variables que `SubmuestraEddy` arriba
+(flujos+calidad, turbulencia, footprint, aire/viento), pero cada campo es el **promedio del
+día** en vez del valor de una ventana de 30 min. Cambio respecto al diseño semihorario:
+- Los campos `qc_*` (antes un flag 0/1/2 por fila) se resumen en un único
+  `pct_calidad_buena` (% de filas usadas en el promedio con `qc_co2_flux=0`) — ya no existe
+  "el" flag de calidad de una fila individual cuando se promedian ~48.
+- `datos_extra` (JSONField) se mantiene igual.
+
+### `SubmuestraReddyDiaria`
+
+Opcional (0:1 con `MuestraTorreDiaria`): promedio diario de `nee_f`, `reco`, `gpp_f`,
+`ustar_used` — mismo criterio que `SubmuestraReddy` arriba.
+
+### Regla de agregación
+
+Antes de promediar, se descartan las filas semihorarias con `qc_*=2` ("descartar") para esa
+variable — misma regla que ya estaba anotada en el plan original de
+[[cargar-datos-torre-guatavita-eddypro]].
+
+### Tensión abierta con calidad de datos
+
+[[calidad-datos-zonas]] (propuesta en discusión, no decidida) sugiere guardar siempre el
+dato **bronze** (crudo tal cual se recibió) como fuente de verdad, incluso si después se
+filtra/agrega. Guardar solo el promedio diario rompe ese principio a propósito, por decisión
+explícita de simplicidad — si esa propuesta avanza, hay que decidir si torre EC es una
+excepción (se descarta el semihorario tras calcular el promedio) o si eventualmente se
+vuelve a guardar el detalle crudo también.
+
 ## Pendiente
 
-- Validar esta propuesta con el equipo de backend antes de implementarla.
-- Completar la sección de ReddyProc en [Datos de torres EC: de Eddypro a ReddyProc](../conocimiento/datos-torres-eddypro-reddyproc.md) cuando se tenga el archivo real de ReddyProc (`Guatavita_2_ReddyProc_2023_2024_output (1).csv`, aún no descargado en `files/archivos-torres/`), para confirmar que `SubmuestraReddy` cubre sus columnas reales.
+- Validar esta propuesta (la revisión diaria) con el equipo de backend antes de implementarla.
+- Completar la sección de ReddyProc en [Datos de torres EC: de Eddypro a ReddyProc](../conocimiento/datos-torres-eddypro-reddyproc.md) cuando se tenga el archivo real de ReddyProc (`Guatavita_2_ReddyProc_2023_2024_output (1).csv`, aún no descargado en `files/archivos-torres/`), para confirmar que `SubmuestraReddyDiaria` cubre sus columnas reales.
 - Definir a qué categoría del catálogo (`app/catalogo/generator.py`) pertenecerían estas entidades — probablemente una nueva o una extensión de "Torre EC y Flujos".
+- Definir el formato del tercer archivo (metadata de la carga) — todavía sin un ejemplo real para diseñarlo.
 
 ## Referencias
 

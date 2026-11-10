@@ -52,6 +52,9 @@ nav:
   - Tecnología:
       - Requerimientos:
           - requisitos/index.md
+          - Requerimientos (formato SMART):
+              - requisitos/requerimientos/index.md
+              - requisitos/requerimientos/buenos-requerimientos.md
           - Catálogo de funcionalidades: requisitos/funcionalidades/index.md
           - Geoportal:
               - requisitos/funcionalidades/geoportal/f01-mapa-carbono-nacional.md
@@ -108,6 +111,7 @@ nav:
               - requisitos/funcionalidades/inteligencia-artificial/f54-chatbot-whatsapp-territorial.md
               - requisitos/funcionalidades/inteligencia-artificial/f55-motor-ia-ingesta-multiformato.md
               - requisitos/funcionalidades/inteligencia-artificial/f56-indexacion-recomendacion-contenido.md
+              - requisitos/funcionalidades/inteligencia-artificial/f63-extraccion-datos-cualitativos-chat.md
           - Acceso a Plataforma:
               - requisitos/funcionalidades/acceso-a-plataforma/f57-rbac-control-acceso-roles.md
               - requisitos/funcionalidades/acceso-a-plataforma/f58-proteccion-datos-personales.md
@@ -122,16 +126,21 @@ nav:
           - arquitectura/diagrama-c4.md
           - arquitectura/git-flow.md
           - arquitectura/guia-desarrollo-local.md
+          - arquitectura/modelo-datos.md
           - arquitectura/modelo-datos-torre-ec.md
       - Conceptos:
           - conceptos/index.md
           - conceptos/arquitectura.md
-          - conceptos/buenos-requerimientos.md
           - conceptos/devops.md
   - Conocimiento:
       - conocimiento/index.md
+      - conocimiento/que-es-un-ecosistema.md
+      - conocimiento/que-es-un-disturbio.md
+      - conocimiento/que-es-la-cobertura.md
+      - conocimiento/que-es-una-unidad-de-muestreo.md
       - conocimiento/como-se-mide-el-carbono.md
       - conocimiento/datos-torres-eddypro-reddyproc.md
+      - conocimiento/estandar-badm-ameriflux.md
       - conocimiento/diplomado.md
   - Social:
       - social/index.md
@@ -139,6 +148,8 @@ nav:
       - Conociendo nuestros territorios: social/territorios.md
       - social/noticias.md
       - social/blog-y-reflexiones.md
+  - Guías:
+      - guias/reportar-datos.md
   - FAQ: faq/index.md
 
 markdown_extensions:
