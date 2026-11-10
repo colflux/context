@@ -1,0 +1,699 @@
+Table PublicacionType [headercolor: #475569] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  descripcion text [note: "descripción"]
+  Note: "Catálogo de tipos de referencia bibliográfica (artículo, tesis, informe, …)."
+}
+
+Table Publicacion [headercolor: #475569] {
+  id integer [pk, increment]
+  bibliography_type integer [ref: > PublicacionType.id, note: "tipo de referencia"]
+  isbn varchar [note: "ISBN"]
+  doi varchar [note: "DOI"]
+  identifier varchar [note: "identificador"]
+  titulo text [not null, note: "título"]
+  journal varchar [note: "revista / journal"]
+  volumen varchar
+  numero varchar [note: "número"]
+  paginas varchar [note: "páginas"]
+  anio integer [note: "año"]
+  mes varchar
+  email varchar [note: "email de contacto"]
+  url varchar [note: "URL"]
+  abstract text [note: "resumen"]
+  keywords text [note: "palabras clave"]
+  validacion_campo boolean [not null, note: "validación en campo"]
+  datos_disponibles_repositorio boolean [not null, note: "datos disponibles en repositorio"]
+  autores varchar
+  sitios varchar
+  Note: "Referencia bibliográfica (artículo, informe, etc.) asociada a sitios y autores, con metadatos como DOI, revista y resumen."
+}
+
+Table Autor [headercolor: #475569] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Autor de una o varias publicaciones registradas en el sistema."
+}
+
+Table Region [headercolor: #ff6f61] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Región natural de Colombia (Andes, Orinoquía, Amazonas, Caribe, Pacífico, Insular)."
+}
+
+Table Departamento [headercolor: #ff6f61] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  codigo_dane varchar [note: "código DANE"]
+  region integer [not null, ref: > Region.id]
+  geom geometry [note: "geometría"]
+  Note: "Departamento de Colombia, asociado a su región natural."
+}
+
+Table Municipio [headercolor: #ff6f61] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  codigo_dane varchar [note: "código DANE"]
+  departamento integer [not null, ref: > Departamento.id]
+  geom geometry [note: "geometría"]
+  Note: "Municipio de Colombia, perteneciente a un departamento."
+}
+
+Table Vereda [headercolor: #ff6f61] {
+  id integer [pk, increment]
+  nombre varchar
+  codigo_dane varchar [not null, note: "código DANE"]
+  tipo varchar [not null]
+  municipio integer [not null, ref: > Municipio.id]
+  geom geometry [note: "geometría"]
+  Note: "Subdivisión rural (vereda) o urbana (manzana censal) de un municipio, según el MGN del DANE."
+}
+
+Table SistemaReferencia [headercolor: #ff6f61] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Sistema de referencia de coordenadas usado para georreferenciar sitios (WGS84, MAGNA-SIRGAS, …)."
+}
+
+Table Sitio [headercolor: #ff6f61] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  latitud decimal [not null]
+  longitud decimal [not null]
+  geom geometry [note: "geometría"]
+  sistema_referencia integer [ref: > SistemaReferencia.id, note: "sistema referencia"]
+  altitud decimal [note: "altitud (m.s.n.m.)"]
+  pendiente varchar
+  topografia varchar [note: "topografía"]
+  uso_actual varchar [note: "uso actual del suelo"]
+  propiedad_tierra varchar [note: "propiedad de la tierra"]
+  intervenido boolean [not null]
+  tipo_localizacion varchar [note: "tipo de localización"]
+  vereda integer [ref: > Vereda.id]
+  vegetacion integer [ref: > Vegetacion.id]
+  Note: "Sitio de estudio georreferenciado: ubicación, topografía, uso del suelo, cobertura y vegetación asociados."
+}
+
+Table UnidadMuestreoTipo [headercolor: #7c3aed] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Catálogo de tipos de unidad de muestreo (parcela, transecto, conglomerado, plot)."
+}
+
+Table UnidadMuestreo [headercolor: #7c3aed] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  tipo integer [not null, ref: > UnidadMuestreoTipo.id]
+  unidad_experimental integer [not null, ref: > UnidadExperimental.id, note: "unidad experimental"]
+  codigo_metadato varchar [note: "código de metadato"]
+  sitio integer [ref: > Sitio.id]
+  fecha_instalacion date [note: "fecha instalación unidad de muestreo"]
+  compartimento varchar
+  tipo_muestreo varchar [note: "tipo de muestreo"]
+  diametro_anillo_cm decimal [note: "diámetro del anillo (cm)"]
+  area_cm2 decimal [note: "área del anillo (cm²)"]
+  tiene_pozo_nivel_freatico boolean [not null, note: "tiene pozo de nivel freático"]
+  microtopografia integer [ref: > Microtopografia.id, note: "microtopografía"]
+  Note: "Lugar/objeto desde el cual se toma la muestra. Su tipo sale del catálogo."
+}
+
+Table UnidadExperimental [headercolor: #7c3aed] {
+  id integer [pk, increment]
+  proyecto integer [not null, ref: > Proyecto.id]
+  nombre varchar [not null]
+  tipo integer [ref: > UnidadMuestreoTipo.id]
+  descripcion text [note: "descripción"]
+  tratamiento varchar
+  Note: "Unidad a la que se asigna/representa un tratamiento independiente. Agrupa una o varias unidades de muestreo (p. ej. un transecto dividido en puntos/plots, o varias parcelas)."
+}
+
+Table Parcela [headercolor: #7c3aed] {
+  id integer [pk, increment]
+  unidad_muestreo integer [note: "unidad de muestreo"]
+  forma varchar
+  medida_largo decimal [note: "medida largo (m)"]
+  medida_ancho decimal [note: "medida ancho (m)"]
+  distancia decimal [note: "distancia / lado (m)"]
+  diametro decimal [note: "diámetro (m)"]
+  area decimal [note: "área (m²)"]
+  descripcion text [note: "descripción"]
+  Note: "Detalle de una unidad de muestreo cuando su tipo es 'parcela' (forma y dimensiones)."
+}
+
+Table Transecto [headercolor: #7c3aed] {
+  id integer [pk, increment]
+  unidad_muestreo integer [note: "unidad de muestreo"]
+  nombre varchar
+  longitud decimal [note: "longitud (m)"]
+  separacion_muestreo decimal [note: "separación de muestreo (m)"]
+  descripcion varchar [note: "descripción"]
+  Note: "Detalle de una unidad de muestreo cuando su tipo es 'transecto' (línea y subdivisiones)."
+}
+
+Table Microtopografia [headercolor: #7c3aed] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Catálogo de microtopografía (relieve a escala centimétrica): Hummock, Hollow, Pool, Lawns, Ditch. Reemplaza a MuestraAmbiental.microtopo: es un rasgo del terreno fijo por unidad de muestreo (no cambia de una lectura a otra), no una medición."
+}
+
+Table ClasificacionTipo [headercolor: #0f8139] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  categoria varchar [not null, note: "categoría"]
+  descripcion text [note: "descripción"]
+  Note: "Catálogo genérico de sistemas de clasificación (IPCC, CLC, IGBP, Coloquial, Suelo IPCC, Köppen, IDEAM, Disturbio, uso del suelo propio de Colflux, …), reemplaza los catálogos antes separados por dominio (TipoCobertura, TipoClasificacionEcosistema, Disturbio)."
+}
+
+Table ValorClasificacionTipo [headercolor: #0f8139] {
+  id integer [pk, increment]
+  tipo integer [not null, ref: > ClasificacionTipo.id]
+  valor varchar [not null]
+  Note: "Valor permitido dentro de un sistema de clasificación (ej. \"Forest Land\" en IPCC, \"Páramo\" en IDEAM, \"Fuego\" en Disturbio)."
+}
+
+Table ClasificacionArea [headercolor: #0f8139] {
+  id integer [pk, increment]
+  tipo integer [not null, ref: > ClasificacionTipo.id]
+  valor integer [not null, ref: > ValorClasificacionTipo.id]
+  geom varchar [note: "geometría"]
+  Note: "Área real (geometría) de un valor de clasificación — capa futura, sin datos hoy: reemplaza lo que hubieran sido CoberturaArea/EcosistemaArea por separado. Se llena cuando haya un mapa oficial (IDEAM/IAvH u otro) para digitalizar."
+}
+
+Table TipoCobertura [headercolor: #0f8139] {
+  id integer [pk, increment]
+  codigo varchar [not null, note: "código"]
+  nombre varchar [not null]
+  Note: "Catálogo de sistemas de clasificación de cobertura (CLC, IPCC, IGBP, Köppen, Suelo IPCC, nombre local)."
+}
+
+Table ValorCobertura [headercolor: #0f8139] {
+  id integer [pk, increment]
+  tipo integer [not null, ref: > TipoCobertura.id]
+  valor varchar [not null]
+  Note: "Valor permitido dentro de un sistema de clasificación de cobertura (ej. \"Forest Land\" en IPCC, \"Bosque denso\" en CLC)."
+}
+
+Table CoberturaManual [headercolor: #0f8139] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  tipo integer [ref: > ClasificacionTipo.id]
+  valor integer [ref: > ValorClasificacionTipo.id]
+  porcentaje decimal [note: "% cobertura"]
+  orden_dominancia varchar [note: "orden de dominancia"]
+  valor_texto varchar [note: "valor (texto original)"]
+  Note: "Un valor de cobertura reportado para una unidad de muestreo, según un sistema de clasificación. Una misma unidad puede tener varias filas: una por sistema de clasificación, o varias del mismo sistema cuando distintas fuentes reportan valores en conflicto (no hay forma de saber cuál es \"el correcto\", así que se guardan todas en vez de que una pise a la otra). También así se reporta cobertura_vegetal_primaria/secundaria/terciaria: tres filas con tipo=Vegetación funcional y distinto orden_dominancia."
+}
+
+Table Vegetacion [headercolor: #0f8139] {
+  id integer [pk, increment]
+  tipo_cobertura varchar [note: "tipo de cobertura"]
+  especies_dominantes text [note: "especies dominantes"]
+  altura_dosel decimal [note: "altura del dosel (m)"]
+  porcentaje_cobertura decimal [note: "% cobertura"]
+  edad_cobertura text [note: "edad de la cobertura"]
+  estado_sucesional varchar [note: "estado sucesional"]
+  Note: "Caracterización de la vegetación de un sitio: tipo, especies dominantes, altura del dosel y estado sucesional."
+}
+
+Table Disturbio [headercolor: #0f8139] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Catálogo de tipos de disturbio (fuego, sequía, pastoreo, …)."
+}
+
+Table UnidadMuestreoDisturbio [headercolor: #0f8139] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  tipo integer [ref: > ClasificacionTipo.id]
+  valor integer [ref: > ValorClasificacionTipo.id]
+  valor_texto varchar [note: "valor (texto original)"]
+  descripcion text [note: "descripción"]
+  fecha_inicio date [note: "fecha de inicio"]
+  fecha_fin date [note: "fecha de fin"]
+  incertidumbre_anios integer [note: "incertidumbre (años)"]
+  fecha_reporte date [note: "fecha de reporte"]
+  anios_disturbio integer [note: "años de disturbio"]
+  anios_desde_fin integer [note: "años desde fin del disturbio"]
+  estado_actual varchar [note: "estado actual"]
+  estado_conservacion varchar [note: "estado de conservación"]
+  proteccion_legal text [note: "protección legal"]
+  es_dominante boolean [not null, note: "es el disturbio dominante"]
+  Note: "Disturbio reportado para una unidad de muestreo (fechas, estado del ecosistema, si es el disturbio dominante)."
+}
+
+Table TipoClasificacionEcosistema [headercolor: #0f8139] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Catálogo de sistemas de clasificación de ecosistema (hoy solo IDEAM; deja la puerta abierta a Holdridge, Ramsar, etc.)."
+}
+
+Table ValorClasificacionEcosistema [headercolor: #0f8139] {
+  id integer [pk, increment]
+  tipo integer [not null, ref: > TipoClasificacionEcosistema.id, note: "tipo de clasificación"]
+  valor varchar [not null]
+  Note: "Valor permitido dentro de un sistema de clasificación de ecosistema (ej. \"Páramo\", \"Turbera\" en IDEAM). Lista tentativa, pendiente de confirmar con Martín (ecólogo) antes de tratarla como catálogo cerrado definitivo."
+}
+
+Table EcosistemaManual [headercolor: #0f8139] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  tipo integer [ref: > ClasificacionTipo.id, note: "tipo de clasificación"]
+  valor integer [ref: > ValorClasificacionTipo.id]
+  valor_texto varchar [note: "valor (texto original)"]
+  Note: "Ecosistema/zonificación reportado por el equipo de campo para una unidad de muestreo. Varias filas por unidad (una por sistema de clasificación) — mismo patrón que CoberturaManual. No incluye la capa geométrica oficial (ver docs de arquitectura): todavía no se tiene el shapefile/geopackage del Mapa de Ecosistemas IDEAM/IAvH."
+}
+
+Table FuenteExterna [headercolor: #0f8139] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  Note: "Catálogo de fuentes externas de disturbio (fuego, pastoreo, cultivo, drenaje) cuya cercanía a una unidad de muestreo se reporta como distancia."
+}
+
+Table ExposicionExterna [headercolor: #0f8139] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  fuente integer [not null, ref: > FuenteExterna.id, note: "fuente externa"]
+  distancia_m decimal [note: "distancia (m)"]
+  Note: "Qué tan cerca está una unidad de muestreo de una fuente de alteración ubicada en otro lugar (no un disturbio ocurrido en la unidad misma)."
+}
+
+Table CaracterizacionMuestreoSuelo [headercolor: #e69138] {
+  id integer [pk, increment]
+  sitio integer [not null, ref: > Sitio.id]
+  muestreo_id integer [not null, note: "ID de muestreo"]
+  tipo_de_suelo varchar [note: "tipo de suelo"]
+  profundidad_perfil decimal [note: "profundidad del perfil (cm)"]
+  intervalos_perfil decimal [note: "intervalos del perfil (cm)"]
+  Note: "Caracterización de un muestreo de suelo en un sitio: tipo de suelo, profundidad e intervalos del perfil."
+}
+
+Table MonitoreoSuelo [headercolor: #e69138] {
+  id integer [pk, increment]
+  caracterizacion integer [not null, ref: > CaracterizacionMuestreoSuelo.id]
+  tipo_monitoreo varchar [not null, note: "tipo de monitoreo"]
+  activo boolean [not null]
+  protocolo varchar
+  Note: "Tipo de monitoreo aplicado a una caracterización de suelo (COS, densidad aparente, datación, …) y su protocolo."
+}
+
+Table SubmuestraSuelo [headercolor: #e69138] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  fecha date
+  hora time
+  barreno_vol varchar [note: "barreno / volumen"]
+  profundidad_desde_cm decimal [note: "profundidad desde (cm)"]
+  profundidad_hasta_cm decimal [note: "profundidad hasta (cm)"]
+  densidad_aparente_g_cm3 decimal [note: "densidad aparente (g/cm³)"]
+  carbono_pct decimal [note: "% carbono"]
+  soil_chem_c_org decimal [note: "SOIL_CHEM_C_ORG"]
+  medida_error varchar [note: "medida de error (SD;EE;U%)"]
+  metodologia_tipo_muestreo varchar [note: "metodología: tipo de muestreo"]
+  metodologia_distancia_m decimal [note: "metodología: distancia (m)"]
+  metodologia_azimut decimal [note: "metodología: azimut (°)"]
+  metodologia_analisis varchar [note: "metodología: método de análisis"]
+  Note: "Toma de suelo por intervalo de profundidad en una unidad de muestreo: carbono orgánico del suelo (COS) y densidad aparente."
+}
+
+Table MuestraBiomasa [headercolor: #88bb72] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  fecha date
+  prod_biomasa_g decimal [note: "producción de biomasa (g)"]
+  contenido_carbono decimal [note: "contenido de carbono"]
+  prom_tonc_ha decimal [note: "promedio (TonC/ha)"]
+  sd_tonc_ha decimal [note: "desviación estándar (TonC/ha)"]
+  min_tonc_ha decimal [note: "mínimo (TonC/ha)"]
+  max_tonc_ha decimal [note: "máximo (TonC/ha)"]
+  Note: "Evento de medición de producción de biomasa aérea en una unidad de muestreo, con el agregado de carbono de la parcela."
+}
+
+Table IndividuoArboreo [headercolor: #88bb72] {
+  id integer [pk, increment]
+  muestra integer [not null, ref: > MuestraBiomasa.id, note: "muestra de biomasa"]
+  tipo varchar
+  n_ind integer [note: "número de individuo"]
+  condicion varchar [note: "condición"]
+  numero_fuste varchar [note: "número de fuste"]
+  multiples varchar [note: "múltiples"]
+  dap_1 decimal [note: "DAP 1 (cm)"]
+  dap_2 decimal [note: "DAP 2 (cm)"]
+  dap_analisis_cm decimal [note: "DAP de análisis (cm)"]
+  equipo varchar
+  pom_m decimal [note: "POM (m)"]
+  altura_fuste_m decimal [note: "altura del fuste (m)"]
+  altura_total_m decimal [note: "altura total (m)"]
+  diff_alturas decimal [note: "diferencia de alturas (m)"]
+  familia varchar
+  genero varchar [note: "género"]
+  especie varchar
+  Note: "Medición de un individuo arbóreo dentro de una muestra de biomasa (DAP, altura, especie)."
+}
+
+Table MuestraMOM [headercolor: #c36c2d] {
+  id integer [pk, increment]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  fecha date
+  carbono_mom_valor_reportado decimal [note: "carbono MOM (valor reportado)"]
+  carbono_mom_tc_ha decimal [note: "carbono MOM total (tC/ha)"]
+  error_mom varchar [note: "medida de error MOM (SD;EE;U%)"]
+  carbono_amp_tm_tc_ha decimal [note: "carbono AMP+TM (tC/ha)"]
+  error_amp_tm varchar [note: "medida de error AMP_TM (SD;EE;U%)"]
+  carbono_dfm_tc_ha decimal [note: "carbono DFM (tC/ha)"]
+  error_dfm varchar [note: "medida de error DFM (SD;EE;U%)"]
+  carbono_dgm_tc_ha decimal [note: "carbono DGM (tC/ha)"]
+  error_dgm varchar [note: "medida de error DGM (SD;EE;U%)"]
+  carbono_hojarasca_g_m2 decimal [note: "carbono en hojarasca (g/m²)"]
+  carbono_hojarasca_tc_ha decimal [note: "carbono en hojarasca (tC/ha)"]
+  error_hojarasca varchar [note: "medida de error hojarasca (SD;EE;U%)"]
+  metodologia_muestreo_mom varchar [note: "metodología: muestreo MOM"]
+  metodologia_muestreo_dfm_dgm varchar [note: "metodología: muestreo DFM-DGM"]
+  metodologia_tamano varchar [note: "metodología: tamaño"]
+  metodologia_amp_to varchar [note: "metodología: AMP y TO"]
+  metodologia_hojarasca varchar [note: "metodología: hojarasca"]
+  Note: "Contenido de carbono en materia orgánica muerta (MOM) de una unidad de muestreo, por pool IPCC."
+}
+
+Table TorreEc [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  sitio integer [not null, ref: > Sitio.id]
+  fecha_instalacion date [note: "fecha de instalación"]
+  utc varchar [note: "UTC offset"]
+  altura_canopy decimal [note: "altura del canopy (m)"]
+  altura_torre decimal [note: "altura de la torre (m)"]
+  altura_anemometro decimal [note: "altura del anemómetro (m)"]
+  frecuencia_adquisicion decimal [note: "frecuencia de adquisición (Hz)"]
+  north_offset decimal [note: "north offset (°)"]
+  equipo_principal integer [ref: > Equipo.id, note: "equipo principal"]
+  configuracion_principal integer [ref: > ConfiguracionSensorGas.id, note: "configuración principal"]
+  longitud_tubo_sensor_co2 decimal [note: "longitud tubo sensor CO₂ (cm)"]
+  diametro_tubo_sensor_co2 decimal [note: "diámetro tubo sensor CO₂ (mm)"]
+  Note: "Torre de covarianza de remolinos (eddy covariance) instalada en un sitio: alturas, frecuencia de adquisición y sensores."
+}
+
+Table ConfiguracionSensorGas [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  torre integer [not null, ref: > TorreEc.id]
+  gas varchar [not null]
+  longitud_tubo decimal [note: "longitud del tubo (cm)"]
+  diametro_tubo decimal [note: "diámetro del tubo (mm)"]
+  separacion_norte_sur decimal [note: "separación N–S (m)"]
+  separacion_este_oeste decimal [note: "separación E–O (m)"]
+  separacion_vertical decimal [note: "separación vertical (m)"]
+  Note: "Configuración del sensor de un gas (CO₂, CH₄, N₂O) en una torre EC: tubería y separaciones respecto al anemómetro."
+}
+
+Table MuestraTorre [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  torre integer [not null, ref: > TorreEc.id]
+  fuente_datos integer [ref: > FuenteDatos.id, note: "fuente de datos"]
+  tipo_variable varchar [not null, note: "variable"]
+  unidad_medida integer [ref: > UnidadMedida.id, note: "unidad de medida"]
+  Note: "Serie de una variable de torre EC (ej. flujo de CO₂, u*, NEE): mismo rol que `MuestraGEI`, pero para datos de torre en vez de cámaras manuales."
+}
+
+Table SubMuestraTorre [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  muestra integer [not null, ref: > MuestraTorre.id]
+  fecha date [not null]
+  valor decimal [note: "valor del flujo"]
+  pct_calidad_buena decimal [note: "% calidad buena"]
+  n_registros_validos integer [note: "registros válidos"]
+  Note: "Valor diario de una `MuestraTorre`: mismo rol que `SubmuestraGEI`, una fila por día en vez de por toma."
+}
+
+Table UnidadMedida [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  codigo varchar [not null, note: "código"]
+  descripcion varchar [note: "descripción"]
+  magnitud varchar
+  simbolo varchar [note: "unidad del flujo"]
+  Note: "Catálogo de unidades de medida (configurable, p. ej. co2_flux_micromol_m2_s)."
+}
+
+Table Equipo [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  modelo varchar [note: "analizador"]
+  serial varchar
+  descripcion varchar [note: "descripción"]
+  Note: "Equipo analizador (picarro, EGM, Licor, …) con modelo y serial."
+}
+
+Table TipoMuestra [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  equipo integer [not null, ref: > Equipo.id]
+  gas varchar [not null]
+  unidad_medida integer [not null, ref: > UnidadMedida.id, note: "unidad de medida"]
+  Note: "Qué gas puede medir un equipo y en qué unidad (p. ej. Picarro G4301 → CO₂ en µmol m⁻² s⁻¹)."
+}
+
+Table MuestraGEI [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  tubo varchar
+  chamber_vol decimal [note: "volumen de la cámara"]
+  gas varchar
+  analizador integer [ref: > Equipo.id]
+  unidad_muestreo integer [ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  unidad_medida integer [ref: > UnidadMedida.id, note: "unidad de medida"]
+  Note: "Evento de medición de flujo de gas de efecto invernadero (CO₂, CH₄ o N₂O): un equipo analizador conectado a un tubo."
+}
+
+Table SubmuestraGEI [headercolor: #3c78d8] {
+  id integer [pk, increment]
+  muestra integer [not null, ref: > MuestraGEI.id, note: "muestra GEI"]
+  n_toma integer [note: "número de toma"]
+  fecha date [note: "fecha de la toma"]
+  hora time [note: "hora de la toma"]
+  momento varchar
+  condicion_luz varchar [note: "condición de luz"]
+  valor decimal [not null, note: "valor del flujo"]
+  Note: "Cada una de las tomas (~4, variable) de una muestra. Aquí vive el valor del flujo."
+}
+
+Table MuestraAmbiental [headercolor: #06b6d4] {
+  id integer [pk, increment]
+  fecha date
+  hora time
+  momento varchar
+  soil_temp decimal [note: "temperatura del suelo (°C)"]
+  air_temp decimal [note: "temperatura del aire (°C)"]
+  atm_press decimal [note: "presión atmosférica (hPa)"]
+  relat_humid decimal [note: "humedad relativa (%)"]
+  dew_point decimal [note: "punto de rocío (°C)"]
+  water_level decimal [note: "nivel del agua (cm)"]
+  ph decimal [note: "pH"]
+  unidad_muestreo integer [not null, ref: > UnidadMuestreo.id, note: "unidad de muestreo"]
+  fuente_datos integer [ref: > FuenteDatos.id, note: "fuente de datos"]
+  Note: "Contexto ambiental (biomet) asociado a una muestra de CO₂."
+}
+
+Table Proyecto [headercolor: #333faf] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  fecha_inicio date [note: "fecha de inicio"]
+  fecha_fin date [note: "fecha de fin"]
+  coordinador varchar
+  correo_coordinador varchar [note: "correo del coordinador"]
+  sitio text [note: "descripción del sitio"]
+  abreviatura_sitio varchar [note: "abreviatura del sitio"]
+  objetivo_general text [note: "objetivo general"]
+  preguntas_principales text [note: "preguntas principales"]
+  escala_espacial varchar [note: "escala espacial"]
+  numero_sitios_monitoreo integer [note: "número de sitios de monitoreo"]
+  estructura_muestreo text [note: "estructura de muestreo"]
+  tipo_diseno text [note: "tipo de diseño"]
+  objetivo_especifico text [note: "objetivo específico"]
+  sitio_principal integer [ref: > Sitio.id, note: "sitio principal"]
+  instituciones varchar
+  Note: "Proyecto de investigación o monitoreo: objetivos, escala espacial, diseño de muestreo, instituciones y usuarios asociados."
+}
+
+Table Institucion [headercolor: #333faf] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  correo varchar [note: "correo electrónico"]
+  Note: "Institución participante en los proyectos (universidad, centro de investigación, entidad pública, …)."
+}
+
+Table ProyectoInstitucion [headercolor: #333faf] {
+  id integer [pk, increment]
+  proyecto integer [not null, ref: > Proyecto.id]
+  institucion integer [not null, ref: > Institucion.id]
+  Note: "Relación entre un proyecto y una institución participante."
+}
+
+Table ProyectoUsuario [headercolor: #333faf] {
+  id integer [pk, increment]
+  proyecto integer [not null, ref: > Proyecto.id]
+  usuario integer [not null, ref: > Usuario.id]
+  rol integer [not null, ref: > RolUsuario.id]
+  Note: "Relación entre un proyecto y un usuario con el rol que desempeña en él."
+}
+
+Table Usuario [headercolor: #ffd966] {
+  id integer [pk, increment]
+  nombre varchar [not null]
+  cargo varchar
+  correo_institucional varchar [note: "correo institucional"]
+  correo varchar [note: "correo personal"]
+  institucion integer [ref: > Institucion.id, note: "institución"]
+  nivel varchar [not null, note: "nivel de acceso"]
+  auth_user integer [note: "cuenta de acceso"]
+  Note: "Persona vinculada a la red: datos de contacto, institución y nivel de acceso a la plataforma."
+}
+
+Table RolUsuario [headercolor: #ffd966] {
+  id integer [pk, increment]
+  codigo varchar [not null, note: "código"]
+  nombre varchar [not null]
+  Note: "Catálogo de roles que puede tener un usuario (coordinador, investigador, técnico, …)."
+}
+
+Table FuenteDatos [headercolor: #ffd966] {
+  id integer [pk, increment]
+  proyecto integer [ref: > Proyecto.id]
+  reportador integer [ref: > Usuario.id]
+  institucion integer [ref: > Institucion.id, note: "entidad"]
+  nombre varchar [not null]
+  descripcion text [note: "descripción"]
+  metodologia varchar [note: "metodología"]
+  tipo varchar [not null]
+  url varchar [note: "enlace o ruta al archivo"]
+  estado varchar [not null]
+  fecha_recepcion date [note: "fecha de recepción"]
+  notas text
+  Note: "Fuente de datos reportada a un proyecto (archivo Excel/CSV, shapefile, API, …) y su estado de procesamiento."
+}
+
+Table CargaArchivo [headercolor: #ffd966] {
+  id integer [pk, increment]
+  fuente integer [not null, ref: > FuenteDatos.id, note: "fuente de datos"]
+  hoja_activa varchar [note: "hoja activa"]
+  estado varchar [not null]
+  columnas_raw json [not null, note: "columnas inspeccionadas"]
+  total_filas integer [not null, note: "total de filas"]
+  hojas json [note: "hojas analizadas"]
+  origen_mapeo varchar [not null, note: "origen del mapeo"]
+  validado_por integer [ref: > Usuario.id, note: "validado por"]
+  fecha_validacion timestamp [note: "fecha de validación"]
+  pks_importados json [note: "pks creados/vinculados por esta carga"]
+  progreso_estado varchar [not null, note: "estado del progreso de importación"]
+  progreso_actual integer [not null, note: "progreso actual"]
+  progreso_total integer [not null, note: "progreso total"]
+  progreso_mensaje varchar [note: "mensaje de progreso"]
+  progreso_resultado json [note: "resultado final de la importación"]
+  Note: "Proceso ETL de carga de un archivo de una fuente de datos: inspección de columnas, mapeo, validación e importación."
+}
+
+Table MapeoColumna [headercolor: #ffd966] {
+  id integer [pk, increment]
+  carga integer [not null, ref: > CargaArchivo.id]
+  hoja varchar
+  columna_origen varchar [not null, note: "columna origen"]
+  hoja_origen varchar [note: "hoja origen de la columna"]
+  modelo_destino varchar [note: "modelo destino"]
+  campo_destino varchar [note: "campo destino"]
+  transformacion varchar [not null, note: "transformación"]
+  mapeo_valores json [note: "mapeo de valores"]
+  valor_constante varchar [note: "valor constante"]
+  regex_patron varchar [note: "patrón regex"]
+  factor_escala decimal [note: "factor de escala"]
+  estrategia_nulos varchar [not null, note: "estrategia para datos faltantes"]
+  valor_relleno_manual varchar [note: "valor manual para nulos"]
+  tipo_cobertura integer [ref: > TipoCobertura.id, note: "tipo de cobertura"]
+  gas_fijo varchar [note: "gas fijo"]
+  Note: "Mapeo de una columna del archivo cargado hacia un campo del modelo destino, con su transformación."
+}
+
+TableGroup "Publicaciones" {
+  PublicacionType
+  Publicacion
+  Autor
+}
+
+TableGroup "Geografía" {
+  Region
+  Departamento
+  Municipio
+  Vereda
+  SistemaReferencia
+  Sitio
+}
+
+TableGroup "Unidad de Muestreo y Experimental" {
+  UnidadMuestreoTipo
+  UnidadMuestreo
+  UnidadExperimental
+  Parcela
+  Transecto
+  Microtopografia
+}
+
+TableGroup "Cobertura y Vegetación" {
+  ClasificacionTipo
+  ValorClasificacionTipo
+  ClasificacionArea
+  TipoCobertura
+  ValorCobertura
+  CoberturaManual
+  Vegetacion
+  Disturbio
+  UnidadMuestreoDisturbio
+  TipoClasificacionEcosistema
+  ValorClasificacionEcosistema
+  EcosistemaManual
+  FuenteExterna
+  ExposicionExterna
+}
+
+TableGroup "Suelo" {
+  CaracterizacionMuestreoSuelo
+  MonitoreoSuelo
+}
+
+TableGroup "Carbono Orgánico del Suelo (COS)" {
+  SubmuestraSuelo
+}
+
+TableGroup "Biomasa" {
+  MuestraBiomasa
+  IndividuoArboreo
+}
+
+TableGroup "Materia Orgánica Muerta (MOM)" {
+  MuestraMOM
+}
+
+TableGroup "Torre EC y Flujos" {
+  TorreEc
+  ConfiguracionSensorGas
+  MuestraTorre
+  SubMuestraTorre
+}
+
+TableGroup "Muestras GEI" {
+  UnidadMedida
+  Equipo
+  TipoMuestra
+  MuestraGEI
+  SubmuestraGEI
+}
+
+TableGroup "Muestra Ambiental" {
+  MuestraAmbiental
+}
+
+TableGroup "Proyecto" {
+  Proyecto
+  Institucion
+  ProyectoInstitucion
+  ProyectoUsuario
+}
+
+TableGroup "Usuarios, Roles y ETL" {
+  Usuario
+  RolUsuario
+  FuenteDatos
+  CargaArchivo
+  MapeoColumna
+}
