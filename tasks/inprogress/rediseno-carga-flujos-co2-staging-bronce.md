@@ -578,6 +578,7 @@ usuario viendo la vista tipo Excel):
 
 - [Subir directo a la base de datos un archivo que ya tiene la plantilla](mapeo-automatico-plantilla-flujos-co2.md) — tarea que este diseño revisa/extiende.
 - [Plantilla de carga/descarga: metadato y dato de CO2/CH4](../../docs/arquitectura/plantilla-metadato-dato-co2-camaras.md)
+- [Ajustes a la plantilla Flujos CO2 — feedback de Andrea Chaparro](ajustes-plantilla-flujos-co2-feedback-andrea.md)
 - [Rediseñar vista de subida/descarga: separar metadato y dato por metodología](../backlog/subida-descarga-formato-metadato-dato-por-metodologia.md)
 - `docs/arquitectura/modelo-datos.md` — modelo relacional actual al que debe promoverse la capa bronce.
 - `tasks/done/etl-datos-a-frontend.md` — patrón de tabla con filtros por columna (`EtlDatos.tsx`/`DatosTable.tsx`) reutilizable para la vista tipo Excel.

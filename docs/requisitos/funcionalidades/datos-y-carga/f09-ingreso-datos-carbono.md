@@ -39,3 +39,9 @@ columna se transforma al modelo destino. El frontend
   cargan mediciones crudas (`SubmuestraGEI.valor`).
 - El almacenamiento es Postgres/PostGIS vía los modelos ya descritos (eso sí está
   resuelto).
+
+## Entregables
+
+- [Plantilla de carga/descarga: metadato y dato de CO2/CH4/N2O (cámaras GEI)](../../../arquitectura/plantilla-metadato-dato-co2-camaras.md)
+  — diccionario de datos completo (una tabla por hoja, Metadato y Dato) de la
+  plantilla descargable de Flujos CO2 que alimenta este flujo de ingreso.
