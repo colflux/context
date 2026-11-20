@@ -3,10 +3,21 @@
 Esquema relacional completo de la base de datos de COLFLUX: sitios de monitoreo, proyectos,
 flujo de cámaras, torres EC, caracterización de suelos y publicaciones científicas.
 
-El esquema se mantiene directamente en dbdiagram.io/dbdocs (no en este repo), para que se
-pueda editar sin pasar por un PR cada vez que cambia un campo. La wiki generada por dbdocs
-incluye, por tabla, cada campo con su tipo, notas y relaciones — es la referencia a usar para
-el detalle fino de campos:
+## Visualizador en el frontend (`/db`)
+
+Para ver y mapear cambios del modelo (ERD, explorador de relaciones, catálogo de campos
+buscable), usar `/db` en el frontend — se genera automáticamente en build-time desde
+`catalogo.json`, sin pasos manuales. Este módulo (`DbModelo.tsx`, `ErdDiagram.tsx`,
+`EntityExplorer.tsx`, `CatalogoCampos.tsx`) se había borrado el 2026-11-09 (commit `fe0bf8b`)
+asumiendo que dbdiagram.io/dbdocs (abajo) lo reemplazaba, pero ese flujo requiere reimportar el
+DBML a mano en cada cambio — se restauró el 2026-11-19 porque ese paso manual lo hacía
+impráctico para dar seguimiento día a día a cambios de esquema.
+
+## dbdiagram.io/dbdocs (edición colaborativa del esquema)
+
+El esquema también se mantiene en dbdiagram.io/dbdocs (no en este repo), para poder editar
+notas/posiciones sin pasar por un PR. La wiki generada por dbdocs incluye, por tabla, cada campo
+con su tipo, notas y relaciones — es la referencia a usar para el detalle fino de campos:
 
 [Ver wiki en dbdocs.io ↗](https://dbdocs.io/lviviana13/colfux-db?view=table_structure){ .md-button .md-button--primary target="_blank" }
 
