@@ -7,7 +7,7 @@ cámaras de gases manuales — `MuestraGEI`/`SubmuestraGEI`/`MuestraAmbiental` e
 que usan la hoja "Diccionario de datos" del Excel y el modal "Ver detalle de la
 plantilla" en `/participacion`.
 
-## Hoja "Flujos CO2 - Metadato"
+## Hoja "Flujos Metadato"
 
 | Campo | Tipo de dato | Descripción | Entidad.atributo (Modelo de Datos COLFLUX) | Valores permitidos (si aplica) |
 |---|---|---|---|---|
@@ -56,7 +56,7 @@ plantilla" en `/participacion`.
 | distancia_pastoreo | Numérico (decimal) | Distancia en metros desde la unidad de muestreo hasta la fuente externa indicada (ver fuente). | ExposicionExterna.distancia_m | |
 | distancia_cultivo | Numérico (decimal) | Distancia en metros desde la unidad de muestreo hasta la fuente externa indicada (ver fuente). | ExposicionExterna.distancia_m | |
 
-## Hoja "Flujos CO2 - Dato"
+## Hoja "Flujos Dato"
 
 | Campo | Tipo de dato | Descripción | Entidad.atributo (Modelo de Datos COLFLUX) | Valores permitidos (si aplica) |
 |---|---|---|---|---|
@@ -89,6 +89,12 @@ Descargar Excel" en `/etl/upload-bronce`) agrega una tercera hoja
 fuente, no se piden de nuevo. No aplica a `plantilla_vacia` (la plantilla en
 blanco que se descarga desde `/participacion` antes de crear una fuente):
 esa no está atada a ninguna `FuenteDatos` todavía.
+
+Si este Excel se vuelve a subir tal cual (re-carga), la hoja "Responsables"
+se ignora: `_poblar_bronce` (`backend/app/api/etl/views.py`) solo carga a la
+capa bronce las hojas cuyo nombre coincide con `_HOJAS_PLANTILLA` (Metadato/
+Dato) — cualquier otra hoja, tenga el nombre que tenga, no bloquea ni
+invalida la carga.
 
 ## Referencias
 
