@@ -1,7 +1,9 @@
 # Plantilla de carga/descarga: metadato y dato de COS (carbono orgánico del suelo)
 
-**Estado: implementado (2026-11-19), pendiente de validar con el equipo de datos y
-de probar con el archivo real.** Repite el ejercicio hecho
+**Estado: implementado, probado de punta a punta con el archivo real y carga real
+habilitada en el frontend (`subidaDisponible: true`) desde 2026-11-24 — ver "Prueba
+de carga real" más abajo.**
+Repite el ejercicio hecho
 para Flujos CO2/CH4 ([plantilla-metadato-dato-co2-camaras.md](plantilla-metadato-dato-co2-camaras.md))
 y para Biomasa ([plantilla-metadato-dato-biomasa.md](plantilla-metadato-dato-biomasa.md))
 pero para la metodología de COS (`CaracterizacionMuestreoSuelo`/`MonitoreoSuelo`/
@@ -178,6 +180,92 @@ trazabilidad (detalle de cada una en las notas de las secciones de arriba):
 4. **Sí, aplican a COS las mismas decisiones de Flujos:** excluir `nombre_proyecto`,
    mover `TEAM_MEMBER_*` a la hoja "Responsables", quitar fecha de instalación mal
    rotulada.
+
+## Prueba de carga real (2026-11-24)
+
+Se transformó `context/data/Metadatos y BD COS.xlsx` al formato exacto de la
+plantilla descargable (`context/data/COS_plantilla_transformada.xlsx`, hojas "COS
+Metadato" 50 filas / "COS Dato" 1795 filas) y se probó contra el backend real:
+upload → mapeo automático → capa bronce → intento de promoción a los modelos
+estructurados. El mapeo automático se comportó como lo documentado (13/13 en Dato,
+23/37 en Metadato). La promoción encontró dos problemas:
+
+1. **Resuelto.** `UnidadMuestreo.tipo` (FK a `UnidadMuestreoTipo`) y
+   `.unidad_experimental` son obligatorios en el modelo, pero `cos_metadato` no
+   traía ninguna columna para resolverlos (a diferencia de `biomasa_metadato`, que
+   sí expone `tipo_unidad_muestreo`/`nombre_unidad_experimental`) — bloqueaba el
+   100% de las filas. Se agregaron ambas columnas a `cos_metadato`
+   (`backend/app/api/etl/views.py`): `UnidadMuestreoTipo` y `UnidadExperimental` a
+   la cadena/campos, más las 2 columnas en
+   `_ORDEN_COLUMNAS_METADATO_COS_PLANTILLA`. Decisión tomada con la usuaria sin
+   dato real que la respalde en el Excel de IDEAM (no distingue unidad
+   experimental de unidad de muestreo, ni trae un tipo): `nombre_unidad_experimental`
+   = mismo valor que `codigo_metadato` (una unidad experimental por
+   codigo_metadato); `tipo_unidad_muestreo` sin un valor claro del catálogo
+   (`conglomerado`/`parcela`/`plot`/`transecto`) — se usó `"parcela"` en el archivo
+   de prueba, **pendiente de confirmar con el equipo de datos**.
+2. **Resuelto, sin tocar el motor.** `Vereda.codigo_dane` (`backend/app/models/geo.py`)
+   es `unique=True` sin valor por defecto, pero ninguna plantilla de metodología
+   (Flujos/Biomasa/COS) trae ese código — solo el nombre de la vereda, que en los
+   datos reales de COS viene vacío para las 50 unidades. El importador genérico
+   (`_procesar_filas`, vía el camino "genérico" de `_CAMPOS_IDENTIDAD` sin entrada
+   para `Vereda`) intentaba crear una `Vereda` nueva por cada combinación de FK
+   auto-vinculada (`municipio`) sin código DANE; la segunda vereda distinta de la
+   carga chocaba contra la primera (`codigo_dane=''` repetido, violación del
+   `unique`). Decisión de la usuaria (2026-11-24, "por ahora no subamos ni
+   municipio, region ni vereda"): se sacan `Vereda`/`Municipio`/`Departamento`/
+   `Region` de la `cadena` de `cos_metadato` por completo (`Sitio.vereda` es
+   nullable, así que simplemente queda sin resolver) — sin tocar el modelo ni el
+   motor genérico. `biomasa_metadato` expone la misma columna `Vereda.nombre` y en
+   teoría tiene el mismo problema latente si sus datos reales llegan a tocar más de
+   un municipio; queda sin tocar, pendiente de evaluar si conviene el mismo ajuste.
+3. **Resuelto.** Al promover sin el bloqueo de Vereda apareció
+   `IntegrityError: null value in column "tipo_id"` creando `UnidadMuestreo` desde
+   la hoja "COS Dato". Causa: esa hoja mapeaba `UnidadMuestreo.nombre` además de
+   `codigo_metadato` (alias "No. unidad de muestreo"), y como "COS Metadato" nunca
+   mapeaba `nombre` (quedaba `''` en la fila creada ahí), el filtro de búsqueda
+   `get_or_create(nombre=..., codigo_metadato=...)` de "COS Dato" no encontraba la
+   unidad ya creada e intentaba crear una nueva sin `tipo` (obligatorio) → explota.
+   `biomasa_dato` no tiene este problema porque solo mapea `codigo_metadato` (sin
+   `nombre`) en su hoja Dato — el `get_or_create` de un solo campo matchea directo
+   contra lo creado en Metadato. **Fix**: se sacó `nombre` del mapeo de
+   `UnidadMuestreo` en `cos_dato`, mismo patrón que `biomasa_dato`. Se pierde la
+   columna "No. unidad de muestreo" de la hoja Dato (el dato no se guarda), a
+   cambio de no tocar el motor genérico compartido.
+4. **Resuelto.** Con "COS Dato" promoviendo limpio, "COS Metadato" seguía
+   bloqueada por 4 columnas en el archivo transformado: `sistema_referencia` tenía
+   el valor "EPSG:4326" (con `:`) en vez de la choice real del modelo
+   (`SistemaReferencia.EPSG_4326`, con `_`); `tipo_localizacion` tenía la etiqueta
+   humana "Localización exacta" en vez de la choice `"exacta"`
+   (`Sitio.TIPO_LOCALIZACION_CHOICES`) — ambos eran errores de la transformación
+   del archivo de prueba, corregidos ahí sin tocar backend. Las otras dos,
+   `disturbio_dominante` (`DisturbioManual.es_dominante`) y `ecosistema_IDEAM`
+   (`ValorClasificacionEcosistema.valor`), venían obligatorias en el modelo pero
+   vacías en las 50 filas reales de IDEAM (mismo patrón que Vereda: el dato
+   simplemente no existe en la fuente). Decisión de la usuaria (2026-11-24, "los
+   valores de disturbio deberían ser opcionales para todos"): se marcan
+   `blank=True` en ambos campos del modelo (migraciones `0132_alter_disturbiomanual_es_dominante`,
+   `0133_alter_valorclasificacionecosistema_valor`) — cambio válido para todas las
+   metodologías que comparten estos modelos, no solo COS.
+5. **Resuelto.** Último bloqueo: "COS Metadato" no mapeaba `UnidadMuestreo.nombre`
+   en absoluto (ni columna ni atributo manual), y el validador
+   `_validar_obligatorios_unidad_muestreo` lo exige siempre. Decisión de la
+   usuaria (2026-11-24): se agrega `UnidadMuestreo.nombre` a `cos_metadato`, alias
+   `nombre_unidad_muestreo`, con el mismo valor que `codigo_metadato` (mismo
+   criterio ya usado para `nombre_unidad_experimental`) — columna nueva copiada en
+   el archivo transformado, no existe en el Excel fuente de IDEAM.
+
+Con los 5 ajustes aplicados se repitió la prueba completa (upload → mapeo
+automático → bronce → promoción) sobre el mismo archivo transformado:
+**`"hojas_bloqueadas": [], "filas_promovidas": 1845`** — las 50 filas de "COS
+Metadato" y las 1795 de "COS Dato" promovieron sin error. Por decisión de la
+usuaria esos datos de prueba quedaron en la base (no se revirtieron) y se habilitó
+`subidaDisponible: true` para COS en `Participacion.tsx`.
+
+Quedan pendientes de validar con el equipo de datos (no bloquean la carga):
+el valor real de `tipo_unidad_muestreo` (hoy `"parcela"` fijo sin confirmar) y, en
+general, las decisiones de esta sesión y la anterior (FK nueva, deprecación de
+`tipo_de_suelo`, no subir Vereda/Municipio/Departamento/Region por ahora).
 
 ## Referencias
 

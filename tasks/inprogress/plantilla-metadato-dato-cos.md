@@ -1,6 +1,6 @@
 # Plantilla metadato/dato para COS (carbono orgánico del suelo)
 
-**Estado:** implementado (2026-11-19), pendiente de validar con el equipo y de probar con el archivo real
+**Estado:** implementado, probado de punta a punta con el archivo real y carga real habilitada (2026-11-24)
 **Creada:** 2026-11-19
 **A cargo:** Vivi
 **Sesión de Claude Code:** sesión actual (ver transcript local)
@@ -93,13 +93,78 @@ Diccionario de datos completo en
       `ValorClasificacionTipo.valor`, y los 4 pares `monitoreo_*`/`protocolo_*`
       comparten `MonitoreoSuelo.activo`/`.protocolo` — mismo límite ya conocido en
       Flujos/Biomasa, caen al asistente manual).
-- [ ] Parsear "Profundidad cm" (texto tipo rango "0-10") en
-      `profundidad_desde_cm`/`profundidad_hasta_cm` al importar.
-- [ ] Validar con Andrea/equipo de datos las decisiones tomadas (FK nueva,
-      deprecación de `tipo_de_suelo`, columnas de Metadato/Dato elegidas).
-- [ ] Desplegar y probar con el archivo real (`context/data/Metadatos y BD
-      COS.xlsx` subido tal cual) — hoy solo se probó con encabezados generados por la
-      propia plantilla.
+- [x] Parsear "Profundidad cm" (texto tipo rango "0-10") en
+      `profundidad_desde_cm`/`profundidad_hasta_cm`: no fue necesario tocar el
+      backend — se resuelve en la transformación del archivo real a formato
+      plantilla (ver siguiente punto), separando el texto en las dos columnas ya
+      existentes antes de subirlo.
+- [x] Transformar el archivo real (`context/data/Metadatos y BD COS.xlsx`) al
+      formato de la plantilla descargable y probar la carga real end-to-end
+      (2026-11-24): se generó `context/data/COS_plantilla_transformada.xlsx`
+      (hojas "COS Metadato" 50 filas / "COS Dato" 1795 filas, encabezados exactos
+      de `plantilla_vacia?metodologia=cos`) y se probó contra el backend real
+      (upload → mapeo automático → capa bronce). Mapeo automático: 13/13 en Dato,
+      23/37 en Metadato (mismo límite de ambigüedad ya conocido). Al intentar
+      promover filas de bronce a los modelos reales aparecieron 2 problemas:
+      1. **Bloqueaba toda la carga** (`UnidadMuestreo.tipo`/`.unidad_experimental`
+         obligatorios, sin columna en la plantilla de COS para resolverlos, a
+         diferencia de Biomasa) — **corregido**: se agregaron `UnidadMuestreoTipo`
+         y `UnidadExperimental` a la cadena/campos de `cos_metadato` en
+         `backend/app/api/etl/views.py`, con 2 columnas nuevas en la plantilla:
+         `tipo_unidad_muestreo` y `nombre_unidad_experimental`. Decisión tomada
+         con la usuaria (2026-11-24): `nombre_unidad_experimental` = mismo valor
+         que `codigo_metadato` (una unidad experimental por codigo_metadato, más
+         granular que por sitio); `tipo_unidad_muestreo` sin valor por defecto
+         claro del equipo — se usó `"parcela"` como constante en el archivo de
+         prueba, pendiente de confirmar con el equipo de datos si corresponde.
+      2. `Vereda.codigo_dane` es `unique=True` sin default, pero ninguna plantilla
+         (Flujos/Biomasa/COS) trae ese código — solo el nombre de la vereda, que en
+         los datos reales de COS viene vacío. El importador genérico intentaba crear
+         una `Vereda` nueva por cada `municipio` distinto sin código DANE, y la
+         segunda vereda chocaba contra la primera (`codigo_dane=''` repetido).
+         **Corregido** (decisión de la usuaria, 2026-11-24): se sacan
+         `Vereda`/`Municipio`/`Departamento`/`Region` de la `cadena` de
+         `cos_metadato` — por ahora COS no sube esa geografía (`Sitio.vereda` es
+         nullable). Mismo patrón expone `biomasa_metadato`, sin tocar todavía.
+      3. Tras corregir lo anterior, apareció un `IntegrityError` distinto:
+         `UnidadMuestreo.tipo_id` null al crear la unidad desde la hoja "COS Dato".
+         Causa: "COS Dato" mapeaba `UnidadMuestreo.nombre` además de
+         `codigo_metadato`, y como la hoja "COS Metadato" no mapeaba `nombre`
+         (quedaba `''`), el filtro de búsqueda no encontraba la unidad ya creada e
+         intentaba crear una nueva sin `tipo`. **Corregido**: se sacó `nombre` del
+         mapeo de `UnidadMuestreo` en `cos_dato` (mismo patrón que ya usa
+         `biomasa_dato`: solo `codigo_metadato` identifica la fila). Se pierde la
+         columna "No. unidad de muestreo" de esa hoja.
+      4. Con las filas de "COS Dato" promoviendo limpio, "COS Metadato" seguía
+         bloqueada por 4 columnas: `sistema_referencia`/`tipo_localizacion` con
+         valores del archivo transformado que no coincidían con las choices del
+         modelo (corregido ajustando `COS_plantilla_transformada.xlsx`:
+         "EPSG:4326"→"EPSG_4326", "Localización exacta"→"exacta"); y
+         `disturbio_dominante`/`ecosistema_IDEAM`, obligatorios en el modelo pero
+         vacíos en las 50 filas reales (mismo patrón que Vereda: la fuente no trae
+         ese dato). Decisión de la usuaria (2026-11-24): hacerlos opcionales —
+         `DisturbioManual.es_dominante` y `ValorClasificacionEcosistema.valor` pasan
+         a `blank=True` (migraciones `0132`/`0133`), válido para todas las
+         metodologías, no solo COS.
+      5. Último bloqueo: "COS Metadato" no mapeaba `UnidadMuestreo.nombre` en
+         absoluto (obligatorio, validado como "campo obligatorio sin mapear").
+         **Corregido** (decisión de la usuaria, 2026-11-24): se agrega
+         `UnidadMuestreo.nombre` a `cos_metadato`, alias `nombre_unidad_muestreo`
+         = mismo valor que `codigo_metadato` (mismo criterio ya usado para
+         `nombre_unidad_experimental`).
+      Con los 5 ajustes aplicados, se repitió la prueba completa contra el archivo
+      transformado: **1845/1845 filas promovidas, sin hojas bloqueadas**
+      (`"hojas_bloqueadas": [], "filas_promovidas": 1845`). Se decide dejar esos
+      datos de prueba en la base (decisión de la usuaria) y habilitar
+      `subidaDisponible: true` para COS en `Participacion.tsx`.
+- [ ] Confirmar con el equipo de datos el valor de `tipo_unidad_muestreo` para COS
+      (hoy "parcela" por defecto en la prueba, sin confirmar).
+- [ ] Validar con Andrea/equipo de datos las demás decisiones tomadas (FK nueva,
+      deprecación de `tipo_de_suelo`, columnas de Metadato/Dato elegidas, no subir
+      Vereda/Municipio/Departamento/Region por ahora).
+- [ ] Evaluar si conviene resolver `Vereda.codigo_dane` en el motor genérico (ahora
+      evitado en COS, pero sigue latente en `biomasa_metadato` si sus datos reales
+      llegan a tocar más de un municipio).
 
 ## Entregables
 
@@ -109,12 +174,20 @@ Diccionario de datos completo en
 - `backend/app/models/suelo.py`: `CaracterizacionMuestreoSuelo.unidad_muestreo` (FK
   nueva), `.tipo_de_suelo` removido; migración
   `0130_caracterizacion_suelo_fk_unidad_muestreo.py`.
-- `backend/app/api/etl/views.py`: `_VISTAS_DESNORMALIZADAS["cos_metadato"/"cos_dato"]`,
-  `_HOJAS_PLANTILLA`, `_ORDEN_COLUMNAS_METADATO_COS_PLANTILLA`,
-  `_ORDEN_COLUMNAS_DATO_COS_PLANTILLA`, `_COLUMNAS_PIVOTE_METADATO_COS`,
-  `_COLUMNAS_PIVOTE_METADATO_COS_MONITOREO`.
-- `frontend/src/pages/Participacion.tsx` (`plantillaDisponible: true` para COS),
+- `backend/app/api/etl/views.py`: `_VISTAS_DESNORMALIZADAS["cos_metadato"/"cos_dato"]`
+  (incluye ahora `UnidadMuestreoTipo`/`UnidadExperimental`), `_HOJAS_PLANTILLA`,
+  `_ORDEN_COLUMNAS_METADATO_COS_PLANTILLA`, `_ORDEN_COLUMNAS_DATO_COS_PLANTILLA`,
+  `_COLUMNAS_PIVOTE_METADATO_COS`, `_COLUMNAS_PIVOTE_METADATO_COS_MONITOREO`.
+- `frontend/src/pages/Participacion.tsx` (`plantillaDisponible: true`,
+  `subidaDisponible: true` para COS desde 2026-11-24),
   `frontend/src/components/admin/fuentes/FuenteDrawer.tsx` (`soportaMapeoAutomatico`).
+- `backend/app/models/cobertura.py` (`DisturbioManual.es_dominante` → `blank=True`,
+  migración `0132`), `backend/app/models/ecosistema.py`
+  (`ValorClasificacionEcosistema.valor` → `blank=True`, migración `0133`) — afecta a
+  todas las metodologías, no solo COS.
+- `context/data/COS_plantilla_transformada.xlsx` — archivo real de IDEAM
+  transformado al formato de la plantilla, usado para probar la carga real de punta
+  a punta (1845/1845 filas promovidas).
 
 ## Referencias
 
@@ -133,3 +206,5 @@ Diccionario de datos completo en
 | 2026-11-19 | Se resuelven las 4 preguntas abiertas con la usuaria: `Suelo IPCC`/`tipo_de_suelo` son el mismo dato duplicado (se adopta el catálogo genérico como fuente de verdad, `tipo_de_suelo` queda para deprecar); se investiga el origen de la falta de FK `CaracterizacionMuestreoSuelo`→`UnidadMuestreo` (artefacto del import de `colfux-db` en julio 2026, previo a la convención de identificador natural de noviembre) y, cruzando el Excel real, se confirma que `muestreo_id` duplica `UnidadMuestreo.nombre` (coincide 1:1 con el sufijo de `codigo_metadatos` en las 50 unidades) — se recomienda agregar la FK directa al implementar; se quita "Fecha instalación unidad de muestreo" de la hoja Dato (mal rotulada); se confirma que aplican a COS las mismas exclusiones de Flujos. Documento actualizado (`plantilla-metadato-dato-cos.md`). Queda pendiente la implementación (vista desnormalizada, FK nueva, deprecar `tipo_de_suelo`, los 3 entregables). |
 | 2026-11-19 | Se implementan los 4 pendientes sin esperar validación del equipo (instrucción explícita de la usuaria): migración de `CaracterizacionMuestreoSuelo` (FK `unidad_muestreo` nueva, se quitan `sitio`/`muestreo_id`/`tipo_de_suelo` — tablas de suelo vacías en el contenedor compartido, sin migración de datos necesaria); vistas `cos_metadato`/`cos_dato` nuevas en `_VISTAS_DESNORMALIZADAS` (base `CaracterizacionMuestreoSuelo`, reutiliza el subconjunto relevante de columnas de pivoteo de Flujos/Biomasa más las propias de `MonitoreoSuelo`); habilitación de los botones/casillas correspondientes en frontend. Verificado en vivo contra el contenedor compartido: Excel real de 7 hojas, modal de detalle con 37+13 atributos de COS, mapeo automático 13/13 en Dato y 23/37 en Metadato (mismo límite de columnas ambiguas que Flujos/Biomasa). `manage.py check`, `npx tsc --noEmit` limpios. Quedan pendientes: parsear "Profundidad cm" (texto rango) al importar, validar con Andrea/equipo las decisiones tomadas sin preguntar, y probar con el archivo real `Metadatos y BD COS.xlsx` subido tal cual (hoy solo se probó con encabezados generados por la propia plantilla). |
 | 2026-11-20 | Pedido explícito de la usuaria: deshabilitar por ahora el botón "Subir datos" en la tarjeta de COS (`Participacion.tsx`, nuevo flag `subidaDisponible: false`) — la plantilla descargable/modal de detalle/mapeo automático quedan activos, pero la carga real no. "Descargar plantilla"/"Ver detalle" siguen sin cambios. |
+| 2026-11-24 | Se transforma el archivo real `Metadatos y BD COS.xlsx` al formato de la plantilla (`context/data/COS_plantilla_transformada.xlsx`) y se prueba la carga real contra el backend (upload → mapeo automático → bronce → promoción). Se encuentra y corrige un bloqueo propio de COS: `UnidadMuestreo.tipo`/`.unidad_experimental` son obligatorios pero `cos_metadato` no traía columna para resolverlos (a diferencia de Biomasa) — se agregan `tipo_unidad_muestreo`/`nombre_unidad_experimental` a la plantilla (decisión: unidad experimental = codigo_metadato; tipo por defecto "parcela", sin confirmar con el equipo). Se encuentra un segundo bloqueo, de alcance mayor a esta tarea (`Vereda.codigo_dane` único sin default); decisión inicial: dejarlo pendiente por hoy. |
+| 2026-11-24 | Misma sesión, continuación: por pedido explícito de la usuaria ("por ahora no subamos ni municipio, region ni vereda") se sacan esos 4 modelos de la cadena de `cos_metadato` en vez de tocar el motor genérico — resuelve el choque de `Vereda.codigo_dane`. Al repetir la prueba aparecen 3 bloqueos más, los 3 resueltos en la misma sesión: (a) `UnidadMuestreo.tipo_id` null por mismatch de identidad entre hojas Metadato/Dato — se sacó `nombre` del mapeo de `cos_dato` (mismo patrón de `biomasa_dato`); (b) `sistema_referencia`/`tipo_localizacion` con valores mal transformados en el Excel de prueba — corregidos en el archivo; (c) `disturbio_dominante`/`ecosistema_IDEAM` obligatorios pero vacíos en los datos reales — se hacen opcionales a nivel de modelo (`DisturbioManual.es_dominante`, `ValorClasificacionEcosistema.valor`, migraciones `0132`/`0133`, válido para todas las metodologías); (d) `UnidadMuestreo.nombre` sin mapear en "COS Metadato" — se agrega, alias `nombre_unidad_muestreo` = codigo_metadato. Resultado final: **1845/1845 filas promovidas, sin hojas bloqueadas**. Por pedido de la usuaria se dejan esos datos de prueba en la base (no se revierten) y se habilita `subidaDisponible: true` para COS en `Participacion.tsx`. Queda en `inprogress/` por los 3 pendientes de validación con el equipo (no bloquean la carga, ver Plan). |
