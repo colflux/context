@@ -1,6 +1,6 @@
 # Rediseñar el proceso de carga de Flujos CO2: capa staging/bronce + vista tipo Excel con validación inline
 
-**Estado:** en curso — backend y frontend implementados y probados en vivo (navegador), incluido el selector de columnas ambiguas con un bug real de validación encontrado y corregido; falta el flujo de campos obligatorios restantes (nombre/tipo/unidad_experimental) para que una hoja de Metadato promueva de punta a punta
+**Estado:** en curso — backend y frontend implementados y probados en vivo (navegador), incluido el selector de columnas ambiguas con un bug real de validación encontrado y corregido; el asistente manual de mapeo (`EtlUpload.tsx`) ya fue retirado por completo y toda carga (Flujos/Biomasa/COS/MOM) pasa siempre por bronce — falta el flujo de campos obligatorios restantes (nombre/tipo/unidad_experimental) para que una hoja de Metadato promueva de punta a punta, y falta probar en vivo desde el navegador el retiro del wizard
 **Creada:** 2026-11-16
 **A cargo:** Viviana
 **Sesión de Claude Code:** (completar con el link de esta sesión)
@@ -561,12 +561,30 @@ usuario viendo la vista tipo Excel):
   dependen de atributos constantes o de otra sección) para que
   `hojas_bloqueadas` quede vacío y se vea una fila real pasar a
   `estado="promovido"`.
-- Decidir si `POST .../bronce/procesar/` se dispara automático desde
-  `upload_archivo` una vez esta vista salga de beta, o sigue siendo un
-  paso explícito (el link de `ResumenAnalisis.tsx`).
-- Retirar (cuando esta vista salga de beta, no antes): casilla "Ya tiene
-  el formato de la plantilla" y flujo `?auto=1` de
-  `mapeo-automatico-plantilla-flujos-co2.md`.
+- **Resuelto (2026-11-26):** `POST .../bronce/procesar/` ya se dispara
+  automático — no desde `upload_archivo` en el backend, sino desde
+  `EtlUploadBronce.tsx` en el frontend: si la URL trae solo `?fuente=` (sin
+  `?carga=`), la página misma llama `analizarFuente` para obtener el
+  `carga_id` y sigue con el pipeline de siempre. Ya no hace falta el link
+  explícito de `ResumenAnalisis.tsx` porque esa pantalla (parte del wizard
+  manual) fue retirada junto con el resto del asistente — ver más abajo.
+- **Resuelto (2026-11-26):** retirado por completo el asistente manual de
+  mapeo (`EtlUpload.tsx` y los 16 componentes de `src/components/etl-upload/`,
+  `useEtlUploadStore.ts`, `useSeccionMutations.ts`, `useGuardarAvance.ts`,
+  `useAnalizarFuente.ts`) y la casilla "Ya tiene el formato de la plantilla"
+  de `FuenteDrawer.tsx` (ver `mapeo-automatico-plantilla-flujos-co2.md`) —
+  toda fuente no-torre (Flujos/Biomasa/COS/MOM) navega siempre a
+  `/etl/upload-bronce`, sin bifurcación previa. Las entradas que antes
+  apuntaban a `/etl/upload` (botón "Iniciar carga" de `FuentesTable.tsx`,
+  dropdown "Cargar" de `CargarDropdown.tsx`, "volver" de `EtlDatos.tsx`,
+  botones de `EtlMapeo.tsx`) ahora apuntan a `/etl/upload-bronce`. Pendiente
+  de este cambio: no se tocó el backend (endpoints `validar_carga`/
+  `previsualizar_carga`/`importar_carga`/mapeo clásico siguen existiendo,
+  aunque sus únicos llamadores en frontend —`previsualizarSeccion`,
+  `iniciarImportarSeccion`, `vaciarMapeoHoja`— ya se borraron de
+  `etl.service.ts`); queda como limpieza de código muerto a futuro, no
+  urgente. Tampoco se probó en vivo desde el navegador (requiere cuenta de
+  prueba con autorización explícita).
 - Al desplegar al contenedor compartido: reiniciar gunicorn/el contenedor
   después de copiar el código, no alcanza con `docker compose cp` solo
   (ver bug encontrado arriba).
@@ -576,7 +594,7 @@ usuario viendo la vista tipo Excel):
 
 ## Referencias
 
-- [Subir directo a la base de datos un archivo que ya tiene la plantilla](mapeo-automatico-plantilla-flujos-co2.md) — tarea que este diseño revisa/extiende.
+- [Subir directo a la base de datos un archivo que ya tiene la plantilla](../done/mapeo-automatico-plantilla-flujos-co2.md) — tarea que este diseño revisa/extiende, superada (ver su Historial 2026-11-26).
 - [Plantilla de carga/descarga: metadato y dato de CO2/CH4](../../docs/arquitectura/plantilla-metadato-dato-co2-camaras.md)
 - [Ajustes a la plantilla Flujos CO2 — feedback de Andrea Chaparro](ajustes-plantilla-flujos-co2-feedback-andrea.md)
 - [Rediseñar vista de subida/descarga: separar metadato y dato por metodología](../backlog/subida-descarga-formato-metadato-dato-por-metodologia.md)
@@ -606,4 +624,5 @@ funcionan de punta a punta con los nombres nuevos. |
 | 2026-11-16 | `FuenteDrawer.tsx` ya no manda al asistente manual ni a una pantalla intermedia: al guardar una fuente con "Ya tiene el formato de la plantilla", el drawer se queda abierto procesando y solo navega a la vista tipo Excel cuando el pipeline bronce terminó (`EtlUploadBronce.tsx` ajustado para no re-disparar el pipeline si ya venía completado). Se agregó además un ícono 🥉 en Gestión de Datos (`FuentesTable.tsx`, campo nuevo `carga_bronce_pendiente_id` en el serializer) para fuentes con datos ya en bronce pendientes de validar, que lleva directo a la vista de validación sin re-analizar. Falta probar en vivo desde el navegador. |
 | 2026-11-16 | Agregado link "← Volver a Gestión de Datos" en `EtlUploadBronce.tsx` y corregido el orden de columnas de la vista tipo Excel (ahora sigue el orden original de la plantilla, vía `CargaArchivo.hojas[hoja]["columnas_raw"]`, en vez del orden de inserción en la BD EAV). Backend reiniciado para aplicar ambos fixes de esta sesión. |
 | 2026-11-16 | Acortado el título a "Vista tipo Excel — Flujos (beta)" (la columna `gas` ya distingue CO2/CH4). Agregado botón "Descargar Excel" en `EtlUploadBronce.tsx` (endpoint nuevo `exportar_bronce`, una pestaña por hoja con columnas en el orden de la plantilla y encabezados coloreados por modelo, mismo patrón que `exportar_carga`). Backend reiniciado. |
+| 2026-11-26 | Pedido del usuario: "que la carga siempre se haga por el flujo de plantilla y eliminemos los componentes de mapeo uno a uno". Confirmado con el usuario el alcance (todas las metodologías no-torre, eliminar el wizard completo de `EtlUpload.tsx` paso 4) antes de implementar. Retirado por completo el asistente manual de mapeo: borrados `src/pages/EtlUpload.tsx`, los 16 componentes de `src/components/etl-upload/` (`MapeoList.tsx`/`MapeoRow.tsx`/`ReviewModal.tsx`/etc.), `useEtlUploadStore.ts`, `useSeccionMutations.ts`, `useGuardarAvance.ts`, `useAnalizarFuente.ts`, y las funciones de `etl.service.ts` que solo ellos usaban (`previsualizarSeccion`, `iniciarImportarSeccion`, `vaciarMapeoHoja`, más el helper `fetchSeccion`). `FuenteDrawer.tsx` ya no tiene la casilla "Ya tiene el formato de la plantilla": toda fuente no-torre navega siempre a `/etl/upload-bronce` tras guardar (si hay contenido nuevo). `EtlUploadBronce.tsx` ahora puede recibir solo `?fuente=` (sin `?carga=`): llama `analizarFuente` ella misma para obtener el `carga_id` y sigue el pipeline de siempre — esto permite que `FuentesTable.tsx` ("Iniciar carga"), `CargarDropdown.tsx`, `EtlDatos.tsx` ("volver") y `EtlMapeo.tsx` (botones "Registrar columnas sin mapear") apunten directo a bronce sin pasar por el wizard retirado. Ruta `/etl/upload` eliminada de `App.tsx`. `tsc --noEmit`, `eslint` (sin errores nuevos — el repo ya tenía 11 preexistentes en archivos no tocados) y `vite build` limpios. **No se tocó el backend** (los endpoints clásicos `validar_carga`/`previsualizar_carga`/`importar_carga` siguen existiendo, ahora sin llamador en el frontend — candidatos a limpieza futura, no urgente). **Pendiente:** probar en vivo desde el navegador (no se hizo en esta sesión — requiere cuenta de prueba con autorización explícita del usuario). |
 | 2026-11-16 | Diagnosticado y corregido el bug de validación de `CoberturaManual.valor` (bug preexistente, no introducido por esta tarea — afecta también al asistente manual, nunca se había probado en vivo): `_validar_columna` lo trataba como FK normal (choices = pks) en vez de texto libre como ya lo describe `campos_destino`. Corregido en `backend/app/api/etl/views.py`. Reprobado en vivo en el navegador con fuente/carga de prueba nueva: `cobertura_CLC` mapea y queda sin ningún error (antes 171/171). De paso se agregó soporte opcional de `mapeo_valores`/valores únicos (`valores_columna_bronce`) al selector para campos FK que sí lo necesiten en el futuro, aunque no hizo falta para este caso. Datos de prueba borrados al terminar (dos tandas, ambas con autorización explícita previa). Pendiente: mapear los campos obligatorios restantes de UnidadMuestreo para ver una fila de Metadato llegar a `estado="promovido"` de punta a punta. |

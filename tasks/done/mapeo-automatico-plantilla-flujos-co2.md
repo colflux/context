@@ -1,6 +1,6 @@
 # Subir directo a la base de datos un archivo que ya tiene la plantilla (sin pasar por el asistente de mapeo)
 
-**Estado:** en curso — implementado, falta desplegar al contenedor compartido y probar en vivo
+**Estado:** superado — ver Historial 2026-11-26: la casilla "Ya tiene el formato de la plantilla" y el flujo `?auto=1` de `EtlUpload.tsx` fueron retirados junto con todo el asistente manual, reemplazados por el flujo bronce (siempre activo, sin bifurcación) de [[rediseno-carga-flujos-co2-staging-bronce]]
 **Creada:** 2026-11-09
 **A cargo:** Viviana
 **Sesión de Claude Code:** https://claude.ai/code/session_019pTWH1XKsvNNawB2zGYDNo
@@ -115,3 +115,4 @@ archivo que sí calzaron ya quedan importadas.
 |---|---|
 | 2026-11-09 | Se crea la tarea a partir del pedido de usuario ("casilla de seleccionar si ya tiene la plantilla... suba los datos directo a la base de datos sin necesidad de ETL"). Implementado backend (endpoint de sugerencia) y frontend (casilla + flujo automático en EtlUpload.tsx), con `tsc`/`eslint` limpios. Queda pendiente desplegar al contenedor compartido y probar con un archivo real antes de dar la tarea por cerrada. |
 | 2026-11-16 | Se diseñó `rediseno-carga-flujos-co2-staging-bronce.md` (capa bronce/staging + vista tipo Excel), que **reemplaza** el paso 4 pendiente de esta tarea: con bronce, todo archivo sigue el mismo camino (no hace falta la casilla "Ya tiene el formato de la plantilla" como bifurcación previa) y el mapeo automático pasa a resolverse columna por columna en vez de todo-o-nada por hoja. Lo ya implementado acá (`_sugerir_mapeos_automaticos`, endpoint `mapeo-automatico`) se reusa tal cual en el nuevo diseño. La casilla y el flujo `?auto=1` de `EtlUpload.tsx` quedan para retirar cuando se implemente el nuevo diseño, no antes — esta tarea sigue "en curso" hasta esa decisión. |
+| 2026-11-26 | Pedido del usuario de hacer bronce el único camino de carga y eliminar el asistente manual de mapeo por completo (ver Historial de `rediseno-carga-flujos-co2-staging-bronce.md`). Retirados `EtlUpload.tsx` (y la casilla/flujo `?auto=1` de este diseño con él), junto con el resto de los componentes del wizard manual. `_sugerir_mapeos_automaticos`/endpoint `mapeo-automatico` del backend siguen vigentes — los sigue usando `_sugerir_mapeos_columnas_bronce` de bronce. Esta tarea queda superada: lo que diseñaba (bifurcación opt-in con casilla) ya no existe como tal, el comportamiento que buscaba (evitar el mapeo manual columna por columna) quedó resuelto de forma incondicional por bronce. |
